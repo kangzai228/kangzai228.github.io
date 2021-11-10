@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:22</p>
+			<p>总文章数:23</p>
 		</div>
 		
 
@@ -229,6 +229,150 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-sudo-command-with-password" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021-11/sudo-command-with-password.html">sudo命令直接添加密码到脚本</a>
+    </h1>
+  
+
+        
+        <a href="/2021-11/sudo-command-with-password.html" class="archive-article-date">
+  	<time datetime="2021-11-10T14:05:28.328Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-10</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">268字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h2><p>有些情况下，部分脚本命令需要获取管理员权限了执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure>
+
+<p>1.在一般情况下，需要等待你输入管理员密码以继续执行。如果你需要在 Jenkins 等需要自动化执行的脚本中时不可行的，此时就需要不输入密码来执行脚本。</p>
+<h2 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h2><p>1、全局配置</p>
+<p>参见免密码使用sudo和su。</p>
+<p>2、将密码以参数形式追加到脚本</p>
+<p>使用管道</p>
+<p>echo [password] | sudo -S systemctl restart nginx</p>
+<p>使用文本块输入重定向</p>
+<p>sudo -S systemctl restart nginx &lt;&lt; EOF<br>[password]<br>EOF</p>
+<h2 id="三、知识补充"><a href="#三、知识补充" class="headerlink" title="三、知识补充"></a>三、知识补充</h2><p>1、-S 参数</p>
+<p>-S 参数是 sudo 命令的可选参数，用以接收标准的密码输入</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-S, --stdin                 <span class="built_in">read</span> password from standard input</span><br></pre></td></tr></table></figure>
+
+<p>2、 &lt;&lt; EOF 命令</p>
+<p>在shell脚本中，通常将EOF与 &lt;&lt; 结合使用，表示后续的输入作为子命令或子Shell的输入，直到遇到EOF为止，再返回到主Shell。<br>在上面的场景中，就是将‘password’当做命令的输入。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cron</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">定时任务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux教程//" class="article-tag-list-link color3">Linux教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021-11/sudo-command-with-password.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-gitbook_diy_theme1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1364,154 +1508,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021-11/cron.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-feiyingWirelessAssistant" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021-11/feiyingWirelessAssistant.html">飞鹰无线上网助手</a>
-    </h1>
-  
-
-        
-        <a href="/2021-11/feiyingWirelessAssistant.html" class="archive-article-date">
-  	<time datetime="2021-11-06T11:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-06</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">114字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>我们学校老师使用笔记本电脑在学校上网，一般使用WIFI网络。每次打开浏览器，都要弹出锐捷认证页面，输入账号密码，再点击登录。个人感觉比较麻烦，就想有没有办法，电脑开机，连上学校WIFI，就自动认证。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2021-11/feiyingWirelessAssistant.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">锐捷网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">无线上网</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">助手</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">软件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">预告</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python//" class="article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021-11/feiyingWirelessAssistant.html">展开全文 >></a>
         </p>
       
 
