@@ -1,0 +1,32 @@
+#
+# robots.txt for http://blog.5uks.net/
+#
+# $Id: robots.txt,v 1.85 2020/11/06 21:15:53 gerald Exp $
+#
+
+# 允许所有用户代理的浏览器爬虫进行访问（爬起数据）
+User-agent: *
+
+# 允许访问的内容
+Allow: /
+Allow: /2019/
+Allow: /archives/
+Allow: /categories/
+Allow: /page/
+Allow: /photos/
+Allow: /tags/
+
+# 不允许访问的内容
+Disallow: /assets/
+Disallow: /fonts/
+Disallow: /img/
+Disallow: /js/
+Disallow: /music/
+
+
+Disallow: /*.js
+Disallow: /*.css
+
+# 网站地图Sitemap
+Sitemap: https://blog.5uks.net/sitemap.xml
+Sitemap: https://www.yansheng.xyz/baidusitemap.xml
