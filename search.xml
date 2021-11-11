@@ -8,7 +8,7 @@
       <link href="/2021-11/sudo-command-with-password.html"/>
       <url>/2021-11/sudo-command-with-password.html</url>
       
-        <content type="html"><![CDATA[<h2 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h2><p>有些情况下，部分脚本命令需要获取管理员权限了执行：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure><p>1.在一般情况下，需要等待你输入管理员密码以继续执行。如果你需要在 Jenkins 等需要自动化执行的脚本中时不可行的，此时就需要不输入密码来执行脚本。</p><h2 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h2><p>1、全局配置</p><p>参见免密码使用sudo和su。</p><p>2、将密码以参数形式追加到脚本</p><p>使用管道</p><p>echo [password] | sudo -S systemctl restart nginx</p><p>使用文本块输入重定向</p><p>sudo -S systemctl restart nginx &lt;&lt; EOF<br>[password]<br>EOF</p><h2 id="三、知识补充"><a href="#三、知识补充" class="headerlink" title="三、知识补充"></a>三、知识补充</h2><p>1、-S 参数</p><p>-S 参数是 sudo 命令的可选参数，用以接收标准的密码输入</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-S, --stdin                 <span class="built_in">read</span> password from standard input</span><br></pre></td></tr></table></figure><p>2、 &lt;&lt; EOF 命令</p><p>在shell脚本中，通常将EOF与 &lt;&lt; 结合使用，表示后续的输入作为子命令或子Shell的输入，直到遇到EOF为止，再返回到主Shell。<br>在上面的场景中，就是将‘password’当做命令的输入。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h2><p>有些情况下，部分脚本命令需要获取管理员权限了执行：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure><p>1.在一般情况下，需要等待你输入管理员密码以继续执行。如果你需要在 Jenkins 等需要自动化执行的脚本中时不可行的，此时就需要不输入密码来执行脚本。</p><span id="more"></span><h2 id="二、解决方案"><a href="#二、解决方案" class="headerlink" title="二、解决方案"></a>二、解决方案</h2><p>1、全局配置</p><p>参见免密码使用sudo和su。</p><p>2、将密码以参数形式追加到脚本</p><p>使用管道</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> [password] | sudo -S systemctl restart nginx</span><br></pre></td></tr></table></figure><p>使用文本块输入重定向</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -S systemctl restart nginx &lt;&lt; <span class="string">EOF </span></span><br><span class="line"><span class="string">[password]</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><h2 id="三、知识补充"><a href="#三、知识补充" class="headerlink" title="三、知识补充"></a>三、知识补充</h2><p>1、-S 参数</p><p>-S 参数是 sudo 命令的可选参数，用以接收标准的密码输入</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-S, --stdin                 <span class="built_in">read</span> password from standard input</span><br></pre></td></tr></table></figure><p>2、 &lt;&lt; EOF 命令</p><p>在shell脚本中，通常将EOF与 &lt;&lt; 结合使用，表示后续的输入作为子命令或子Shell的输入，直到遇到EOF为止，再返回到主Shell。<br>在上面的场景中，就是将‘password’当做命令的输入。</p>]]></content>
       
       
       <categories>
@@ -22,9 +22,9 @@
             
             <tag> Linux </tag>
             
-            <tag> cron </tag>
+            <tag> sudo </tag>
             
-            <tag> 定时任务 </tag>
+            <tag> shell </tag>
             
         </tags>
       
