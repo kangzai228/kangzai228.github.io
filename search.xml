@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>code-server在线ide安装配置</title>
+      <link href="/2021-12/code-server.html"/>
+      <url>/2021-12/code-server.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h2><p><code>https://github.com/cdr/code-server/releases</code></p><h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tar xf code-server-3.6.2-linux-amd64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> code-server-3.6.2-linux-amd64</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">./code-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭 并 编辑 ~/.config/code-server/config.yaml</span></span><br><span class="line">cat ~/.config/code-server/config.yaml</span><br><span class="line"></span><br><span class="line">bind-addr: 127.0.0.1:9090</span><br><span class="line">auth: password</span><br><span class="line">password: 123456</span><br><span class="line">cert: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存重新启动</span></span><br><span class="line">./code-server</span><br></pre></td></tr></table></figure><h2 id="三、nginx代理"><a href="#三、nginx代理" class="headerlink" title="三、nginx代理"></a>三、nginx代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">server_name  code.xxx.com;</span><br><span class="line">listen       443 ssl;</span><br><span class="line">ssl_certificate     code.xxx.com_bundle.pem;</span><br><span class="line">ssl_certificate_key code.xxx.com.key;</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:8888;</span><br><span class="line">    proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">    proxy_set_header Connection upgrade;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line"><span class="comment">#填写绑定证书的域名</span></span><br><span class="line">server_name code.xxx.com; </span><br><span class="line"><span class="comment">#把http的域名请求转成https</span></span><br><span class="line"><span class="built_in">return</span> 301 https://$host<span class="variable">$request_uri</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>From：<code>https://www.jianshu.com/p/bfe78fe5be93</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> code-server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sudo命令直接添加密码到脚本</title>
       <link href="/2021-11/sudo-command-with-password.html"/>
       <url>/2021-11/sudo-command-with-password.html</url>
