@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>钉钉自定义机器人配置Python3</title>
+      <link href="/2021-12/dingtalk-robot.html"/>
+      <url>/2021-12/dingtalk-robot.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><p>1、获取自定义机器人webhook（自行获取）</p><p>2、安全设置这里选择“加签”，根据自己情况选择。</p><p>3、签名设置</p><span id="more"></span><p>第一步，把timestamp+”\n”+密钥当做签名字符串，使用HmacSHA256算法计算签名，然后进行Base64 encode，最后再把签名参数再进行urlEncode，得到最终的签名（需要使用UTF-8字符集）。</p><p>第二步，把 timestamp和第一步得到的签名值拼接到URL中。</p><p>4、示例代码（python3）：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> hmac</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#把timestamp+&quot;\n&quot;+密钥当做签名字符串，使用HmacSHA256算法计算签名，然后进行Base64 encode</span></span><br><span class="line"><span class="comment">#最后再把签名参数再进行urlEncode，得到最终的签名（需要使用UTF-8字符集）</span></span><br><span class="line">timestamp = <span class="built_in">round</span>(time.time() * <span class="number">1000</span>)</span><br><span class="line">secret = <span class="string">&#x27;这里是机器人的密钥&#x27;</span></span><br><span class="line">secret_enc = secret.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="comment">#把timestamp+&quot;\n&quot;+密钥当做签名字符串</span></span><br><span class="line">string_to_sign = <span class="string">&#x27;&#123;&#125;\n&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(timestamp, secret)</span><br><span class="line">string_to_sign_enc = string_to_sign.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="comment">#使用HmacSHA256算法计算签名</span></span><br><span class="line">hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()</span><br><span class="line"><span class="comment">#进行Base64 encode把签名参数再进行urlEncode</span></span><br><span class="line">sign = parse.quote(base64.b64encode(hmac_code))</span><br><span class="line"></span><br><span class="line">webhook = <span class="string">&#x27;https://oapi.dingtalk.com/robot/send?access_token=自己机器人的token值&amp;timestamp=%s&amp;sign=%s&#x27;</span>\</span><br><span class="line">    % (timestamp, sign)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(webhook)</span><br><span class="line"></span><br><span class="line">playload_text = &#123;</span><br><span class="line">    <span class="string">&quot;msgtype&quot;</span>: <span class="string">&quot;text&quot;</span>,</span><br><span class="line">    <span class="string">&quot;text&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;大家好，我是飞鹰!&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;at&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;atMobiles&quot;</span>: [],</span><br><span class="line">    <span class="string">&quot;isAtAll&quot;</span>: <span class="literal">False</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">r = requests.post(webhook, json = playload_text)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(r.status_code)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure><p>From:<code>https://blog.csdn.net/qq_27026145/article/details/103024861</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 钉钉 </tag>
+            
+            <tag> 机器人 </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows下不能运行bat文件</title>
       <link href="/2021-12/windows-bat-error.html"/>
       <url>/2021-12/windows-bat-error.html</url>
@@ -348,13 +377,13 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 锐捷网络 </tag>
             
             <tag> 无线上网 </tag>
             
             <tag> JavaScript </tag>
-            
-            <tag> Python </tag>
             
             <tag> 助手 </tag>
             
