@@ -16,7 +16,7 @@
 <meta property="og:description" content="一、下载https:&#x2F;&#x2F;github.com&#x2F;cdr&#x2F;code-server&#x2F;releases 二、安装123456789101112131415tar xf code-server-3.6.2-linux-amd64.tar.gzcd code-server-3.6.2-linux-amd64# 启动.&#x2F;code-server# 关闭 并 编辑 ~&#x2F;.config&#x2F;code-server&#x2F;con">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-12-02T06:33:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T13:30:41.531Z">
+<meta property="article:modified_time" content="2021-12-18T03:20:19.040Z">
 <meta property="article:author" content="kangzai228">
 <meta property="article:tag" content="code-server">
 <meta name="twitter:card" content="summary">
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">145字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">185字</span>
     </span>
   </span>
 
@@ -289,6 +289,7 @@ var _hmt = _hmt || [];
 <h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tar xf code-server-3.6.2-linux-amd64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> code-server-3.6.2-linux-amd64</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">./code-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭 并 编辑 ~/.config/code-server/config.yaml</span></span><br><span class="line">cat ~/.config/code-server/config.yaml</span><br><span class="line"></span><br><span class="line">bind-addr: 127.0.0.1:9090</span><br><span class="line">auth: password</span><br><span class="line">password: 123456</span><br><span class="line">cert: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存重新启动</span></span><br><span class="line">./code-server</span><br></pre></td></tr></table></figure>
 
 <h2 id="三、nginx代理"><a href="#三、nginx代理" class="headerlink" title="三、nginx代理"></a>三、nginx代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">server_name  code.xxx.com;</span><br><span class="line">listen   443 ssl;</span><br><span class="line">ssl_certificate     code.xxx.com_bundle.pem;</span><br><span class="line">ssl_certificate_key code.xxx.com.key;</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:9090;</span><br><span class="line">    proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">    proxy_set_header Connection upgrade;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line"><span class="comment">#填写绑定证书的域名</span></span><br><span class="line">server_name code.xxx.com; </span><br><span class="line"><span class="comment">#把http的域名请求转成https</span></span><br><span class="line"><span class="built_in">return</span> 301 https://$host<span class="variable">$request_uri</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="四、新建启动文件"><a href="#四、新建启动文件" class="headerlink" title="四、新建启动文件"></a>四、新建启动文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir code_server &amp;&amp; <span class="built_in">cd</span> ./code_server</span><br><span class="line"><span class="comment"># 新建run.sh文件</span></span><br><span class="line">nano run.sh</span><br><span class="line"><span class="comment"># run.sh内容为</span></span><br><span class="line">nohup code-server &gt;/dev/null 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <p>参考：<code>https://www.jianshu.com/p/bfe78fe5be93</code></p>
 
@@ -707,14 +708,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">权限</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sudoers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vscode</a>
               </li>
              
@@ -732,6 +725,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">bat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">权限</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sudoers</a>
               </li>
             
             <div class="clearfix"></div>
