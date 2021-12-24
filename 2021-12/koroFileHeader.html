@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.5uks.net">
-  <title>Archives | 飞鹰的博客</title>
+  <title>koroFileHeader | 飞鹰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="飞鹰的博客">
-<meta property="og:url" content="http://blog.5uks.net/archives/page/3/index.html">
+  <meta name="description" content="在vscode中用于生成文件头部注释和函数注释的插件，经过多版迭代后，插件：支持所有主流语言,灵活方便，文档齐全，食用简单！  插件主要功能 自动生成文件头部注释，自动更新最后编辑人、最后编辑时间等。  一键生成函数注释，支持函数参数自动提取并列到注释中。  经过几年维护，支持所有主流语言, 文档齐全，使用简单，配置灵活方便，  支持添加佛祖保佑永无bug、神兽护体、甩葱少女等好玩有趣的图像注释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="koroFileHeader">
+<meta property="og:url" content="http://blog.5uks.net/2021-12/koroFileHeader.html">
 <meta property="og:site_name" content="飞鹰的博客">
+<meta property="og:description" content="在vscode中用于生成文件头部注释和函数注释的插件，经过多版迭代后，插件：支持所有主流语言,灵活方便，文档齐全，食用简单！  插件主要功能 自动生成文件头部注释，自动更新最后编辑人、最后编辑时间等。  一键生成函数注释，支持函数参数自动提取并列到注释中。  经过几年维护，支持所有主流语言, 文档齐全，使用简单，配置灵活方便，  支持添加佛祖保佑永无bug、神兽护体、甩葱少女等好玩有趣的图像注释">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-12-24T14:35:05.000Z">
+<meta property="article:modified_time" content="2021-12-24T14:41:56.865Z">
 <meta property="article:author" content="kangzai228">
+<meta property="article:tag" content="vscode">
+<meta property="article:tag" content="extension">
+<meta property="article:tag" content="annotation">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="飞鹰的博客" type="application/atom+xml">
@@ -228,227 +235,150 @@ var _hmt = _hmt || [];
                       class="anm-canvas"></canvas>
                   </div>
                   <div id="js-content" class="content-ll">
+                    <article id="post-koroFileHeader" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      koroFileHeader
+    </h1>
+  
+
+        
+        <a href="/2021-12/koroFileHeader.html" class="archive-article-date">
+  	<time datetime="2021-12-24T14:35:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-24</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1.4k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">5分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在vscode中用于生成文件头部注释和函数注释的插件，经过多版迭代后，插件：支持所有主流语言,灵活方便，文档齐全，食用简单！</p>
+</blockquote>
+<h2 id="插件主要功能"><a href="#插件主要功能" class="headerlink" title="插件主要功能"></a>插件主要功能</h2><ul>
+<li><p>自动生成文件头部注释，自动更新最后编辑人、最后编辑时间等。</p>
+</li>
+<li><p>一键生成函数注释，支持函数参数自动提取并列到注释中。</p>
+</li>
+<li><p>经过几年维护，支持所有主流语言, 文档齐全，使用简单，配置灵活方便，</p>
+</li>
+<li><p>支持添加佛祖保佑永无bug、神兽护体、甩葱少女等好玩有趣的图像注释</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
+<li>文件头部添加注释:</li>
+</ol>
+<p>在文件开头添加注释，记录文件信息/文件的传参/出参等</p>
+<p>支持用户高度自定义注释选项, 适配各种需求和注释。</p>
+<p>保存文件的时候，自动更新最后的编辑时间和编辑人</p>
+<p>快捷键：window：ctrl+alt+i,mac：ctrl+cmd+i, linux: ctrl+meta+i,Ubuntu: ctrl+super+i</p>
+<ol start="2">
+<li>在光标处添加函数注释:</li>
+</ol>
+<p>在光标处自动生成一个注释模板, 自动解析函数参数，生成函数参数注释。</p>
+<p>支持用户高度自定义注释选项</p>
+<p>快捷键：window：ctrl+alt+t,mac：ctrl+cmd+t,linux: ctrl+meta+t, Ubuntu: ctrl+super+t</p>
+<p>快捷键不可用很可能是被占用了,参考这里</p>
+<p>支持一键添加佛祖保佑永无BUG、神兽护体等注释图案</p>
+<h2 id="korofileheader设置"><a href="#korofileheader设置" class="headerlink" title="korofileheader设置"></a>korofileheader设置</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;fileheader.configObj&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;folderBlacklist&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;node_modules&quot;</span>,</span><br><span class="line">            <span class="string">&quot;文件夹或文件名禁止自动添加头部注释&quot;</span>,</span><br><span class="line">            <span class="comment">// &quot;webpack.config.js&quot; // 可以禁止某些文件自动添加注释</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;createHeader&quot;</span>: <span class="literal">true</span>, <span class="comment">// 新建文件自动添加头部注释 默认打开</span></span><br><span class="line">        <span class="attr">&quot;autoAdd&quot;</span>: <span class="literal">true</span>, <span class="comment">// 默认开启</span></span><br><span class="line">        <span class="attr">&quot;autoAlready&quot;</span>: <span class="literal">true</span>, <span class="comment">// 默认开启</span></span><br><span class="line">        <span class="attr">&quot;headDesignName&quot;</span>: <span class="string">&quot;belle&quot;</span>, <span class="comment">//美女</span></span><br><span class="line">        <span class="attr">&quot;designAddHead&quot;</span>: <span class="literal">true</span>, <span class="comment">// 命令行生成图案注释 默认关闭该功能</span></span><br><span class="line">        <span class="attr">&quot;autoAddLine&quot;</span>: <span class="number">80</span>, <span class="comment">// 默认文件超过80行就不再自动添加头部注释</span></span><br><span class="line">        <span class="attr">&quot;filePathColon&quot;</span>: <span class="string">&quot;\\\\&quot;</span>, <span class="comment">// \ 路径要转义 所以要写两遍</span></span><br><span class="line">        <span class="attr">&quot;wideSame&quot;</span>: <span class="literal">true</span>, <span class="comment">// 设置为true开启</span></span><br><span class="line">        <span class="attr">&quot;wideNum&quot;</span>: <span class="number">13</span>, <span class="comment">// 字段长度 默认为13</span></span><br><span class="line">        <span class="attr">&quot;functionWideNum&quot;</span>: <span class="number">13</span>, <span class="comment">// 0 默认关闭 设置一个正整数即可开启 比如12</span></span><br><span class="line">        <span class="attr">&quot;openFunctionParamsCheck&quot;</span>: <span class="literal">true</span>, <span class="comment">// 函数注释自动提取函数的参数 默认开启</span></span><br><span class="line">        <span class="attr">&quot;functionParamsShape&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#125;&quot;</span></span><br><span class="line">        ], <span class="comment">// 函数参数外形自定义</span></span><br><span class="line">        <span class="attr">&quot;functionTypeSymbol&quot;</span>: <span class="string">&quot;*&quot;</span>, <span class="comment">// 参数没有类型时的默认值</span></span><br><span class="line">        <span class="attr">&quot;typeParamOrder&quot;</span>: <span class="string">&quot;type param&quot;</span>, <span class="comment">// 参数类型 和 参数的位置自定义</span></span><br><span class="line">        <span class="attr">&quot;throttleTime&quot;</span>: <span class="number">60000</span>, <span class="comment">// 对同一个文件 需要过1分钟再次修改文件并保存才会更新注释</span></span><br><span class="line">        <span class="attr">&quot;cursorModeInternalAll&quot;</span>: &#123; <span class="comment">// 函数内生成函数注释</span></span><br><span class="line">            <span class="attr">&quot;ts&quot;</span>: <span class="literal">true</span>, <span class="comment">// ts文件后缀是函数内生成函数注释</span></span><br><span class="line">            <span class="attr">&quot;js&quot;</span>: <span class="literal">false</span>, <span class="comment">// js文件后缀是在函数外生成函数注释</span></span><br><span class="line">            <span class="attr">&quot;python&quot;</span>: <span class="literal">true</span>, <span class="comment">// python语言类型文件时在函数内生成函数注释</span></span><br><span class="line">            <span class="attr">&quot;defaultSetting&quot;</span>: <span class="literal">false</span> <span class="comment">// 默认是在函数外生成注释</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;functionBlankSpaceAll&quot;</span>: &#123; <span class="comment">// 函数注释空格缩进</span></span><br><span class="line">            <span class="comment">// &quot;js&quot;: 2, // 单独设置文件：js文件后缀 缩进两格</span></span><br><span class="line">            <span class="attr">&quot;python&quot;</span>: <span class="number">0</span>, <span class="comment">// 设置语言：python语言类型 函数注释空格缩进4格</span></span><br><span class="line">            <span class="attr">&quot;defaultSetting&quot;</span>: <span class="number">0</span> <span class="comment">// 不设置 默认值为0</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;headInsertLine&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;php&quot;</span>: <span class="number">2</span>, <span class="comment">// php后缀的文件，在第二行插入文件头部注释</span></span><br><span class="line">            <span class="attr">&quot;*&quot;</span>: <span class="number">0</span>, <span class="comment">// 所有文件都在第0行插入注释(除了php)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;beforeAnnotation&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;py&quot;</span>: <span class="string">&quot;#!/usr/bin/env python\n# coding=utf-8&quot;</span>, <span class="comment">// py文件默认，可修改</span></span><br><span class="line">            <span class="attr">&quot;*&quot;</span>: <span class="string">&quot;\n&quot;</span> <span class="comment">// 所有文件的头部注释都在前面增加一个换行(除了py)</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">&quot;afterAnnotation&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;*&quot;</span>: <span class="string">&quot;\n&quot;</span> <span class="comment">// 所有文件新增头部注释之后都空一行(除了js)</span></span><br><span class="line">        &#125;, <span class="comment">// 需要特殊定制的文件后缀</span></span><br><span class="line">        <span class="attr">&quot;prohibitAutoAdd&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;json&quot;</span>,</span><br><span class="line">            <span class="string">&quot;md&quot;</span></span><br><span class="line">        ], <span class="comment">// 禁止.json .md文件，自动添加头部注释</span></span><br><span class="line">        <span class="attr">&quot;supportAutoLanguage&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;py&quot;</span>,</span><br><span class="line">            <span class="string">&quot;js&quot;</span></span><br><span class="line">        ], <span class="comment">// 设置过后只有该数组里面的文件 才会自动添加头部注释</span></span><br><span class="line">        <span class="attr">&quot;language&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;py&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;head&quot;</span>: <span class="string">&quot;\&quot;\&quot;\&quot;&quot;</span>, <span class="comment">// 自定义注释头部</span></span><br><span class="line">                <span class="attr">&quot;middle&quot;</span>: <span class="string">&quot;# &quot;</span>, <span class="comment">// 自定义注释中间部分(注意空格,这也是最终生成注释的一部分)</span></span><br><span class="line">                <span class="attr">&quot;end&quot;</span>: <span class="string">&quot;\&quot;\&quot;\&quot;&quot;</span>, <span class="comment">// 自定义注释尾部</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 普通后缀文件</span></span><br><span class="line">            <span class="attr">&quot;js&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;head&quot;</span>: <span class="string">&quot;//&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;middle&quot;</span>: <span class="string">&quot;//&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;end&quot;</span>: <span class="string">&quot; //&quot;</span>,</span><br><span class="line">                <span class="comment">// 函数自定义注释符号：如果有此配置 会默认使用</span></span><br><span class="line">                <span class="attr">&quot;functionSymbol&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;head&quot;</span>: <span class="string">&quot;/******* &quot;</span>, <span class="comment">// 统一增加几个*号</span></span><br><span class="line">                    <span class="attr">&quot;middle&quot;</span>: <span class="string">&quot; * @&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;end&quot;</span>: <span class="string">&quot; */&quot;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 一次匹配多种文件后缀文件 不用重复设置</span></span><br><span class="line">            <span class="attr">&quot;h/hpp/cpp&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;head&quot;</span>: <span class="string">&quot;/*** &quot;</span>, <span class="comment">// 统一增加几个*号</span></span><br><span class="line">                <span class="attr">&quot;middle&quot;</span>: <span class="string">&quot; * @&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;end&quot;</span>: <span class="string">&quot; */&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;fileheader.customMade&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;Date&quot;</span>: <span class="string">&quot;Do not edit&quot;</span>, <span class="comment">// 文件创建时间(不变)</span></span><br><span class="line">        <span class="attr">&quot;LastEditor&quot;</span>: <span class="string">&quot;kangzai228&quot;</span>, <span class="comment">// 文件最后编辑者</span></span><br><span class="line">        <span class="attr">&quot;Author&quot;</span>: <span class="string">&quot;kangzai228&quot;</span>, <span class="comment">//文件的作者</span></span><br><span class="line">        <span class="attr">&quot;LastEditTime&quot;</span>: <span class="string">&quot;Do not edit&quot;</span>, <span class="comment">// 文件最后编辑时间</span></span><br><span class="line">        <span class="attr">&quot;FilePath&quot;</span>: <span class="string">&quot;Do not edit&quot;</span>, <span class="comment">// 文件在项目中的相对路径 自动更新</span></span><br><span class="line">        <span class="attr">&quot;Description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    &#125;, <span class="comment">// 头部注释</span></span><br><span class="line">    <span class="attr">&quot;fileheader.cursorMode&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;param&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;return&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    &#125;, <span class="comment">// 函数注释 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>vscode1.63.2 system setup,python3代码中 函数注释自动提取函数的参数 无效</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
                     
-  
-  
-    
-    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/img/wxpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021-09/python3_virtualenv_2.html" class="archive-article-date">
-  	<time datetime="2021-09-22T07:15:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021-09/python3_virtualenv_2.html">Linux下Python3虚拟环境的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Python3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">extension</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pip</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python3//" class="article-tag-list-link color3">Python3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021-09/python3_virtualenv_1.html" class="archive-article-date">
-  	<time datetime="2021-09-22T03:00:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021-09/python3_virtualenv_1.html">Windows下Python3虚拟环境的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Python3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pip</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python3//" class="article-tag-list-link color3">Python3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021-09/web_counter.html" class="archive-article-date">
-  	<time datetime="2021-09-08T23:28:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021-09/web_counter.html">网页计数器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">预告</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021-08/github_gitee_ssh.html" class="archive-article-date">
-  	<time datetime="2021-08-26T15:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021-08/github_gitee_ssh.html">一台电脑上同时使用gitee和github,SSH设置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Gitee</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -461,187 +391,85 @@ var _hmt = _hmt || [];
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021-08/md_file_insert_img_helper.html" class="archive-article-date">
-  	<time datetime="2021-08-25T23:25:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021-12/dingtalk-robot.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">钉钉群自定义机器人配置Python3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021-08/md_file_insert_img_helper.html">markdown插入图片代码的助手</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Python3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">预告</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Software</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/自写软件//" class="article-tag-list-link color5">自写软件</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021-08/baidu_top.html" class="archive-article-date">
-  	<time datetime="2021-08-25T14:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021-08/baidu_top.html">百度热搜榜</a>
-    </h1>
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:#fff}
+        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/SimpleValine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "RgqT3Xm6Ogn4fee31H3OgM2H-gzGzoHsz",
+            app_key: "s82pCtfw71bazCf5y9AMhawO",
+            placeholder: "欢迎流下你的评论~",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Python3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spider</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python3//" class="article-tag-list-link color3">Python3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python3/Spider//" class="article-tag-list-link color2">Spider</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021-08/node_start.html" class="archive-article-date">
-  	<time datetime="2021-08-24T07:45:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021-08/node_start.html">快速使用Node</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NodeJS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/软件教程//" class="article-tag-list-link color5">软件教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">上一页</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -693,8 +521,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
