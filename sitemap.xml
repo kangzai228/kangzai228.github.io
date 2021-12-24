@@ -142,14 +142,14 @@
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/categories/index.html</loc>
+    <loc>http://blog.5uks.net/about/index.html</loc>
     
     <lastmod>2021-11-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/about/index.html</loc>
+    <loc>http://blog.5uks.net/categories/index.html</loc>
     
     <lastmod>2021-11-10</lastmod>
     
@@ -177,14 +177,14 @@
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/2021-09/change-nginx-wesite-directory.html</loc>
+    <loc>http://blog.5uks.net/2021-08/baidu_top.html</loc>
     
     <lastmod>2021-11-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/2021-08/baidu_top.html</loc>
+    <loc>http://blog.5uks.net/2021-09/change-nginx-wesite-directory.html</loc>
     
     <lastmod>2021-11-10</lastmod>
     
@@ -214,20 +214,6 @@
 
   
   <url>
-    <loc>http://blog.5uks.net/tags/Linux/</loc>
-    <lastmod>2021-12-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.5uks.net/tags/Nginx/</loc>
-    <lastmod>2021-12-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.5uks.net/tags/Python3/</loc>
     <lastmod>2021-12-24</lastmod>
     <changefreq>daily</changefreq>
@@ -236,6 +222,20 @@
   
   <url>
     <loc>http://blog.5uks.net/tags/Spider/</loc>
+    <lastmod>2021-12-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.5uks.net/tags/Linux/</loc>
+    <lastmod>2021-12-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.5uks.net/tags/Nginx/</loc>
     <lastmod>2021-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -552,14 +552,14 @@
 
   
   <url>
-    <loc>http://blog.5uks.net/categories/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://blog.5uks.net/categories/Python3/</loc>
     <lastmod>2021-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/categories/Python3/</loc>
+    <loc>http://blog.5uks.net/categories/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2021-12-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
