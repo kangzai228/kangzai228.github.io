@@ -4,13 +4,29 @@
   
     
     <entry>
-      <title>centos7-update-git</title>
+      <title>在Centos7上使用YUM升级更新Git版本(Git 2.x)</title>
       <link href="/2021-12/centos7-update-git.html"/>
       <url>/2021-12/centos7-update-git.html</url>
       
-        <content type="html"><![CDATA[<h1 id="更新方法"><a href="#更新方法" class="headerlink" title="更新方法"></a>更新方法</h1><p>默认在Centos上使用YUM命令安装的Git版本是1.8x，在使用的时候会有些问题，有很多种更新办法，这里只分享最简单方便的一种，先运行如下命令看看Git的版本信息：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><p>显示结果是git version 1.8.3.1</p><p>如果这不是你想要的版本，那我们第一步要做的就是先移除Git，下面命令选一个：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove git* // 删除所有git相关</span><br><span class="line">或</span><br><span class="line">sudo yum remove git // 只删除Git</span><br></pre></td></tr></table></figure><p>之后安装相关的RPM仓库，运行如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm</span><br></pre></td></tr></table></figure><p>再重新安装一遍Git，运行如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install git</span><br></pre></td></tr></table></figure><p>完成安装，再看看安装后的Git版本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><p>结果是git version 2.34.1</p><p> 参考链接：<code>https://www.seozen.top/centos-update-upgrade-git.html</code></p>]]></content>
+        <content type="html"><![CDATA[<p>使用go mod处理第三方依赖包时出现unknown revision xxx错误，解决方法是:升级git版本</p><p>有的第三方依赖包可以从github找到，但是有的找不到，报错：unknown revision xxx。</p><p>其实go mod调用链中会用到一些git指令，当git版本比较旧时，调用失败产生错误，并给出歧义的提示信息。</p><span id="more"></span><h1 id="更新方法"><a href="#更新方法" class="headerlink" title="更新方法"></a>更新方法</h1><p>默认在Centos上使用YUM命令安装的Git版本是1.8x，在使用的时候会有些问题，有很多种更新办法，这里只分享最简单方便的一种，先运行如下命令看看Git的版本信息：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><p>显示结果是git version 1.8.3.1</p><p>如果这不是你想要的版本，那我们第一步要做的就是先移除Git，下面命令选一个：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove git* // 删除所有git相关</span><br><span class="line">或</span><br><span class="line">sudo yum remove git // 只删除Git</span><br></pre></td></tr></table></figure><p>之后安装相关的RPM仓库，运行如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm</span><br></pre></td></tr></table></figure><p>再重新安装一遍Git，运行如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install git</span><br></pre></td></tr></table></figure><p>完成安装，再看看安装后的Git版本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure><p>结果是git version 2.34.1</p><p> 参考链接：<code>https://www.seozen.top/centos-update-upgrade-git.html</code></p>]]></content>
       
       
+      <categories>
+          
+          <category> Linux教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Git </tag>
+            
+            <tag> Update </tag>
+            
+        </tags>
       
     </entry>
     
