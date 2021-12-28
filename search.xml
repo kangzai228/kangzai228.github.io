@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>快速使用Docusaurus</title>
+      <link href="/2021-12/Docusaurus.html"/>
+      <url>/2021-12/Docusaurus.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Docusaurus 将助您在<strong>极短时间内搭建优美的文档网站</strong>。</p></blockquote><span id="more"></span><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ul><li><a href="https://nodejs.org/en/download/">Node.js</a> 版本 &gt;= 14 或以上 (可通过运行命令 <code>node -v</code> 查看版本). 您可以使用 <a href="https://github.com/nvm-sh/nvm">nvm</a> 来管理主机上的多个 Node 版本。</li><li><a href="https://yarnpkg.com/en/">Yarn</a> 版本 &gt;= 1.5 (您可使用 <code>yarn --version</code> 查看版本)。 Yarn 是一款性能强劲的 JavaScript 包管理器，替代了 <code>npm</code> 客户端。 严格上说这不是必需项，但强烈建议您安装。</li></ul><h2 id="项目脚手架"><a href="#项目脚手架" class="headerlink" title="项目脚手架"></a>项目脚手架</h2><p>使用命令行工具可帮助您快速简单地安装 Docusaurus 并搭建脚手架网站。 您可在空仓库或现有仓库的任意处运行此命令，它将会创建内含模板文件的新目录。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-docusaurus@latest [name] [template]</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-docusaurus@latest website classic</span><br></pre></td></tr></table></figure><p>若您不指定 <code>name</code> 或 <code>template</code>，它将会提示您补充。 推荐使用 <code>classic</code> 模板来快速开始，同时它也包含 Docusaurus 1 中的特性。 <code>classic</code> 模板内有 <code>@docusaurus/preset-classic</code> 软件包，其包含了标准文档、博客、自定义页面及 CSS 框架 (支持暗色模式)。 您可以使用此经典模板来快速设立网站。当您熟悉了 Docusaurus 之后，您可以在之后对其自定义。</p><p><code>template</code> 选项还接收 git 仓库 URL 或本地文件路径，本地文件路径会以当前目录为起始路径。 Git 仓库或指定文件目录中的内容会复制到站点目录。</p><h3 id="解释项目结构"><a href="#解释项目结构" class="headerlink" title="解释项目结构"></a>解释项目结构</h3><ul><li><p><code>/blog/</code> - 包含博客的 Markdown 文件。 若您不需要博客，您可删除此目录。 详情可参考 <a href="https://www.docusaurus.io/zh-CN/docs/blog">博客指南</a></p></li><li><p><code>/docs/</code> - 包含文档的 Markdown 文件。 您可在 <code>sidebars.js</code> 中自定义文档的侧边栏顺序。 您可在<a href="https://www.docusaurus.io/zh-CN/docs/docs-markdown-features">文档指南</a>中了解详情</p></li><li><p><code>/src/</code> - 如页面或自定义 React 组件一类的非文档文件。 严格上说，您并不需要将非文档文件放在此处。但放置在这可让您在检查代码风格或处理代码时更加方便。</p><ul><li><code>/src/pages</code> - 放在此处的所有文件都将被转换成网站页面。 您可在<a href="https://www.docusaurus.io/zh-CN/docs/creating-pages">页面指南</a>中了解详情</li></ul></li><li><p><code>/static/</code> - 静态目录。 此处的所有内容都将被复制进 <code>build</code> 文件夹的根目录中</p></li><li><p><code>/docusaurus.config.js</code> - 站点配置文件。 其等效于 Docusaurus 1 中的 <code>siteConfig.js</code> 文件</p></li><li><p><code>/package.json</code> - Docusaurus 网站是一款 React 应用程序。 您可以安装并使用任何 npm 软件包</p></li><li><p><code>/sidebar.js</code> - 用于指定侧边栏中的文档顺序</p></li></ul><h2 id="运行开发服务器"><a href="#运行开发服务器" class="headerlink" title="运行开发服务器"></a>运行开发服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-website</span><br><span class="line">npm run start</span><br><span class="line">或者</span><br><span class="line"><span class="built_in">cd</span> my-website</span><br><span class="line">yarn run start</span><br></pre></td></tr></table></figure><p>默认情况下，浏览器将自动打开 <a href="http://localhost:3000/">http://localhost:3000</a> 的新窗口。</p><p>恭喜！ 您已成功创建了您的首个 Docusaurus 站点！ 来四处逛逛看看有什么功能吧！</p><p>指定端口，比如4000，用npm run start –port 4000</p><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><p>Docusaurus 是一款现代化的静态网页生成器。因此，我们需要将网站生成为静态内容并上传至网页服务器以供访问。 要构建站点，请使用以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br><span class="line">或者</span><br><span class="line">yarn run build</span><br></pre></td></tr></table></figure><p>网站内容将构建至 <code>/build</code> 目录，其随后可复制进如 <a href="https://pages.github.com/">GitHub Pages</a>、<a href="https://vercel.com/">Vercel</a> 或 <a href="https://www.netlify.com/">Netlify</a> 一类的静态网页托管服务。 请查看<a href="https://www.docusaurus.io/zh-CN/docs/deployment">部署流程</a>了解详情。</p><h2 id="更新-Docusaurus"><a href="#更新-Docusaurus" class="headerlink" title="更新 Docusaurus"></a>更新 Docusaurus</h2><p>有多种途径更新您的 Docusaurus 版本。 其中一种稳定的方法是透过更改 <code>package.json</code> 中的版本号至指定版本。 请注意，所有以 <code>@docusaurus/</code> 为命名空间的软件包都应使用同一版本。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">  &quot;@docusaurus/core&quot;: &quot;^2.0.0-beta.0&quot;,</span><br><span class="line">  &quot;@docusaurus/preset-classic&quot;: &quot;^2.0.0-beta.0&quot;,</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>随后，在包含 <code>package.json</code> 的项目文件夹中，请运行软件包安装命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><p>要检查是否成功更新，请运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx docusaurus --version</span><br></pre></td></tr></table></figure><p>您应能看到正确的版本输出。</p><p>若您使用 Yarn，您可使用如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn upgrade @docusaurus/core@latest @docusaurus/preset-classic@latest</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docusaurus </tag>
+            
+            <tag> Website </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Go proxy 设置</title>
+      <link href="/2021-12/go-proxy.html"/>
+      <url>/2021-12/go-proxy.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>源码中有引入包，比如<code>&quot;github.com/gin-gonic/gin&quot;</code>,运行源码的时候,不能引入包，这是网络问题，需要设置goproxy代理。</p></blockquote><span id="more"></span><h2 id="关于-Go-proxy"><a href="#关于-Go-proxy" class="headerlink" title="关于 Go proxy"></a>关于 Go proxy</h2><ul><li>GOPROXY<br>由于国内的网络环境，我们可以通过配置GOPROXY避免DNS污染导致的模块拉取缓慢或失败的问题，加速你的构建</li><li>代理链接<ol><li><a href="https://links.jianshu.com/go?to=https://mirrors.aliyun.com/goproxy/">阿里云Go Module代理仓库服务</a></li><li><a href="https://links.jianshu.com/go?to=https://github.com/goproxy/goproxy.cn">Goproxy 中国</a></li></ol></li></ul><h2 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h2><p>打开你的终端并执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go env -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></table></figure><p>完成。</p><h3 id="macOS-或-Linux"><a href="#macOS-或-Linux" class="headerlink" title="macOS 或 Linux"></a>macOS 或 Linux</h3><p>临时，打开你的终端并执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> GOPROXY=https://goproxy.cn</span><br></pre></td></tr></table></figure><p>永久，或者</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;export GOPROXY=https://goproxy.cn&quot; &gt;&gt; ~/.profile &amp;&amp; source ~/.profile</span><br></pre></td></tr></table></figure><p>完成。</p><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>打开你的 PowerShell 并执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt; <span class="variable">$env</span>:GOPROXY = <span class="string">&quot;https://goproxy.cn&quot;</span></span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 打开“开始”并搜索“env”</span><br><span class="line">2. 选择“编辑系统环境变量”</span><br><span class="line">3. 点击“环境变量…”按钮</span><br><span class="line">4. 在“&lt;你的用户名&gt; 的用户变量”章节下（上半部分）</span><br><span class="line">5. 点击“新建…”按钮</span><br><span class="line">6. 选择“变量名”输入框并输入“GOPROXY”</span><br><span class="line">7. 选择“变量值”输入框并输入“https://goproxy.cn”</span><br><span class="line">8. 点击“确定”按钮</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Golang </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+            <tag> Proxy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在Centos7上使用YUM升级更新Git版本(Git 2.x)</title>
       <link href="/2021-12/centos7-update-git.html"/>
       <url>/2021-12/centos7-update-git.html</url>
