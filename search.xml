@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>EMQ X(MQTT消息服务器)教程</title>
+      <link href="/2022-02/emqx.html"/>
+      <url>/2022-02/emqx.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>EMQ X 是一款完全开源，高度可伸缩，高可用的分布式 MQTT 消息服务器，适用于 IoT、M2M 和移动应用程序，可处理千万级别的并发客户端。</p></blockquote><span id="more"></span><h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><h2 id="二、启动"><a href="#二、启动" class="headerlink" title="二、启动"></a>二、启动</h2><h2 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h2><h3 id="1-开启MySQL认证-访问控制"><a href="#1-开启MySQL认证-访问控制" class="headerlink" title="1.开启MySQL认证/访问控制"></a>1.开启MySQL认证/访问控制</h3><p>(1) 设置配置文件</p><p>配置文件<code>/etc/emqx/plugins/emqx_auth_mysql.conf</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## MySQL server address.</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## Value: Port | IP:Port</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## Examples: 3306, 127.0.0.1:3306, localhost:3306</span></span><br><span class="line">auth.mysql.server = 127.0.0.1:3308</span><br><span class="line"></span><br><span class="line"><span class="comment">## MySQL pool size.</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## Value: Number</span></span><br><span class="line">auth.mysql.pool = 8</span><br><span class="line"></span><br><span class="line"><span class="comment">## MySQL username.</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## Value: String</span></span><br><span class="line">auth.mysql.username =fff</span><br><span class="line"></span><br><span class="line"><span class="comment">## MySQL password.</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## Value: String</span></span><br><span class="line">auth.mysql.password =xxx</span><br><span class="line"></span><br><span class="line"><span class="comment">## MySQL database.</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## Value: String</span></span><br><span class="line">auth.mysql.database = mqtt</span><br><span class="line"></span><br><span class="line"><span class="comment">## MySQL query timeout</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="comment">## Value: Duration</span></span><br><span class="line">auth.mysql.query_timeout = 5s</span><br></pre></td></tr></table></figure><p>(2)数据库和数据表</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `mqtt_user` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">11</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `username` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `password` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `salt` <span class="type">varchar</span>(<span class="number">35</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `is_superuser` tinyint(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">  `created` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">  <span class="keyword">UNIQUE</span> KEY `mqtt_username` (`username`)</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `mqtt_acl` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">11</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `allow` <span class="type">int</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;0: deny, 1: allow&#x27;</span>,</span><br><span class="line">  `ipaddr` <span class="type">varchar</span>(<span class="number">60</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;IpAddress&#x27;</span>,</span><br><span class="line">  `username` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;Username&#x27;</span>,</span><br><span class="line">  `clientid` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;ClientId&#x27;</span>,</span><br><span class="line">  `access` <span class="type">int</span>(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;1: subscribe, 2: publish, 3: pubsub&#x27;</span>,</span><br><span class="line">  `topic` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;Topic Filter&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br></pre></td></tr></table></figure><p>(3)在dashboard中，插件—-&gt;emqx_auth_mysql,点击<code>启动</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> EMQX </tag>
+            
+            <tag> MQTT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小米max2开启root</title>
+      <link href="/2022-01/xiaomi-max2-root.html"/>
+      <url>/2022-01/xiaomi-max2-root.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>1.开启开发者模式;2.解锁Bootloader;3.开启ROOT.</p></blockquote><span id="more"></span><h2 id="一、小米Max2开启开发者模式"><a href="#一、小米Max2开启开发者模式" class="headerlink" title="一、小米Max2开启开发者模式"></a>一、小米Max2开启开发者模式</h2><p><a href="https://jingyan.baidu.com/article/da1091fb64bdb4027849d6df.html">小米Max2手机如何开启开发者模式并打开USB调试</a></p><h2 id="二、小米手机解锁Bootloader"><a href="#二、小米手机解锁Bootloader" class="headerlink" title="二、小米手机解锁Bootloader"></a>二、小米手机解锁Bootloader</h2><p>1.进入“设置 -&gt; 开发者选项 -&gt; 设备解锁状态”中绑定账号和设备；</p><p>2.手动进入Bootloader模式（关机后，同时按住开机键和音量下键）；</p><p>3.下载解锁工具miflash_unlock;</p><p>4.通过USB连接手机，点击 “解锁”按钮.</p><h3 id="解锁Bootloader过程中可能遇到的问题："><a href="#解锁Bootloader过程中可能遇到的问题：" class="headerlink" title="解锁Bootloader过程中可能遇到的问题："></a>解锁Bootloader过程中可能遇到的问题：</h3><p>Q：解锁工具提示“账号设备不一致”是怎么回事？</p><p>A：这是在解锁过程中没有通过账号与设备验证，解决办法是先将手机升级到最新的稳定版或者从稳定版卡刷到最新的开发版，在待解锁的设备和解锁工具上要登陆同一个账号，并进入“设置 -&gt; 开发者选项 -&gt; 设备解锁状态”中绑定账号和设备（V8.1以后版本才有该选项）。</p><p>Q：解锁工具提示“无法获取手机信息”是怎么回事？</p><p>A：这种情况一般是电脑上的设备驱动没有装好，可以尝试重插USB线或者换个USB接口或者换根USB线来等待电脑慢慢安装驱动</p><h3 id="问题1：进入fastboot之后-PC端手机解锁工具一直显示未连接手机-换插口换线全都没用"><a href="#问题1：进入fastboot之后-PC端手机解锁工具一直显示未连接手机-换插口换线全都没用" class="headerlink" title="问题1：进入fastboot之后 PC端手机解锁工具一直显示未连接手机 换插口换线全都没用"></a>问题1：进入fastboot之后 PC端手机解锁工具一直显示未连接手机 换插口换线全都没用</h3><p>解决办法:</p><p>1.电脑打开设备管理器，手机打开usb调试（我不确定usb调试这一步是否必要）。</p><p>2.手机打开fastboot，连接电脑，设备管理器中会发现未被成功安装的Android设备。</p><p>3.在设备管理器中右击这个设备，选择更新驱动程序。</p><p>4.在弹出的菜单中选择浏览计算机选择驱动。</p><p>5.在弹出的菜单中点击浏览，找到小米官方的那个bl解锁压缩包解压后的文件夹，在文件夹内能找到“driver”文件夹，根据自己的系统选择文件夹并确认。勾上“包括子文件夹”，点击下一步继续安装。</p><p>6.重新启动miflash_unlock.exe。</p><h2 id="三-开启ROOT方法"><a href="#三-开启ROOT方法" class="headerlink" title="三 开启ROOT方法"></a>三 开启ROOT方法</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><ul><li><p>刷入开发版miui系统</p></li><li><p>开启root权限</p></li></ul><h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><ul><li><p>刷入TWRP-Recovery</p></li><li><p>高级–开启root</p></li></ul><h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><ul><li>刷入Magisk</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Max2 </tag>
+            
+            <tag> Root </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>jsRpc使用方法</title>
       <link href="/2021-12/JsRpc_use.html"/>
       <url>/2021-12/JsRpc_use.html</url>
