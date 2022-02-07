@@ -196,9 +196,9 @@
       
         <tags>
             
-            <tag> Spider </tag>
-            
             <tag> JsRpc </tag>
+            
+            <tag> Spider </tag>
             
         </tags>
       
@@ -458,6 +458,33 @@
     
     
     <entry>
+      <title>Windows下Gitbook关键目录</title>
+      <link href="/2021-11/gitbook_theme.html"/>
+      <url>/2021-11/gitbook_theme.html</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>gitbook的目录<code>C:\Users\username\.gitbook</code></p></li><li><p>gitbook默认主题的目录<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default</code></p></li><li><p>gitbook默认主题的下载网址:<code>https://github.com/GitbookIO/theme-default</code></p></li><li><p>gitbook默认主题的网站图标在<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default\_assets\website\images</code></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> Gitbook </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>快速使用Hexo</title>
       <link href="/2021-11/hexo_start.html"/>
       <url>/2021-11/hexo_start.html</url>
@@ -533,33 +560,6 @@
             <tag> 权限 </tag>
             
             <tag> sudoers </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Windows下Gitbook关键目录</title>
-      <link href="/2021-11/gitbook_theme.html"/>
-      <url>/2021-11/gitbook_theme.html</url>
-      
-        <content type="html"><![CDATA[<ul><li><p>gitbook的目录<code>C:\Users\username\.gitbook</code></p></li><li><p>gitbook默认主题的目录<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default</code></p></li><li><p>gitbook默认主题的下载网址:<code>https://github.com/GitbookIO/theme-default</code></p></li><li><p>gitbook默认主题的网站图标在<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default\_assets\website\images</code></p></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Windows </tag>
-            
-            <tag> Gitbook </tag>
             
         </tags>
       
@@ -1021,9 +1021,9 @@
       
         <tags>
             
-            <tag> Python3 </tag>
-            
             <tag> Spider </tag>
+            
+            <tag> Python3 </tag>
             
         </tags>
       
