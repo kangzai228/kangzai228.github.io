@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.5uks.net/2022-02/mqtt-client.html</loc>
+    <loc>http://blog.5uks.net/2022-02/mqtt-device.html</loc>
     
     <lastmod>2022-02-07</lastmod>
     
@@ -592,7 +592,7 @@
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/tags/CLIENT/</loc>
+    <loc>http://blog.5uks.net/tags/DEVICE/</loc>
     <lastmod>2022-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
