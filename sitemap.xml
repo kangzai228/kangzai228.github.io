@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.5uks.net/2022-02/my-emqx-nginx-proxy.html</loc>
+    
+    <lastmod>2022-02-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.5uks.net/2022-02/emqx-nginx-proxy.html</loc>
+    
+    <lastmod>2022-02-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.5uks.net/2022-02/emqx-wss.html</loc>
     
     <lastmod>2022-02-07</lastmod>
@@ -396,6 +410,13 @@
   </url>
   
   <url>
+    <loc>http://blog.5uks.net/tags/EMQX/</loc>
+    <lastmod>2022-02-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.5uks.net/tags/MQTT/</loc>
     <lastmod>2022-02-07</lastmod>
     <changefreq>daily</changefreq>
@@ -403,7 +424,7 @@
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/tags/EMQX/</loc>
+    <loc>http://blog.5uks.net/tags/PROXY/</loc>
     <lastmod>2022-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -558,6 +579,20 @@
   
   <url>
     <loc>http://blog.5uks.net/tags/Image/</loc>
+    <lastmod>2022-02-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.5uks.net/tags/SSL/</loc>
+    <lastmod>2022-02-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.5uks.net/tags/WebSocket/</loc>
     <lastmod>2022-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

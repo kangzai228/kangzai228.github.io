@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:34</p>
+			<p>总文章数:36</p>
 		</div>
 		
 
@@ -230,6 +230,291 @@ var _hmt = _hmt || [];
                   <div id="js-content" class="content-ll">
                     
   
+    <article id="post-my-emqx-nginx-proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022-02/my-emqx-nginx-proxy.html">用nginx将wss转化成了ws(EMQX教程)</a>
+    </h1>
+  
+
+        
+        <a href="/2022-02/my-emqx-nginx-proxy.html" class="archive-article-date">
+  	<time datetime="2022-02-07T03:07:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-07</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">327字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nginx-conf文件内容"><a href="#nginx-conf文件内容" class="headerlink" title="nginx.conf文件内容"></a>nginx.conf文件内容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my server</span></span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">listen 443 ssl;</span><br><span class="line"><span class="comment">#填写绑定证书的域名</span></span><br><span class="line">server_name www.xxx.com;<span class="comment">#站点域名，只有IP时可以用_代替</span></span><br><span class="line"><span class="comment">#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。</span></span><br><span class="line">root /home/username/www.xxx.com;<span class="comment">#存放页面的主目录 </span></span><br><span class="line">index index.html index.htm index.php;   </span><br><span class="line"></span><br><span class="line">include enable-php.conf;</span><br><span class="line"></span><br><span class="line"><span class="comment">#证书文件名称(证书类型是nginx)</span></span><br><span class="line">ssl_certificate /home/username/www.xxx.com/crt/1_www.xxx.com_bundle.crt; </span><br><span class="line"><span class="comment">#私钥文件名称(证书类型是nginx)</span></span><br><span class="line">ssl_certificate_key /home/username/www.xxx.com/crt/2_www.xxx.com.key;</span><br><span class="line">ssl_session_timeout 5m;</span><br><span class="line">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line">location / &#123;</span><br><span class="line">   index index.html index.htm index.php;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ /.well-known &#123;</span><br><span class="line">            allow all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">location ~ /\.</span><br><span class="line">        &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># EMQX (MQTT) WS set</span></span><br><span class="line">location /mqtt &#123;</span><br><span class="line">    <span class="comment"># EMQX的WS</span></span><br><span class="line">    proxy_pass http://127.0.0.1:8083/mqtt;</span><br><span class="line">    proxy_set_header Sec-WebSocket-Protocol mqtt;</span><br><span class="line">    <span class="comment"># 这行就是去除 Sec-WebSocket-Protocol</span></span><br><span class="line">    <span class="comment">#more_clear_headers Sec-WebSocket-Protocol;</span></span><br><span class="line"></span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    proxy_set_header Upgrade websocket;</span><br><span class="line">    proxy_set_header Connection <span class="string">&quot;upgrade&quot;</span>;</span><br><span class="line">    proxy_set_header X-real-ip <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$remote_addr</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line"><span class="comment">#填写绑定证书的域名</span></span><br><span class="line">server_name www.xxx.com; </span><br><span class="line"><span class="comment">#把http的域名请求转成https</span></span><br><span class="line"><span class="built_in">return</span> 301 https://$host<span class="variable">$request_uri</span>; </span><br><span class="line">&#125;</span><br><span class="line">```bash</span><br><span class="line"></span><br><span class="line"><span class="comment">### 不用修改EMQ X自带证书</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用</span></span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">// 在服务器里用nginx将wss转化成了ws</span><br><span class="line">const host = <span class="string">&#x27;wss://www.xxx.com:443/mqtt&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在服务器里用nginx将wss转化成了ws</span></span><br><span class="line"><span class="keyword">const</span> host = <span class="string">&#x27;wss://www.xxx.com/mqtt&#x27;</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PROXY</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">WebSocket</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux教程//" class="article-tag-list-link color3">Linux教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022-02/my-emqx-nginx-proxy.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-emqx-nginx-proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022-02/emqx-nginx-proxy.html">Nginx TCP/SSL 反向代理设置</a>
+    </h1>
+  
+
+        
+        <a href="/2022-02/emqx-nginx-proxy.html" class="archive-article-date">
+  	<time datetime="2022-02-07T02:49:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-07</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">398字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="TCP-反向代理设置"><a href="#TCP-反向代理设置" class="headerlink" title="TCP 反向代理设置"></a>TCP 反向代理设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p  /usr/<span class="built_in">local</span>/nginx/tcp.d/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;- &#x27;EOF&#x27; &gt;&gt; /usr/local/nginx/nginx.conf</span><br><span class="line">include /usr/local/nginx/tcp.d/*.conf;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim emqx_tcp_nginx.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">stream</span><br><span class="line">&#123;</span><br><span class="line">log_format proxy <span class="string">&#x27;$remote_addr [$time_local] &#x27;</span></span><br><span class="line">                 <span class="string">&#x27;$protocol $status $bytes_sent $bytes_received &#x27;</span></span><br><span class="line">                 <span class="string">&#x27;$session_time &quot;$upstream_addr&quot; &#x27;</span></span><br><span class="line">                 <span class="string">&#x27;&quot;$upstream_bytes_sent&quot; &quot;$upstream_bytes_received&quot; &quot;$upstream_connect_time&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    access_log /var/<span class="built_in">log</span>/nginx/tcp-access.log proxy ;</span><br><span class="line">    open_log_file_cache off;</span><br><span class="line">upstream mqtt1883 &#123;</span><br><span class="line">    <span class="comment">#zone tcp_servers 64k;</span></span><br><span class="line">    <span class="comment">#hash $remote_addr;</span></span><br><span class="line">    server 192.168.1.10:1883 weight=1;</span><br><span class="line">    server 192.168.1.13:1883 weight=1;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">        listen       1883;</span><br><span class="line">        proxy_send_timeout 2h;</span><br><span class="line">        proxy_read_timeout 2h;</span><br><span class="line">        proxy_connect_timeout 150s;</span><br><span class="line">        proxy_timeout 150s;</span><br><span class="line">        proxy_pass mqtt1883;</span><br><span class="line">        proxy_buffer_size 3M;</span><br><span class="line">        tcp_nodelay on;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端通过连接 <Nginx IP:1883> 地址，Nginx将连接负载到 EMQ X 节点，EMQ 君测试200个客户端连接效果，读者可以看到200个连接已经被分布到2个EMQ X 节点上了：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220207105458.png"></p>
+<h3 id="SSL-反向代理设置"><a href="#SSL-反向代理设置" class="headerlink" title="SSL 反向代理设置"></a>SSL 反向代理设置</h3><p>以下配置文件中，证书直接使用的 EMQ X 自带证书，EMQ X 自带证书目录 /etc/emqx/certs。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat emqx_ssl_nginx.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">stream&#123;</span><br><span class="line"></span><br><span class="line">    upstream backend&#123;</span><br><span class="line">    <span class="comment">#   hash $remote_addr consistent;</span></span><br><span class="line">        least_conn;</span><br><span class="line">        server 192.168.1.10:1883 weight=1;</span><br><span class="line">        server 192.168.1.13:1883 weight=1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">  server &#123;</span><br><span class="line">        listen 8883 ssl;</span><br><span class="line">        proxy_send_timeout 2h;</span><br><span class="line">        proxy_read_timeout 2h;</span><br><span class="line">        proxy_connect_timeout 150s;</span><br><span class="line">        proxy_timeout 150s;</span><br><span class="line">        proxy_pass backend;</span><br><span class="line">        proxy_buffer_size 3M;</span><br><span class="line">        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_ciphers         AES128-SHA:AES256-SHA:RC4-SHA:DES-CBC3-SHA:RC4-MD5;</span><br><span class="line">        ssl_certificate     /root/nginx-certs/certs/cert.pem;</span><br><span class="line">        ssl_certificate_key /root/nginx-certs/certs/key.pem;</span><br><span class="line">        ssl_session_cache   shared:SSL:10m;</span><br><span class="line">        ssl_session_timeout 10m;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端通过 SSL 方式连接 <Nginx IP:8883> 地址，Nginx将连接以 TCP 方式负载到 EMQ X 节点。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上配置，简明的介绍了关于 Nginx 在 TCP/SSL 反向代理的配置，在实际生产环境当中，可根据实际情况，来调整 Nginx 配置参数。读者可直接参考本文结合 Nginx 官网文档进行测试</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PROXY</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux教程//" class="article-tag-list-link color3">Linux教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022-02/emqx-nginx-proxy.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
+  
     <article id="post-emqx-wss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -298,11 +583,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -430,11 +715,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
         		</li>
       		
 		</ul>
@@ -1279,265 +1564,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-dingtalk-robot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021-12/dingtalk-robot.html">钉钉群自定义机器人配置Python3</a>
-    </h1>
-  
-
-        
-        <a href="/2021-12/dingtalk-robot.html" class="archive-article-date">
-  	<time datetime="2021-12-10T10:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-10</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">366字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><p>1、获取自定义机器人webhook（自行获取）</p>
-<p>2、安全设置这里选择“加签”，根据自己情况选择。</p>
-<p>3、签名设置</p>
-        
-          <a class="article-more-a" href="/2021-12/dingtalk-robot.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">钉钉</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">机器人</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python3//" class="article-tag-list-link color3">Python3</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021-12/dingtalk-robot.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-windows-bat-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021-12/windows-bat-error.html">Windows下不能运行bat文件</a>
-    </h1>
-  
-
-        
-        <a href="/2021-12/windows-bat-error.html" class="archive-article-date">
-  	<time datetime="2021-12-09T08:08:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-09</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">121字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h3><p>   bat文件的每一条命令都能运行，但是整个bat文件不能运行</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>   是文件的行尾序列（换行符）问题，Windows下的换行符应该用CRLF,Linux系统下应该用LF，所以只要把bat文件的换行符改成CRLF，然后保存文件，再运行就行。</p>
-<hr>
-<h3 id="Linux下的sh文件不能运行的解决方法"><a href="#Linux下的sh文件不能运行的解决方法" class="headerlink" title="Linux下的sh文件不能运行的解决方法:"></a>Linux下的sh文件不能运行的解决方法:</h3><p>   只要把sh文件的换行符改成LF，然后保存文件，再运行就行。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">bat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Windows教程//" class="article-tag-list-link color5">Windows教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021-12/windows-bat-error.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1731,11 +1757,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">EMQX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">EMQX</a>
+                <a href="javascript:void(0)" class="js-tag color1">PROXY</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1824,6 +1854,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Image</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WebSocket</a>
               </li>
              
               <li class="article-tag-list-item">
