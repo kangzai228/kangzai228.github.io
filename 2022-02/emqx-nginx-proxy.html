@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.5uks.net">
-  <title>Nginx TCP/SSL 反向代理设置 | 飞鹰的博客</title>
+  <title>Nginx TCP/SSL 反向代理设置(转载) | 飞鹰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="TCP 反向代理设置1mkdir -p  &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;tcp.d&#x2F;  123cat &lt;&lt;- &amp;#x27;EOF&amp;#x27; &gt;&gt; &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx.confinclude &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;tcp.d&#x2F;*.conf;EOF  1vim emqx_tcp_nginx.conf  1234567891011121">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx TCP&#x2F;SSL 反向代理设置">
+<meta property="og:title" content="Nginx TCP&#x2F;SSL 反向代理设置(转载)">
 <meta property="og:url" content="http://blog.5uks.net/2022-02/emqx-nginx-proxy.html">
 <meta property="og:site_name" content="飞鹰的博客">
 <meta property="og:description" content="TCP 反向代理设置1mkdir -p  &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;tcp.d&#x2F;  123cat &lt;&lt;- &amp;#x27;EOF&amp;#x27; &gt;&gt; &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;nginx.confinclude &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;tcp.d&#x2F;*.conf;EOF  1vim emqx_tcp_nginx.conf  1234567891011121">
 <meta property="og:locale">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220207105458.png">
 <meta property="article:published_time" content="2022-02-07T02:49:04.000Z">
-<meta property="article:modified_time" content="2022-02-07T03:03:51.891Z">
+<meta property="article:modified_time" content="2022-02-07T03:21:14.923Z">
 <meta property="article:author" content="kangzai228">
 <meta property="article:tag" content="EMQX">
 <meta property="article:tag" content="MQTT">
@@ -244,7 +244,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Nginx TCP/SSL 反向代理设置
+      Nginx TCP/SSL 反向代理设置(转载)
     </h1>
   
 
@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">398字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">405字</span>
     </span>
   </span>
 
@@ -269,7 +269,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+      <span class="post-count" style="font-size: 16px;color: grey">2分</span>
     </span>
   </span>
 </div>
@@ -342,6 +342,7 @@ var _hmt = _hmt || [];
 
 <p>客户端通过 SSL 方式连接 <Nginx IP:8883> 地址，Nginx将连接以 TCP 方式负载到 EMQ X 节点。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上配置，简明的介绍了关于 Nginx 在 TCP/SSL 反向代理的配置，在实际生产环境当中，可根据实际情况，来调整 Nginx 配置参数。读者可直接参考本文结合 Nginx 官网文档进行测试</p>
+<p>From:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/86b04f1babb9">https://www.jianshu.com/p/86b04f1babb9</a></p>
 
       
 
@@ -428,7 +429,7 @@ var _hmt = _hmt || [];
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          用nginx将wss转化成了ws(EMQX教程)
+          用nginx将wss转化成了ws[EMQX教程](原创)
         
       </div>
     </a>
