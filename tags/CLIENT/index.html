@@ -6,21 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.5uks.net">
-  <title>MQTT设备信息 | 飞鹰的博客</title>
+  <title>Tag: CLIENT | 飞鹰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="保存设备的信息，用来显示设备的状态">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MQTT设备信息">
-<meta property="og:url" content="http://blog.5uks.net/2022-02/mqtt-device.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="飞鹰的博客">
+<meta property="og:url" content="http://blog.5uks.net/tags/CLIENT/index.html">
 <meta property="og:site_name" content="飞鹰的博客">
-<meta property="og:description" content="保存设备的信息，用来显示设备的状态">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-02-07T07:12:32.000Z">
-<meta property="article:modified_time" content="2022-02-07T08:00:55.205Z">
 <meta property="article:author" content="kangzai228">
-<meta property="article:tag" content="EMQX">
-<meta property="article:tag" content="MQTT">
-<meta property="article:tag" content="DEVICE">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="飞鹰的博客" type="application/atom+xml">
@@ -235,142 +228,36 @@ var _hmt = _hmt || [];
                       class="anm-canvas"></canvas>
                   </div>
                   <div id="js-content" class="content-ll">
-                    <article id="post-mqtt-device" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+                    
   
-    <h1 class="article-title" itemprop="name">
-      MQTT设备信息
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022-02/mqtt-client.html" class="archive-article-date">
+  	<time datetime="2022-02-07T07:12:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022-02/mqtt-client.html">MQTT客户端信息</a>
     </h1>
   
 
-        
-        <a href="/2022-02/mqtt-device.html" class="archive-article-date">
-  	<time datetime="2022-02-07T07:12:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-07</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">319字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
+        <div class="article-info info-on-right">
           
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
-      <span class="btn-bg"></span>
-      <span class="btn-text">文章导航</span>
-    </p>
-    <div id="toc-article" class="toc-article"  style="display:none">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8mqtt%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%85%88%E5%BB%BAmqtt-device%EF%BC%8C%E7%94%A8%E6%9D%A5%E4%BF%9D%E5%AD%98%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">在mqtt数据库中先建mqtt_device，用来保存客户端信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEemqx-web-hook-conf%EF%BC%8C%E5%BC%80%E5%90%AFEMQX%E7%9A%84emqx-web-hook%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">设置emqx_web_hook.conf，开启EMQX的emqx_web_hook插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8Flask%E6%8E%A5%E6%94%B6"><span class="toc-number">3.</span> <span class="toc-text">用Flask接收</span></a></li></ol>
-    </div>
-    <script type="text/javascript">
-      function showToc(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:block");
-        show_toc_btn.setAttribute("style","display:none");
-      };
-      function showBtn(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:none");
-        show_toc_btn.setAttribute("style","display:block");
-      };
-      // ================================在移动设备中,删除文章目录=================================
-      if (is_mobile()){
-        var idObject1 =document.getElementById('toc-article');
-        if (idObject1 != null){
-          idObject1.parentNode.removeChild(idObject1);
-        }
-        var idObject2 =document.getElementById('show-toc-btn');
-        if (idObject2 != null){
-          idObject2.parentNode.removeChild(idObject2);
-        }
-      }
-      // =================================在移动设备中,删除文章目录================================
-    </script>
-        
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>保存设备的信息，用来显示设备的状态</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="在mqtt数据库中先建mqtt-device，用来保存客户端信息"><a href="#在mqtt数据库中先建mqtt-device，用来保存客户端信息" class="headerlink" title="在mqtt数据库中先建mqtt_device，用来保存客户端信息"></a>在mqtt数据库中先建mqtt_device，用来保存客户端信息</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `mqtt_device` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">11</span>) unsigned <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `deviceId` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;deviceId&#x27;</span>,</span><br><span class="line">  `username` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `password` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `isOnline` <span class="type">int</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;0: off line, 1: on line&#x27;</span>,</span><br><span class="line">  `topic` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;topic&#x27;</span>,</span><br><span class="line">  `createdAt` DATETIME COMMENT <span class="string">&#x27;create time&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置emqx-web-hook-conf，开启EMQX的emqx-web-hook插件"><a href="#设置emqx-web-hook-conf，开启EMQX的emqx-web-hook插件" class="headerlink" title="设置emqx_web_hook.conf，开启EMQX的emqx_web_hook插件"></a>设置emqx_web_hook.conf，开启EMQX的emqx_web_hook插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 5uks.net</span></span><br><span class="line">web.hook.url = http://127.0.0.1:8082/mqtt/webhook</span><br><span class="line">web.hook.rule.client.connected.1     = &#123;<span class="string">&quot;action&quot;</span>: <span class="string">&quot;on_client_connected&quot;</span>&#125;               </span><br><span class="line">web.hook.rule.client.disconnected.1  = &#123;<span class="string">&quot;action&quot;</span>: <span class="string">&quot;on_client_disconnected&quot;</span>&#125;               </span><br><span class="line">web.hook.rule.message.publish.1      = &#123;<span class="string">&quot;action&quot;</span>: <span class="string">&quot;on_message_publish&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="用Flask接收"><a href="#用Flask接收" class="headerlink" title="用Flask接收"></a>用Flask接收</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template, request</span><br><span class="line"><span class="keyword">from</span> json <span class="keyword">import</span> dumps,loads</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="comment"># EMQX WebHook</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/mqtt/webhook&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mqtt_webhook</span>():</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        data=request.json</span><br><span class="line">        <span class="built_in">print</span>(data)</span><br><span class="line">        action = data[<span class="string">&#x27;action&#x27;</span>]  <span class="comment"># action</span></span><br><span class="line">        <span class="comment"># clientid = data[&#x27;clientid&#x27;]  # clientid</span></span><br><span class="line">        res=&#123;</span><br><span class="line">            <span class="string">&#x27;action&#x27;</span>:action,</span><br><span class="line">            <span class="comment"># &#x27;clientid&#x27;:clientid</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"># pprint(res)</span></span><br><span class="line">        <span class="keyword">return</span> dumps(res,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;只能使用POST方式访问本接口&quot;</span>,<span class="number">401</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">from</span> gevent <span class="keyword">import</span> pywsgi</span><br><span class="line">    <span class="comment"># host=&#x27;127.0.0.1&#x27; #只有本地访问</span></span><br><span class="line">    host = <span class="string">&#x27;0.0.0.0&#x27;</span>  <span class="comment"># 任何主机都可以访问</span></span><br><span class="line">    port = <span class="number">8082</span></span><br><span class="line">    <span class="comment"># server = pywsgi.WSGIServer((host, port), app)</span></span><br><span class="line">    <span class="comment"># print(&#x27;server start&#x27;)</span></span><br><span class="line">    <span class="comment"># server.serve_forever()</span></span><br><span class="line">    app.run(host=host, port=port, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/img/wxpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -384,13 +271,13 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DEVICE</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CLIENT</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -403,99 +290,17 @@ var _hmt = _hmt || [];
 	</div>
 
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2022-02/my-emqx-nginx-proxy.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用nginx将wss转化成了ws[EMQX教程](原创)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8mqtt%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%85%88%E5%BB%BAmqtt-device%EF%BC%8C%E7%94%A8%E6%9D%A5%E4%BF%9D%E5%AD%98%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">在mqtt数据库中先建mqtt_device，用来保存客户端信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEemqx-web-hook-conf%EF%BC%8C%E5%BC%80%E5%90%AFEMQX%E7%9A%84emqx-web-hook%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">设置emqx_web_hook.conf，开启EMQX的emqx_web_hook插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8Flask%E6%8E%A5%E6%94%B6"><span class="toc-number">3.</span> <span class="toc-text">用Flask接收</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
-    <section id="comments" class="comments">
-      <style>
-        .comments{margin:30px;padding:10px;background:#fff}
-        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-      </style>
-      <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/SimpleValine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "RgqT3Xm6Ogn4fee31H3OgM2H-gzGzoHsz",
-            app_key: "s82pCtfw71bazCf5y9AMhawO",
-            placeholder: "欢迎流下你的评论~",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
+    </div></section>
   
 
-
-  
-  
-  
-
-  
-
-  
-
-  
+    
 
 
                   </div>
@@ -546,9 +351,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -784,7 +589,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DEVICE</a>
+                <a href="javascript:void(0)" class="js-tag color2">CLIENT</a>
               </li>
              
               <li class="article-tag-list-item">
