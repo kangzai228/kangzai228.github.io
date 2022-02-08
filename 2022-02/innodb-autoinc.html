@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://blog.5uks.net">
   <title>MySQL使用on duplicate key update引起主键不连续自增 | 飞鹰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="https:&#x2F;&#x2F;blog.csdn.net&#x2F;pmdream&#x2F;article&#x2F;details&#x2F;112991683 因为我想做的是，更新操作，主键不要更新，用以前的:  innodb_autoinc_lock_mode中有3种模式,0,1,2，数据库默认是1的情况下,每次使用insert into … on duplicate key update 的时候都会把简单自增id增加,不管是发生了inser">
+  <meta name="description" content="https:&#x2F;&#x2F;blog.csdn.net&#x2F;pmdream&#x2F;article&#x2F;details&#x2F;112991683 因为我想做的是，更新操作，主键不要更新  innodb_autoinc_lock_mode中有3种模式,0,1,2，数据库默认是1的情况下,每次使用insert into … on duplicate key update 的时候都会把简单自增id增加,不管是发生了insert还是upd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL使用on duplicate key update引起主键不连续自增">
 <meta property="og:url" content="http://blog.5uks.net/2022-02/innodb-autoinc.html">
 <meta property="og:site_name" content="飞鹰的博客">
-<meta property="og:description" content="https:&#x2F;&#x2F;blog.csdn.net&#x2F;pmdream&#x2F;article&#x2F;details&#x2F;112991683 因为我想做的是，更新操作，主键不要更新，用以前的:  innodb_autoinc_lock_mode中有3种模式,0,1,2，数据库默认是1的情况下,每次使用insert into … on duplicate key update 的时候都会把简单自增id增加,不管是发生了inser">
+<meta property="og:description" content="https:&#x2F;&#x2F;blog.csdn.net&#x2F;pmdream&#x2F;article&#x2F;details&#x2F;112991683 因为我想做的是，更新操作，主键不要更新  innodb_autoinc_lock_mode中有3种模式,0,1,2，数据库默认是1的情况下,每次使用insert into … on duplicate key update 的时候都会把简单自增id增加,不管是发生了insert还是upd">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-02-08T02:30:07.000Z">
-<meta property="article:modified_time" content="2022-02-08T02:50:21.757Z">
+<meta property="article:modified_time" content="2022-02-08T02:53:16.162Z">
 <meta property="article:author" content="kangzai228">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="MariaDB">
@@ -258,7 +258,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">605字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">601字</span>
     </span>
   </span>
 
@@ -324,7 +324,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pmdream/article/details/112991683">https://blog.csdn.net/pmdream/article/details/112991683</a></p>
-<p><strong>因为我想做的是，更新操作，主键不要更新，用以前的:</strong></p>
+<p><strong>因为我想做的是，更新操作，主键不要更新</strong></p>
 <blockquote>
 <p>innodb_autoinc_lock_mode中有3种模式,0,1,2，数据库默认是1的情况下,每次使用insert into … on duplicate key update 的时候都会把简单自增id增加,不管是发生了insert还是update</p>
 </blockquote>
@@ -835,19 +835,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">权限</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sudoers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">权限</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sudoers</a>
               </li>
              
               <li class="article-tag-list-item">
