@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:37</p>
+			<p>总文章数:38</p>
 		</div>
 		
 
@@ -229,6 +229,143 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-innodb-autoinc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022-02/innodb-autoinc.html">MySQL使用on duplicate key update引起主键不连续自增</a>
+    </h1>
+  
+
+        
+        <a href="/2022-02/innodb-autoinc.html" class="archive-article-date">
+  	<time datetime="2022-02-08T02:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-08</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">619字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">2分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="MySQL-使用on-duplicate-key-update引起主键不连续自增"><a href="#MySQL-使用on-duplicate-key-update引起主键不连续自增" class="headerlink" title="[MySQL]使用on duplicate key update引起主键不连续自增"></a>[MySQL]使用on duplicate key update引起主键不连续自增</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pmdream/article/details/112991683">https://blog.csdn.net/pmdream/article/details/112991683</a></p>
+<p><strong>因为我想做的是，更新操作，主键不要更新，用以前的:</strong></p>
+<blockquote>
+<p>innodb_autoinc_lock_mode中有3种模式,0,1,2，数据库默认是1的情况下,每次使用insert into … on duplicate key update 的时候都会把简单自增id增加,不管是发生了insert还是update</p>
+</blockquote>
+<h3 id="innodb-autoinc-lock-mode参数详解"><a href="#innodb-autoinc-lock-mode参数详解" class="headerlink" title="innodb_autoinc_lock_mode参数详解"></a>innodb_autoinc_lock_mode参数详解</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tradition(innodb_autoinc_lock_mode=0) 模式：</span><br><span class="line">1、它提供了一个向后兼容的能力</span><br><span class="line">2、在这一模式下，所有的insert语句(“insert like”) 都要在语句开始的时候得到一个表级的auto_inc锁，在语句结束的时候才释放这把锁，注意呀，这里说的是语句级而不是事务级的，一个事务可能包涵有一个或多个语句。</span><br><span class="line">3、它能保证值分配的可预见性，与连续性，可重复性，这个也就保证了insert语句在复制到slave的时候还能生成和master那边一样的值(它保证了基于语句复制的安全)。</span><br><span class="line">4、由于在这种模式下auto_inc锁一直要保持到语句的结束，所以这个就影响到了并发的插入。</span><br><span class="line"></span><br><span class="line">consecutive(innodb_autoinc_lock_mode=1) 模式：</span><br><span class="line">1、这一模式下去simple insert 做了优化，由于simple insert一次性插入值的个数可以立马得到确定，所以mysql可以一次生成几个连续的值，用于这个insert语句；总的来说这个对复制也是安全的(它保证了基于语句复制的安全)</span><br><span class="line">2、这一模式也是mysql的默认模式，这个模式的好处是auto_inc锁不要一直保持到语句的结束，只要语句得到了相应的值后就可以提前释放锁</span><br><span class="line"></span><br><span class="line">interleaved(innodb_autoinc_lock_mode=2) 模式：</span><br><span class="line">1、由于这个模式下已经没有了auto_inc锁，所以这个模式下的性能是最好的；但是它也有一个问题，就是对于同一个语句来说它所得到的auto_incremant值可能不是连续的。</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改自增锁级别方法"><a href="#修改自增锁级别方法" class="headerlink" title="修改自增锁级别方法:"></a>修改自增锁级别方法:</h3><p>编辑/etc/my.cnf，加入如下行:<br>innodb_autoinc_lock_mode=0</p>
+<p>直接通过命令修改会报错:<br>mysql(mdba@localhost:(none) 09:32:19)&gt;set global innodb_autoinc_lock_mode=0;<br>ERROR 1238 (HY000): Variable ‘innodb_autoinc_lock_mode’ is a read only variable</p>
+<h2 id="MySQL在CentOS-7-版本后改名为MariaDB"><a href="#MySQL在CentOS-7-版本后改名为MariaDB" class="headerlink" title="MySQL在CentOS 7+版本后改名为MariaDB"></a>MySQL在CentOS 7+版本后改名为MariaDB</h2><p>MariaDB启动/停止/重启命令:<br>启动MariaDB命令：systemctl start mariadb.service<br>停止MariaDB命令：systemctl stop mariadb.service<br>重启MariaDB命令：systemctl restart mariadb.service<br>以上为MariaDB启动、停止和重启命令。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MariaDB</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">innodb_autoinc_lock_mode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/软件教程//" class="article-tag-list-link color5">软件教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022-02/innodb-autoinc.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-mqtt-client" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1413,138 +1550,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-centos7-update-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021-12/centos7-update-git.html">在Centos7上使用YUM升级更新Git版本(Git 2.x)</a>
-    </h1>
-  
-
-        
-        <a href="/2021-12/centos7-update-git.html" class="archive-article-date">
-  	<time datetime="2021-12-27T13:04:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-27</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">319字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.2/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用go mod处理第三方依赖包时出现unknown revision xxx错误，解决方法是:升级git版本</p>
-<p>有的第三方依赖包可以从github找到，但是有的找不到，报错：unknown revision xxx。</p>
-<p>其实go mod调用链中会用到一些git指令，当git版本比较旧时，调用失败产生错误，并给出歧义的提示信息。</p>
-        
-          <a class="article-more-a" href="/2021-12/centos7-update-git.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Update</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux教程//" class="article-tag-list-link color3">Linux教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021-12/centos7-update-git.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1814,6 +1819,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MariaDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">innodb_autoinc_lock_mode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
@@ -1859,10 +1876,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
