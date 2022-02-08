@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>MySQL 使用on duplicate key update引起主键不连续自增</title>
+      <link href="/2022-02/innodb-autoinc.html"/>
+      <url>/2022-02/innodb-autoinc.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="MySQL-使用on-duplicate-key-update引起主键不连续自增"><a href="#MySQL-使用on-duplicate-key-update引起主键不连续自增" class="headerlink" title="[MySQL]使用on duplicate key update引起主键不连续自增"></a>[MySQL]使用on duplicate key update引起主键不连续自增</h2><p><a href="https://blog.csdn.net/pmdream/article/details/112991683">https://blog.csdn.net/pmdream/article/details/112991683</a></p><p><strong>因为我想做的是，更新操作，主键不要更新，用以前的:</strong></p><blockquote><p>innodb_autoinc_lock_mode中有3种模式,0,1,2，数据库默认是1的情况下,每次使用insert into … on duplicate key update 的时候都会把简单自增id增加,不管是发生了insert还是update</p></blockquote><h3 id="innodb-autoinc-lock-mode参数详解"><a href="#innodb-autoinc-lock-mode参数详解" class="headerlink" title="innodb_autoinc_lock_mode参数详解"></a>innodb_autoinc_lock_mode参数详解</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tradition(innodb_autoinc_lock_mode=0) 模式：</span><br><span class="line">1、它提供了一个向后兼容的能力</span><br><span class="line">2、在这一模式下，所有的insert语句(“insert like”) 都要在语句开始的时候得到一个表级的auto_inc锁，在语句结束的时候才释放这把锁，注意呀，这里说的是语句级而不是事务级的，一个事务可能包涵有一个或多个语句。</span><br><span class="line">3、它能保证值分配的可预见性，与连续性，可重复性，这个也就保证了insert语句在复制到slave的时候还能生成和master那边一样的值(它保证了基于语句复制的安全)。</span><br><span class="line">4、由于在这种模式下auto_inc锁一直要保持到语句的结束，所以这个就影响到了并发的插入。</span><br><span class="line"></span><br><span class="line">consecutive(innodb_autoinc_lock_mode=1) 模式：</span><br><span class="line">1、这一模式下去simple insert 做了优化，由于simple insert一次性插入值的个数可以立马得到确定，所以mysql可以一次生成几个连续的值，用于这个insert语句；总的来说这个对复制也是安全的(它保证了基于语句复制的安全)</span><br><span class="line">2、这一模式也是mysql的默认模式，这个模式的好处是auto_inc锁不要一直保持到语句的结束，只要语句得到了相应的值后就可以提前释放锁</span><br><span class="line"></span><br><span class="line">interleaved(innodb_autoinc_lock_mode=2) 模式：</span><br><span class="line">1、由于这个模式下已经没有了auto_inc锁，所以这个模式下的性能是最好的；但是它也有一个问题，就是对于同一个语句来说它所得到的auto_incremant值可能不是连续的。</span><br></pre></td></tr></table></figure><h3 id="修改自增锁级别方法"><a href="#修改自增锁级别方法" class="headerlink" title="修改自增锁级别方法:"></a>修改自增锁级别方法:</h3><p>编辑/etc/my.cnf，加入如下行:<br>innodb_autoinc_lock_mode=0</p><p>直接通过命令修改会报错:<br>mysql(mdba@localhost:(none) 09:32:19)&gt;set global innodb_autoinc_lock_mode=0;<br>ERROR 1238 (HY000): Variable ‘innodb_autoinc_lock_mode’ is a read only variable</p><h2 id="MySQL在CentOS-7-版本后改名为MariaDB"><a href="#MySQL在CentOS-7-版本后改名为MariaDB" class="headerlink" title="MySQL在CentOS 7+版本后改名为MariaDB"></a>MySQL在CentOS 7+版本后改名为MariaDB</h2><p>MariaDB启动/停止/重启命令:<br>启动MariaDB命令：systemctl start mariadb.service<br>停止MariaDB命令：systemctl stop mariadb.service<br>重启MariaDB命令：systemctl restart mariadb.service<br>以上为MariaDB启动、停止和重启命令。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+            <tag> MariaDB </tag>
+            
+            <tag> innodb_autoinc_lock_mode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MQTT客户端信息</title>
       <link href="/2022-02/mqtt-client.html"/>
       <url>/2022-02/mqtt-client.html</url>
@@ -847,9 +876,9 @@
       
         <tags>
             
-            <tag> PHP </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> PHP </tag>
             
         </tags>
       
