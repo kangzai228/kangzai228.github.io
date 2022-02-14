@@ -275,6 +275,13 @@
   </url>
   
   <url>
+    <loc>http://blog.5uks.net/2021-09/change-nginx-wesite-directory.html</loc>
+    
+    <lastmod>2021-11-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.5uks.net/2021-11/cron.html</loc>
     
     <lastmod>2021-11-10</lastmod>
@@ -283,13 +290,6 @@
   
   <url>
     <loc>http://blog.5uks.net/2021-10/cv2-error.html</loc>
-    
-    <lastmod>2021-11-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.5uks.net/2021-09/change-nginx-wesite-directory.html</loc>
     
     <lastmod>2021-11-10</lastmod>
     
@@ -355,6 +355,13 @@
   
   <url>
     <loc>http://blog.5uks.net/tags/Update/</loc>
+    <lastmod>2022-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.5uks.net/tags/Nginx/</loc>
     <lastmod>2022-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -481,13 +488,6 @@
   
   <url>
     <loc>http://blog.5uks.net/tags/Arduino/</loc>
-    <lastmod>2022-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.5uks.net/tags/Nginx/</loc>
     <lastmod>2022-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
