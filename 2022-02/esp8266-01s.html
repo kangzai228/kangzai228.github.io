@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220213231838.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220214124046.png">
 <meta property="article:published_time" content="2022-02-14T04:53:56.000Z">
-<meta property="article:modified_time" content="2022-02-14T08:11:26.549Z">
+<meta property="article:modified_time" content="2022-02-14T08:38:50.150Z">
 <meta property="article:author" content="kangzai228">
 <meta property="article:tag" content="ESP8266">
 <meta property="article:tag" content="Arduino">
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">205字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">339字</span>
     </span>
   </span>
 
@@ -312,7 +312,12 @@ var _hmt = _hmt || [];
 <h2 id="二、使用arduino软件烧录固件"><a href="#二、使用arduino软件烧录固件" class="headerlink" title="二、使用arduino软件烧录固件"></a>二、使用arduino软件烧录固件</h2><h3 id="1-选择开发板和端口"><a href="#1-选择开发板和端口" class="headerlink" title="1. 选择开发板和端口"></a>1. 选择开发板和端口</h3><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220213231515.png"></p>
 <h3 id="2-验证-编译，上传"><a href="#2-验证-编译，上传" class="headerlink" title="2.验证/编译，上传"></a>2.验证/编译，上传</h3><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220213231838.png"></p>
 <h2 id="三、使用esp8266-download-tool给esp8266-01s烧录安信可的官方固件"><a href="#三、使用esp8266-download-tool给esp8266-01s烧录安信可的官方固件" class="headerlink" title="三、使用esp8266 download tool给esp8266_01s烧录安信可的官方固件"></a>三、使用esp8266 download tool给esp8266_01s烧录安信可的官方固件</h2><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220214124046.png"></p>
-
+<h2 id="四、使用Arduino点亮ESP-01S，ESP8266-01S上的板载LED"><a href="#四、使用Arduino点亮ESP-01S，ESP8266-01S上的板载LED" class="headerlink" title="四、使用Arduino点亮ESP-01S，ESP8266-01S上的板载LED"></a>四、使用Arduino点亮ESP-01S，ESP8266-01S上的板载LED</h2><blockquote>
+<p>因为在开发ESP-01s远程控制中觉得接线麻烦，又因为ESP-01s板子上带有LED灯，那就先点亮板载LED，  如图所示：</p>
+</blockquote>
+<p>打开Arduino 把代码copy进去，再编译烧录，就可以看见LED灯每隔1秒亮和熄。</p>
+<p>经过测试本代码只实用于ESP-01S，ESP8266-01S。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ESP—01S</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ESP8266WiFi.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> ledPin = <span class="number">2</span>; <span class="comment">// GPIO2 of ESP8266-01S</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  pinMode(ledPin, OUTPUT);</span><br><span class="line">  digitalWrite(ledPin, LOW);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  digitalWrite(ledPin, HIGH);</span><br><span class="line">  delay(<span class="number">1000</span>);           </span><br><span class="line">  digitalWrite(ledPin, LOW);</span><br><span class="line">  delay(<span class="number">1000</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
