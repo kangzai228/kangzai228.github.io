@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:38</p>
+			<p>总文章数:39</p>
 		</div>
 		
 
@@ -229,6 +229,118 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-esp32-esp8266-mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022-02/esp32-esp8266-mac.html">esp32或者esp8266获取和修改MAC的方法</a>
+    </h1>
+  
+
+        
+        <a href="/2022-02/esp32-esp8266-mac.html" class="archive-article-date">
+  	<time datetime="2022-02-14T03:36:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-14</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">312字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.3/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="What’s-a-MAC-Address"><a href="#What’s-a-MAC-Address" class="headerlink" title="What’s a MAC Address?"></a>What’s a MAC Address?</h2><blockquote>
+<p>MAC Address stands for Media Access Control Address and it is a hardware unique identifier that identifies each device on a network.</p>
+</blockquote>
+<h2 id="一、获取MAC"><a href="#一、获取MAC" class="headerlink" title="一、获取MAC"></a>一、获取MAC</h2><p>Get ESP32 or ESP8266 MAC Address</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Complete Instructions to Get and Change ESP MAC Address: https://RandomNerdTutorials.com/get-change-esp32-esp8266-mac-address-arduino/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> ESP32</span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;WiFi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ESP8266WiFi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line">  Serial.println();</span><br><span class="line">  Serial.print(<span class="string">&quot;ESP Board MAC Address:  &quot;</span>);</span><br><span class="line">  Serial.println(WiFi.macAddress());</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、修改MAC"><a href="#二、修改MAC" class="headerlink" title="二、修改MAC"></a>二、修改MAC</h2><ol>
+<li>Change ESP32 MAC Address (Arduino IDE)</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Complete Instructions: https://RandomNerdTutorials.com/get-change-esp32-esp8266-mac-address-arduino/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;WiFi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;esp_wifi.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Set your new MAC Address</span></span><br><span class="line"><span class="keyword">uint8_t</span> newMACAddress[] = &#123;<span class="number">0x32</span>, <span class="number">0xAE</span>, <span class="number">0xA4</span>, <span class="number">0x07</span>, <span class="number">0x0D</span>, <span class="number">0x66</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line">  Serial.println();</span><br><span class="line">  </span><br><span class="line">  WiFi.mode(WIFI_STA);</span><br><span class="line">  </span><br><span class="line">  Serial.print(<span class="string">&quot;[OLD] ESP32 Board MAC Address:  &quot;</span>);</span><br><span class="line">  Serial.println(WiFi.macAddress());</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ESP32 Board add-on before version &lt; 1.0.5</span></span><br><span class="line">  <span class="comment">//esp_wifi_set_mac(ESP_IF_WIFI_STA, &amp;newMACAddress[0]);</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ESP32 Board add-on after version &gt; 1.0.5</span></span><br><span class="line">  esp_wifi_set_mac(WIFI_IF_STA, &amp;newMACAddress[<span class="number">0</span>]);</span><br><span class="line">  </span><br><span class="line">  Serial.print(<span class="string">&quot;[NEW] ESP32 Board MAC Address:  &quot;</span>);</span><br><span class="line">  Serial.println(WiFi.macAddress());</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Change ESP8266 MAC Address (Arduino IDE)</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Complete Instructions: https://RandomNerdTutorials.com/get-change-esp32-esp8266-mac-address-arduino/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ESP8266WiFi.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Set your new MAC Address</span></span><br><span class="line"><span class="keyword">uint8_t</span> newMACAddress[] = &#123;<span class="number">0x32</span>, <span class="number">0xAE</span>, <span class="number">0xA4</span>, <span class="number">0x07</span>, <span class="number">0x0D</span>, <span class="number">0x66</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line">  Serial.println();</span><br><span class="line">  </span><br><span class="line">  WiFi.mode(WIFI_STA);</span><br><span class="line">  </span><br><span class="line">  Serial.print(<span class="string">&quot;[OLD] ESP8266 Board MAC Address:  &quot;</span>);</span><br><span class="line">  Serial.println(WiFi.macAddress());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// For Soft Access Point (AP) Mode</span></span><br><span class="line">  <span class="comment">//wifi_set_macaddr(SOFTAP_IF, &amp;newMACAddress[0]);</span></span><br><span class="line">  <span class="comment">// For Station Mode</span></span><br><span class="line">  wifi_set_macaddr(STATION_IF, &amp;newMACAddress[<span class="number">0</span>]);</span><br><span class="line">  </span><br><span class="line">  Serial.print(<span class="string">&quot;[NEW] ESP8266 Board MAC Address:  &quot;</span>);</span><br><span class="line">  Serial.println(WiFi.macAddress());</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022-02/esp32-esp8266-mac.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-innodb-autoinc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1383,138 +1495,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021-12/Docusaurus.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-go-proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021-12/go-proxy.html">Go proxy 设置</a>
-    </h1>
-  
-
-        
-        <a href="/2021-12/go-proxy.html" class="archive-article-date">
-  	<time datetime="2021-12-28T08:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-28</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">285字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.3/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>源码中有引入包，比如<code>&quot;github.com/gin-gonic/gin&quot;</code>,运行源码的时候,不能引入包，这是网络问题，需要设置goproxy代理。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2021-12/go-proxy.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Proxy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/Golang//" class="article-tag-list-link color2">Golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021-12/go-proxy.html">展开全文 >></a>
         </p>
       
 
