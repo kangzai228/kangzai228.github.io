@@ -16,7 +16,7 @@
 <meta property="og:description" content="搭建第一个 Vite 项目安装Vite123npm create vite@latestyarn create vitepnpm create vite 构建一个Vite + Vue 项目1234567891011# npm 6.xnpm create vite@latest my-vue-app --template vue# npm 7+, extra double-dash is neede">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-18T03:48:26.000Z">
-<meta property="article:modified_time" content="2022-03-29T00:28:39.132Z">
+<meta property="article:modified_time" content="2022-03-30T02:56:51.229Z">
 <meta property="article:author" content="kangzai228">
 <meta property="article:tag" content="Vue3">
 <meta property="article:tag" content="Vite">
@@ -257,7 +257,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">175字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">401字</span>
     </span>
   </span>
 
@@ -294,6 +294,10 @@ var _hmt = _hmt || [];
 <h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>在 vite.config.js中添加 server.host 为 0.0.0.0：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">    <span class="attr">plugins</span>: [vue()],</span><br><span class="line">    <span class="comment">// 在文件中添加以下内容</span></span><br><span class="line">    <span class="attr">server</span>: &#123;</span><br><span class="line">        <span class="attr">host</span>: <span class="string">&#x27;0.0.0.0&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<h4 id="隐藏元素-display-none或visibility-hidden"><a href="#隐藏元素-display-none或visibility-hidden" class="headerlink" title="隐藏元素 - display:none或visibility:hidden"></a>隐藏元素 - display:none或visibility:hidden</h4><p>隐藏一个元素可以通过把display属性设置为”none”，或把visibility属性设置为”hidden”。但是请注意，这两种方法会产生不同的结果。</p>
+<p>visibility:hidden可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间。也就是说，该元素虽然被隐藏了，但仍然会影响布局。</p>
+<p>display:none可以隐藏某个元素，且隐藏的元素不会占用任何空间。也就是说，该元素不但被隐藏了，而且该元素原本占用的空间也会从页面布局中消失。</p>
+<h4 id="CSS-Display-块和内联元素"><a href="#CSS-Display-块和内联元素" class="headerlink" title="CSS Display - 块和内联元素"></a>CSS Display - 块和内联元素</h4><p>注意：变更元素的显示类型看该元素是如何显示，它是什么样的元素。例如：一个内联元素设置为display:block是不允许有它内部的嵌套块元素。</p>
 
       
 
@@ -823,15 +827,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Max2</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Root</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bat</a>
               </li>
             
             <div class="clearfix"></div>
