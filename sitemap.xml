@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.5uks.net/2022-03/vue-vite-project.html</loc>
+    <loc>http://blog.5uks.net/2022-03/html5-css3.html</loc>
     
     <lastmod>2022-03-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/2022-03/html5-css3.html</loc>
+    <loc>http://blog.5uks.net/2022-03/vue-vite-project.html</loc>
     
     <lastmod>2022-03-31</lastmod>
     
@@ -296,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/2021-10/cv2-error.html</loc>
+    <loc>http://blog.5uks.net/2021-11/cron.html</loc>
     
     <lastmod>2021-11-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.5uks.net/2021-11/cron.html</loc>
+    <loc>http://blog.5uks.net/2021-10/cv2-error.html</loc>
     
     <lastmod>2021-11-10</lastmod>
     
@@ -389,6 +389,20 @@
   </url>
   
   <url>
+    <loc>http://blog.5uks.net/tags/cron/</loc>
+    <lastmod>2022-03-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.5uks.net/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
+    <lastmod>2022-03-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.5uks.net/tags/opencv-python/</loc>
     <lastmod>2022-03-31</lastmod>
     <changefreq>daily</changefreq>
@@ -432,20 +446,6 @@
   
   <url>
     <loc>http://blog.5uks.net/tags/Python/</loc>
-    <lastmod>2022-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.5uks.net/tags/cron/</loc>
-    <lastmod>2022-03-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.5uks.net/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</loc>
     <lastmod>2022-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
