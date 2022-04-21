@@ -11,6 +11,12 @@
         <content type="html"><![CDATA[<blockquote><p>jinja和vue在使用的时候都是使用<code>&#123;&#123;&#125;&#125;</code>进行数据绑定，但是当vue和jinja同时使用的时候，就会出现冲突。</p></blockquote><span id="more"></span><p>此时我们可以对其中一种进行符号更改</p><h4 id="对jinja进行修改（在-py文件中修改）"><a href="#对jinja进行修改（在-py文件中修改）" class="headerlink" title="对jinja进行修改（在.py文件中修改）"></a>对jinja进行修改（在.py文件中修改）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.jinja_env.variable_start_string = <span class="string">&#x27;&#123;[&#x27;</span> //设定jinja开始的符号（可随意设置）</span><br><span class="line">app.jinja_env.variable_end_string = <span class="string">&#x27;]&#125;&#x27;</span>  //设定jinja结束的符号</span><br></pre></td></tr></table></figure><h4 id="对vue进行修改（在-html文件中修改）"><a href="#对vue进行修改（在-html文件中修改）" class="headerlink" title="对vue进行修改（在.html文件中修改）"></a>对vue进行修改（在.html文件中修改）</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.delimiters = [&#x27;&lt;%&#x27;, &#x27;%&gt;&#x27;];</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> 软件教程 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -614,11 +620,11 @@
     
     
     <entry>
-      <title>Windows下Gitbook关键目录</title>
-      <link href="/2021-11/gitbook_theme.html"/>
-      <url>/2021-11/gitbook_theme.html</url>
+      <title>Windows下Gitbook修改默认主题教程（一）</title>
+      <link href="/2021-11/gitbook_diy_theme1.html"/>
+      <url>/2021-11/gitbook_diy_theme1.html</url>
       
-        <content type="html"><![CDATA[<ul><li><p>gitbook的目录<code>C:\Users\username\.gitbook</code></p></li><li><p>gitbook默认主题的目录<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default</code></p></li><li><p>gitbook默认主题的下载网址:<code>https://github.com/GitbookIO/theme-default</code></p></li><li><p>gitbook默认主题的网站图标在<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default\_assets\website\images</code></p></li></ul>]]></content>
+        <content type="html"><![CDATA[<ul><li>移除Gitbook生成的网页中的<code>Published with GitBook</code>链接</li><li>移除Gitbook生成的网页中的<code>本书使用 GitBook 发布</code>链接</li></ul><h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><ul><li><p>打开<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default</code></p></li><li><p>打开<code>_layouts\website\summary.html</code>文件</p></li><li><p>修改代码如下：</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;</span><br><span class="line"></span><br><span class="line">    &lt;li&gt;</span><br><span class="line">        &lt;a href=&quot;https://www.gitbook.com&quot; target=&quot;blank&quot; class=&quot;gitbook-link&quot;&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure></li><li><p>再次执行命令<code>gitbook build</code>或者<code>gitbook serve</code></p></li></ul>]]></content>
       
       
       <categories>
@@ -641,11 +647,11 @@
     
     
     <entry>
-      <title>Windows下Gitbook修改默认主题教程（一）</title>
-      <link href="/2021-11/gitbook_diy_theme1.html"/>
-      <url>/2021-11/gitbook_diy_theme1.html</url>
+      <title>Windows下Gitbook关键目录</title>
+      <link href="/2021-11/gitbook_theme.html"/>
+      <url>/2021-11/gitbook_theme.html</url>
       
-        <content type="html"><![CDATA[<ul><li>移除Gitbook生成的网页中的<code>Published with GitBook</code>链接</li><li>移除Gitbook生成的网页中的<code>本书使用 GitBook 发布</code>链接</li></ul><h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><ul><li><p>打开<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default</code></p></li><li><p>打开<code>_layouts\website\summary.html</code>文件</p></li><li><p>修改代码如下：</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;</span><br><span class="line"></span><br><span class="line">    &lt;li&gt;</span><br><span class="line">        &lt;a href=&quot;https://www.gitbook.com&quot; target=&quot;blank&quot; class=&quot;gitbook-link&quot;&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure></li><li><p>再次执行命令<code>gitbook build</code>或者<code>gitbook serve</code></p></li></ul>]]></content>
+        <content type="html"><![CDATA[<ul><li><p>gitbook的目录<code>C:\Users\username\.gitbook</code></p></li><li><p>gitbook默认主题的目录<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default</code></p></li><li><p>gitbook默认主题的下载网址:<code>https://github.com/GitbookIO/theme-default</code></p></li><li><p>gitbook默认主题的网站图标在<code>C:\Users\username\.gitbook\versions\3.2.3\node_modules\gitbook-plugin-theme-default\_assets\website\images</code></p></li></ul>]]></content>
       
       
       <categories>
