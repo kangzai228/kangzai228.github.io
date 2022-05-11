@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:44</p>
+			<p>总文章数:45</p>
 		</div>
 		
 
@@ -229,6 +229,116 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-python-automation-summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022-05/python-automation-summary.html">python automation summary</a>
+    </h1>
+  
+
+        
+        <a href="/2022-05/python-automation-summary.html" class="archive-article-date">
+  	<time datetime="2022-05-11T14:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-11</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">147字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.3/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、保持cookies</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s=requests.session()</span><br><span class="line">r=s.get(url,params=params)</span><br><span class="line"></span><br><span class="line">r=s.post(...)</span><br></pre></td></tr></table></figure>
+
+<p>二、更新headers</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hds=&#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;ableskyapp,android&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>:<span class="string">&#x27;http://xxx.cn/login.do&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Host&#x27;</span>:<span class="string">&#x27;passport.enaea.edu.cn&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>:<span class="string">&#x27;Keep-Alive&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>:<span class="string">&#x27;gzip&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">s.headers.update(hds)</span><br></pre></td></tr></table></figure>
+
+<p>三 删除cookies 增加cookies</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除cookies</span></span><br><span class="line">s.cookies.<span class="built_in">set</span>(<span class="string">&#x27;376b0df3-db18-4598-818b-50eea7228f6e&#x27;</span>,<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># 增加cookies</span></span><br><span class="line">s.cookies.<span class="built_in">set</span>(<span class="string">&#x27;SCFUCKP_5558730_294327_course&#x27;</span>,<span class="string">&#x27;a12e8549-55bc-4a9e-85b9-d306e1ced8e3&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>四、将cookies转化成字典，然后打印出来</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s=requests.session()</span><br><span class="line">cookies_dict = requests.utils.dict_from_cookiejar(s.cookies)</span><br><span class="line">logging.info(cookies_dict)</span><br></pre></td></tr></table></figure>
+
+<p>Python3自动化的时候，时刻要注意cookies是否正确</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022-05/python-automation-summary.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-vue-jijia-symbolic-conflicts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1385,138 +1495,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022-02/my-emqx-nginx-proxy.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-emqx-nginx-proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022-02/emqx-nginx-proxy.html">Nginx TCP/SSL 反向代理设置(转载)</a>
-    </h1>
-  
-
-        
-        <a href="/2022-02/emqx-nginx-proxy.html" class="archive-article-date">
-  	<time datetime="2022-02-07T02:49:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-07</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">562字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">2分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="https://cdn.jsdelivr.net/gh/kangzai228/blog_cdn_jsdelivr@1.0.3/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>很多使用 EMQ X 消息服务器的童鞋，会发现随着业务量的增长会考虑到 EMQ X 节点的扩容，多节点之后，如果节点前没有挂载代理，就需要在客户端指定连接哪台 EMQ X 节点，如果其中一台节点升级，还需要在客户端重新做设置，但如果在集群节点挂载反向代理，就可以通过反向代理将连接分配到另外节点上，从而避免在客户端的更改和重新部署。So，今天就聊聊 Nginx 反向代理的事吧!</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2022-02/emqx-nginx-proxy.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">EMQX</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MQTT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PROXY</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux教程//" class="article-tag-list-link color3">Linux教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022-02/emqx-nginx-proxy.html">展开全文 >></a>
         </p>
       
 
