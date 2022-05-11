@@ -4,13 +4,29 @@
   
     
     <entry>
-      <title>python automation summary</title>
+      <title>Python3自动化总结</title>
       <link href="/2022-05/python-automation-summary.html"/>
       <url>/2022-05/python-automation-summary.html</url>
       
         <content type="html"><![CDATA[<p>一、保持cookies</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s=requests.session()</span><br><span class="line">r=s.get(url,params=params)</span><br><span class="line"></span><br><span class="line">r=s.post(...)</span><br></pre></td></tr></table></figure><p>二、更新headers</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hds=&#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;ableskyapp,android&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>:<span class="string">&#x27;http://xxx.cn/login.do&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Host&#x27;</span>:<span class="string">&#x27;passport.enaea.edu.cn&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>:<span class="string">&#x27;Keep-Alive&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>:<span class="string">&#x27;gzip&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">s.headers.update(hds)</span><br></pre></td></tr></table></figure><p>三 删除cookies 增加cookies</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除cookies</span></span><br><span class="line">s.cookies.<span class="built_in">set</span>(<span class="string">&#x27;376b0df3-db18-4598-818b-50eea7228f6e&#x27;</span>,<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># 增加cookies</span></span><br><span class="line">s.cookies.<span class="built_in">set</span>(<span class="string">&#x27;SCFUCKP_5558730_294327_course&#x27;</span>,<span class="string">&#x27;a12e8549-55bc-4a9e-85b9-d306e1ced8e3&#x27;</span>)</span><br></pre></td></tr></table></figure><p>四、将cookies转化成字典，然后打印出来</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s=requests.session()</span><br><span class="line">cookies_dict = requests.utils.dict_from_cookiejar(s.cookies)</span><br><span class="line">logging.info(cookies_dict)</span><br></pre></td></tr></table></figure><p>Python3自动化的时候，时刻要注意cookies是否正确</p>]]></content>
       
       
+      <categories>
+          
+          <category> Python </category>
+          
+          <category> Automation </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Automation </tag>
+            
+        </tags>
       
     </entry>
     
