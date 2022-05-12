@@ -34,8 +34,8 @@
     
     <entry>
       <title>解决jinja和vue符号相同冲突</title>
-      <link href="/2022-04/vue-jijia-symbolic-conflicts.html"/>
-      <url>/2022-04/vue-jijia-symbolic-conflicts.html</url>
+      <link href="/2022-04/vue-jinja2-symbolic-conflicts.html"/>
+      <url>/2022-04/vue-jinja2-symbolic-conflicts.html</url>
       
         <content type="html"><![CDATA[<blockquote><p>jinja和vue在使用的时候都是使用<code>&#123;&#123;&#125;&#125;</code>进行数据绑定，但是当vue和jinja同时使用的时候，就会出现冲突。</p></blockquote><span id="more"></span><p>此时我们可以对其中一种进行符号更改</p><h4 id="对jinja进行修改（在-py文件中修改）"><a href="#对jinja进行修改（在-py文件中修改）" class="headerlink" title="对jinja进行修改（在.py文件中修改）"></a>对jinja进行修改（在.py文件中修改）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.jinja_env.variable_start_string = <span class="string">&#x27;&#123;[&#x27;</span> //设定jinja开始的符号（可随意设置）</span><br><span class="line">app.jinja_env.variable_end_string = <span class="string">&#x27;]&#125;&#x27;</span>  //设定jinja结束的符号</span><br></pre></td></tr></table></figure><h4 id="对vue进行修改（在-html文件中修改）"><a href="#对vue进行修改（在-html文件中修改）" class="headerlink" title="对vue进行修改（在.html文件中修改）"></a>对vue进行修改（在.html文件中修改）</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.config.delimiters = [&#x27;&lt;%&#x27;, &#x27;%&gt;&#x27;];</span><br></pre></td></tr></table></figure>]]></content>
       
@@ -53,7 +53,7 @@
             
             <tag> FLASK </tag>
             
-            <tag> JIJIA </tag>
+            <tag> JINJA </tag>
             
         </tags>
       
