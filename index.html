@@ -253,7 +253,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">96字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">104字</span>
     </span>
   </span>
 
@@ -284,7 +284,8 @@ var _hmt = _hmt || [];
       
         <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43626378/article/details/108430713">https://blog.csdn.net/qq_43626378/article/details/108430713</a></p>
 <h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>systemctl start mongod.service</p>
-<h2 id="添加数据库管理员"><a href="#添加数据库管理员" class="headerlink" title="添加数据库管理员"></a>添加数据库管理员</h2><p>1.关闭服务</p>
+<h2 id="添加数据库管理员"><a href="#添加数据库管理员" class="headerlink" title="添加数据库管理员"></a>添加数据库管理员</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hecr_mingong/article/details/109724758">https://blog.csdn.net/hecr_mingong/article/details/109724758</a></p>
+<p>1.关闭服务</p>
 <p>systemctl stop mongod.service</p>
 <p>2.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建超级用户</span></span><br><span class="line">use admin</span><br><span class="line">db.createUser(&#123;user:<span class="string">&quot;admin&quot;</span>,<span class="built_in">pwd</span>:<span class="string">&quot;password&quot;</span>,roles:[<span class="string">&quot;root&quot;</span>]&#125;)</span><br><span class="line">db.auth(<span class="string">&#x27;admin&#x27;</span>,<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换至需要做登录的集合</span></span><br><span class="line">use your_database</span><br><span class="line">db.createUser(&#123;user:<span class="string">&#x27;user&#x27;</span>,<span class="built_in">pwd</span>:<span class="string">&#x27;password&#x27;</span>,roles:[<span class="string">&#x27;dbOwner&#x27;</span>]&#125;)</span><br></pre></td></tr></table></figure>
@@ -1915,19 +1916,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">权限</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sudoers</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sudo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">权限</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sudoers</a>
               </li>
              
               <li class="article-tag-list-item">
