@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.5uks.net">
-  <title>一台电脑上同时使用gitee和github,SSH设置 | 飞鹰的博客</title>
+  <title>MongoDB笔记 | 飞鹰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="由于工作原因我需要经常使用 Gitee和 Github ，之前配置好了一个，但是不知道怎么同时配置两个，所以就有了这篇文章。【SSH配置】">
+  <meta name="description" content="安装https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_43626378&#x2F;article&#x2F;details&#x2F;108430713 启动服务systemctl start mongod.service 添加数据库管理员1.关闭服务 systemctl stop mongod.service 2. 12345678910mongo# 创建超级用户use admindb.createUser(&amp;#123;us">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一台电脑上同时使用gitee和github,SSH设置">
-<meta property="og:url" content="http://blog.5uks.net/2021-08/github_gitee_ssh.html">
+<meta property="og:title" content="MongoDB笔记">
+<meta property="og:url" content="http://blog.5uks.net/2022-05/mongodb-notes.html">
 <meta property="og:site_name" content="飞鹰的博客">
-<meta property="og:description" content="由于工作原因我需要经常使用 Gitee和 Github ，之前配置好了一个，但是不知道怎么同时配置两个，所以就有了这篇文章。【SSH配置】">
+<meta property="og:description" content="安装https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_43626378&#x2F;article&#x2F;details&#x2F;108430713 启动服务systemctl start mongod.service 添加数据库管理员1.关闭服务 systemctl stop mongod.service 2. 12345678910mongo# 创建超级用户use admindb.createUser(&amp;#123;us">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-08-26T15:57:23.000Z">
-<meta property="article:modified_time" content="2022-03-20T11:38:12.732Z">
+<meta property="article:published_time" content="2022-05-14T13:21:30.000Z">
+<meta property="article:modified_time" content="2022-05-14T13:26:45.163Z">
 <meta property="article:author" content="kangzai228">
-<meta property="article:tag" content="Github">
-<meta property="article:tag" content="Gitee">
-<meta property="article:tag" content="SSH">
+<meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="飞鹰的博客" type="application/atom+xml">
@@ -235,20 +233,20 @@ var _hmt = _hmt || [];
                       class="anm-canvas"></canvas>
                   </div>
                   <div id="js-content" class="content-ll">
-                    <article id="post-github_gitee_ssh" class="article article-type-post " itemscope itemprop="blogPost">
+                    <article id="post-mongodb-notes" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      一台电脑上同时使用gitee和github,SSH设置
+      MongoDB笔记
     </h1>
   
 
         
-        <a href="/2021-08/github_gitee_ssh.html" class="archive-article-date">
-  	<time datetime="2021-08-26T15:57:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
+        <a href="/2022-05/mongodb-notes.html" class="archive-article-date">
+  	<time datetime="2022-05-14T13:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-14</time>
 </a>
         
         <!-- 开始添加字数统计-->
@@ -258,7 +256,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">346字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">96字</span>
     </span>
   </span>
 
@@ -287,63 +285,12 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>由于工作原因我需要经常使用 Gitee和 Github ，之前配置好了一个，但是不知道怎么同时配置两个，所以就有了这篇文章。<strong>【SSH配置】</strong></p>
-<span id="more"></span>
-
-<h2 id="Linux系统下："><a href="#Linux系统下：" class="headerlink" title="Linux系统下："></a>Linux系统下：</h2><ul>
-<li>进入目录</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建github的ssh key</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>输入id_rsa_github，表示github的私钥</p>
-</li>
-<li><p>查看id_rsa_github.pub内容，并根据内容，在github.com账户设置SSH and GPG keys</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li>创建gitee的ssh key</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>输入id_rsa_gitee，表示gitee的私钥</p>
-</li>
-<li><p>查看id_rsa_gitee.pub内容，并根据内容，在gitee.com账户设置SSH公钥设置好</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li>在 .ssh 文件夹中创建 config 文件，添加以下内容以区分两个 ssh key：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># gitee</span><br><span class="line">Host gitee.com</span><br><span class="line">HostName gitee.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitee</span><br><span class="line"></span><br><span class="line"># github</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
-
-<h3 id="Bad-owner-or-permissions-on-ssh-config的解决"><a href="#Bad-owner-or-permissions-on-ssh-config的解决" class="headerlink" title="Bad owner or permissions on .ssh/config的解决"></a>Bad owner or permissions on .ssh/config的解决</h3><p>在执行git fetch的时候，出现以下错误：</p>
-<p><code>Bad owner or permissions on /home/username/.ssh/config</code></p>
-<p>这个时候，只需要在.ssh目录，执行以下命令行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 600 config</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>测试</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<h2 id="Windows系统下："><a href="#Windows系统下：" class="headerlink" title="Windows系统下："></a>Windows系统下：</h2><ul>
-<li>类似，config文件在<code>C:\Users\username\.ssh</code>目录下</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># gitee</span><br><span class="line">Host gitee.com</span><br><span class="line">HostName gitee.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile C:\Users\username\.ssh\gitee</span><br><span class="line"></span><br><span class="line"># github</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile C:\Users\username\.ssh\github</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<hr>
-<h2 id="如果创建SSH密钥时使用了自定义文件名git-test-所以在测试连接时导致了："><a href="#如果创建SSH密钥时使用了自定义文件名git-test-所以在测试连接时导致了：" class="headerlink" title="如果创建SSH密钥时使用了自定义文件名git_test,所以在测试连接时导致了："></a>如果创建SSH密钥时使用了自定义文件名git_test,所以在测试连接时导致了：</h2><p><code>ssh -T git@github.com</code>失败，应该使用<code>ssh -T -i C:\Users\username\.ssh\git_test git@github.com</code></p>
-
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43626378/article/details/108430713">https://blog.csdn.net/qq_43626378/article/details/108430713</a></p>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>systemctl start mongod.service</p>
+<h2 id="添加数据库管理员"><a href="#添加数据库管理员" class="headerlink" title="添加数据库管理员"></a>添加数据库管理员</h2><p>1.关闭服务</p>
+<p>systemctl stop mongod.service</p>
+<p>2.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建超级用户</span></span><br><span class="line">use admin</span><br><span class="line">db.createUser(&#123;user:<span class="string">&quot;admin&quot;</span>,<span class="built_in">pwd</span>:<span class="string">&quot;password&quot;</span>,roles:[<span class="string">&quot;root&quot;</span>]&#125;)</span><br><span class="line">db.auth(<span class="string">&#x27;admin&#x27;</span>,<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换至需要做登录的集合</span></span><br><span class="line">use your_database</span><br><span class="line">db.createUser(&#123;user:<span class="string">&#x27;user&#x27;</span>,<span class="built_in">pwd</span>:<span class="string">&#x27;password&#x27;</span>,roles:[<span class="string">&#x27;dbOwner&#x27;</span>]&#125;)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -387,32 +334,13 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Gitee</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/软件教程//" class="article-tag-list-link color5">软件教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -425,18 +353,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2021-09/web_counter.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          网页计数器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021-08/md_file_insert_img_helper.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown插入图片代码的助手</div>
+    <a href="/2022-05/python-automation-summary.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python3自动化总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

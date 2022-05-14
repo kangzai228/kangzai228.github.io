@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MongoDB笔记</title>
+      <link href="/2022-05/mongodb-notes.html"/>
+      <url>/2022-05/mongodb-notes.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://blog.csdn.net/qq_43626378/article/details/108430713">https://blog.csdn.net/qq_43626378/article/details/108430713</a></p><h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>systemctl start mongod.service</p><h2 id="添加数据库管理员"><a href="#添加数据库管理员" class="headerlink" title="添加数据库管理员"></a>添加数据库管理员</h2><p>1.关闭服务</p><p>systemctl stop mongod.service</p><p>2.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建超级用户</span></span><br><span class="line">use admin</span><br><span class="line">db.createUser(&#123;user:<span class="string">&quot;admin&quot;</span>,<span class="built_in">pwd</span>:<span class="string">&quot;password&quot;</span>,roles:[<span class="string">&quot;root&quot;</span>]&#125;)</span><br><span class="line">db.auth(<span class="string">&#x27;admin&#x27;</span>,<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换至需要做登录的集合</span></span><br><span class="line">use your_database</span><br><span class="line">db.createUser(&#123;user:<span class="string">&#x27;user&#x27;</span>,<span class="built_in">pwd</span>:<span class="string">&#x27;password&#x27;</span>,roles:[<span class="string">&#x27;dbOwner&#x27;</span>]&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MongoDB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python3自动化总结</title>
       <link href="/2022-05/python-automation-summary.html"/>
       <url>/2022-05/python-automation-summary.html</url>
@@ -786,33 +805,6 @@
     
     
     <entry>
-      <title>Gitbook基础教程</title>
-      <link href="/2021-11/gitbook.html"/>
-      <url>/2021-11/gitbook.html</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装node</span></span><br><span class="line">sudo apt install node</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装git</span></span><br><span class="line">sudo apt install git</span><br><span class="line"></span><br><span class="line">npm install -g gitbook-cli</span><br><span class="line"></span><br><span class="line">mkdir gitbook</span><br><span class="line">cd gitbook</span><br><span class="line"></span><br><span class="line">gitbook init</span><br><span class="line"></span><br><span class="line">gitbook build</span><br><span class="line"></span><br><span class="line">gitbook serve</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件教程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Windows </tag>
-            
-            <tag> Gitbook </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>git基础教程(二)</title>
       <link href="/2021-11/git2.html"/>
       <url>/2021-11/git2.html</url>
@@ -832,6 +824,33 @@
             <tag> Git </tag>
             
             <tag> Github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Gitbook基础教程</title>
+      <link href="/2021-11/gitbook.html"/>
+      <url>/2021-11/gitbook.html</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装node</span></span><br><span class="line">sudo apt install node</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装git</span></span><br><span class="line">sudo apt install git</span><br><span class="line"></span><br><span class="line">npm install -g gitbook-cli</span><br><span class="line"></span><br><span class="line">mkdir gitbook</span><br><span class="line">cd gitbook</span><br><span class="line"></span><br><span class="line">gitbook init</span><br><span class="line"></span><br><span class="line">gitbook build</span><br><span class="line"></span><br><span class="line">gitbook serve</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> Gitbook </tag>
             
         </tags>
       
