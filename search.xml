@@ -98,7 +98,7 @@
       <link href="/2022-04/charles-setting.html"/>
       <url>/2022-04/charles-setting.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p>一、安卓7以上charles设置https抓包<br>二、错误提示:Not allowed - connection dropped</p></blockquote><span id="more"></span><h2 id="一、安卓7以上charles设置https抓包"><a href="#一、安卓7以上charles设置https抓包" class="headerlink" title="一、安卓7以上charles设置https抓包"></a>一、安卓7以上charles设置https抓包</h2><h3 id="使用抓包软件（以-Charles-为例）抓取APP的-https-请求时，Android和Charles都正确安装了证书却出现抓包失败，报错："><a href="#使用抓包软件（以-Charles-为例）抓取APP的-https-请求时，Android和Charles都正确安装了证书却出现抓包失败，报错：" class="headerlink" title="使用抓包软件（以 Charles 为例）抓取APP的 https 请求时，Android和Charles都正确安装了证书却出现抓包失败，报错："></a>使用抓包软件（以 Charles 为例）抓取APP的 https 请求时，Android和Charles都正确安装了证书却出现抓包失败，报错：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client SSL handshake failed: An unknown issue occurred processing the certificate (certificate_unknown)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123359.png"></p><h3 id="原因-Android7-0-之后默认不信任用户添加到系统的CA证书："><a href="#原因-Android7-0-之后默认不信任用户添加到系统的CA证书：" class="headerlink" title="原因:Android7.0 之后默认不信任用户添加到系统的CA证书："></a>原因:Android7.0 之后默认不信任用户添加到系统的CA证书：</h3><p>To provide a more consistent and more secure experience across the Android ecosystem, beginning with Android Nougat, compatible devices trust only the standardized system CAs maintained in AOSP.(文档链接)[<a href="https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html]">https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html]</a></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>一、官方解决方案（需修改代码）<br>官方文档：<a href="https://developer.android.google.cn/training/articles/security-config.html">https://developer.android.google.cn/training/articles/security-config.html</a><br>详细演示：<a href="https://blog.csdn.net/mrxiagc/article/details/75329629">https://blog.csdn.net/mrxiagc/article/details/75329629</a></p><p>二、将抓包软件的证书安装成系统证书（需ROOT）</p><p>1.用Charles导出证书，随便命名 charles.pem</p><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123824.png"></p><p>2.安装open ssl（<a href="http://slproweb.com/products/Win32OpenSSL.html%EF%BC%89%EF%BC%8C%E7%84%B6%E5%90%8E%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%8C%E6%8A%8Aopenssl%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84bin%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%88%E4%BE%8B%E5%A6%82">http://slproweb.com/products/Win32OpenSSL.html），然后配置环境变量，把openssl安装路径bin的路径（例如</a> C:\OpenSSL-Win64\bin）加入到操作系统的系统环境变量Path中</p><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123924.png"></p><p>3.在cmd中输入</p><p>openssl x509 -subject_hash_old -in charles.pem<br>为刚才下载的证书（charles.pem），这个路径为绝对路径</p><p>后缀名的数字是为了防止文件名冲突的，比如如果两个证书算出的Hash值是一样的话，那么一个证书的后缀名数字可以设置成0，而另一个证书的后缀名数字可以设置成1</p><p>4.然后将 charles.pem 这个文件改为 生成的数字加.0,例如:0505096d.0</p><p>5.然后在用前端根证书导入的方法导入证书<br>adb root<br>adb remount<br>adb push 0505096d.0 /etc/security/cacerts/<br>adb shell chmod 644 /etc/security/cacerts/0505096d.0</p><p>如果remount或push失败，需要执行以下命令<br>adb disable-verity<br>adb reboot</p><p>6.以上方法一般可以抓到了，如果还是不行，需要配置 Proxy——SSL Proxying Settings——SSL Proxying，勾选Enable ——SSL Proxying，点击“add”，将Host和Port配置为*，如下图所示：</p><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413124228.png"></p><h2 id="二、错误提示-Not-allowed-connection-dropped"><a href="#二、错误提示-Not-allowed-connection-dropped" class="headerlink" title="二、错误提示:Not allowed - connection dropped"></a>二、错误提示:Not allowed - connection dropped</h2><h2 id="解决办法-Tools—-Allow-List—–去掉勾选Enable-Allow-List"><a href="#解决办法-Tools—-Allow-List—–去掉勾选Enable-Allow-List" class="headerlink" title="解决办法: Tools—-Allow List—–去掉勾选Enable Allow List"></a>解决办法: Tools—-Allow List—–去掉勾选Enable Allow List</h2><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/f76bab9937b0aa099a655c2493b37bb.png"></p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>一、安卓7以上charles设置https抓包<br>二、错误提示:Not allowed - connection dropped</p></blockquote><span id="more"></span><h2 id="一、安卓7以上charles设置https抓包"><a href="#一、安卓7以上charles设置https抓包" class="headerlink" title="一、安卓7以上charles设置https抓包"></a>一、安卓7以上charles设置https抓包</h2><h3 id="使用抓包软件（以-Charles-为例）抓取APP的-https-请求时，Android和Charles都正确安装了证书却出现抓包失败，报错："><a href="#使用抓包软件（以-Charles-为例）抓取APP的-https-请求时，Android和Charles都正确安装了证书却出现抓包失败，报错：" class="headerlink" title="使用抓包软件（以 Charles 为例）抓取APP的 https 请求时，Android和Charles都正确安装了证书却出现抓包失败，报错："></a>使用抓包软件（以 Charles 为例）抓取APP的 https 请求时，Android和Charles都正确安装了证书却出现抓包失败，报错：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client SSL handshake failed: An unknown issue occurred processing the certificate (certificate_unknown)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123359.png"></p><h3 id="原因-Android7-0-之后默认不信任用户添加到系统的CA证书："><a href="#原因-Android7-0-之后默认不信任用户添加到系统的CA证书：" class="headerlink" title="原因:Android7.0 之后默认不信任用户添加到系统的CA证书："></a>原因:Android7.0 之后默认不信任用户添加到系统的CA证书：</h3><p>To provide a more consistent and more secure experience across the Android ecosystem, beginning with Android Nougat, compatible devices trust only the standardized system CAs maintained in AOSP.(文档链接)[<a href="https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html]">https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html]</a></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>一、官方解决方案（需修改代码）<br>官方文档：<a href="https://developer.android.google.cn/training/articles/security-config.html">https://developer.android.google.cn/training/articles/security-config.html</a><br>详细演示：<a href="https://blog.csdn.net/mrxiagc/article/details/75329629">https://blog.csdn.net/mrxiagc/article/details/75329629</a></p><p>二、将抓包软件的证书安装成系统证书（需ROOT）</p><p>1.用Charles导出证书，随便命名 charles.pem</p><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123824.png"></p><p>2.安装open ssl <img src="http://slproweb.com/products/Win32OpenSSL.html" alt="open ssl网址">，</p><p>然后配置环境变量，把openssl安装路径bin的路径（例如 C:\OpenSSL-Win64\bin）加入到操作系统的系统环境变量Path中</p><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123924.png"></p><p>3.在cmd中输入</p><p>openssl x509 -subject_hash_old -in charles.pem<br>为刚才下载的证书（charles.pem），这个路径为绝对路径</p><p>后缀名的数字是为了防止文件名冲突的，比如如果两个证书算出的Hash值是一样的话，那么一个证书的后缀名数字可以设置成0，而另一个证书的后缀名数字可以设置成1</p><p>4.然后将 charles.pem 这个文件改为 生成的数字加.0,例如:0505096d.0</p><p>5.然后在用前端根证书导入的方法导入证书<br>adb root<br>adb remount<br>adb push 0505096d.0 /etc/security/cacerts/<br>adb shell chmod 644 /etc/security/cacerts/0505096d.0</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.在charles软件Help菜单中SSL Proxying中保存root证书</span><br><span class="line"></span><br><span class="line">2.计算HASH值</span><br><span class="line">openssl x509 -subject_hash_old -<span class="keyword">in</span> charles.pem</span><br><span class="line">复制到临时目录</span><br><span class="line">adb push ./8e0d60f2.0 /data/<span class="built_in">local</span>/tmp</span><br><span class="line"></span><br><span class="line">adb shell</span><br><span class="line">su</span><br><span class="line"><span class="built_in">cd</span> /data/<span class="built_in">local</span>/tmp</span><br><span class="line">ls</span><br><span class="line">mv 8e0d60f2.0 /etc/security/cacerts/</span><br><span class="line"></span><br><span class="line">chmod 644 /etc/security/cacerts/8e0d60f2.0</span><br></pre></td></tr></table></figure><p>如果remount或push失败，需要执行以下命令<br>adb disable-verity<br>adb reboot</p><p>6.以上方法一般可以抓到了，如果还是不行，需要配置 Proxy——SSL Proxying Settings——SSL Proxying，勾选Enable ——SSL Proxying，点击“add”，将Host和Port配置为*，如下图所示：</p><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413124228.png"></p><h2 id="二、错误提示-Not-allowed-connection-dropped"><a href="#二、错误提示-Not-allowed-connection-dropped" class="headerlink" title="二、错误提示:Not allowed - connection dropped"></a>二、错误提示:Not allowed - connection dropped</h2><h2 id="解决办法-Tools—-Allow-List—–去掉勾选Enable-Allow-List"><a href="#解决办法-Tools—-Allow-List—–去掉勾选Enable-Allow-List" class="headerlink" title="解决办法: Tools—-Allow List—–去掉勾选Enable Allow List"></a>解决办法: Tools—-Allow List—–去掉勾选Enable Allow List</h2><p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/f76bab9937b0aa099a655c2493b37bb.png"></p>]]></content>
       
       
       
@@ -270,9 +270,9 @@
       
         <tags>
             
-            <tag> EMQX </tag>
-            
             <tag> MQTT </tag>
+            
+            <tag> EMQX </tag>
             
             <tag> CLIENT </tag>
             
@@ -301,13 +301,13 @@
             
             <tag> SSL </tag>
             
-            <tag> EMQX </tag>
-            
             <tag> MQTT </tag>
             
-            <tag> PROXY </tag>
+            <tag> EMQX </tag>
             
             <tag> WSS </tag>
+            
+            <tag> PROXY </tag>
             
             <tag> WebSocket </tag>
             
@@ -334,9 +334,9 @@
       
         <tags>
             
-            <tag> EMQX </tag>
-            
             <tag> MQTT </tag>
+            
+            <tag> EMQX </tag>
             
             <tag> PROXY </tag>
             
@@ -363,9 +363,9 @@
       
         <tags>
             
-            <tag> EMQX </tag>
-            
             <tag> MQTT </tag>
+            
+            <tag> EMQX </tag>
             
             <tag> WSS </tag>
             
@@ -392,9 +392,9 @@
       
         <tags>
             
-            <tag> EMQX </tag>
-            
             <tag> MQTT </tag>
+            
+            <tag> EMQX </tag>
             
         </tags>
       

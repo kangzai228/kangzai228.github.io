@@ -17,11 +17,12 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123359.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123824.png">
+<meta property="og:image" content="http://slproweb.com/products/Win32OpenSSL.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123924.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413124228.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/f76bab9937b0aa099a655c2493b37bb.png">
 <meta property="article:published_time" content="2022-04-13T01:07:50.000Z">
-<meta property="article:modified_time" content="2022-04-13T04:56:48.567Z">
+<meta property="article:modified_time" content="2022-07-19T03:40:21.082Z">
 <meta property="article:author" content="kangzai228">
 <meta property="article:tag" content="SSL">
 <meta property="article:tag" content="CHARLES">
@@ -265,7 +266,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">517字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">563字</span>
     </span>
   </span>
 
@@ -306,13 +307,16 @@ var _hmt = _hmt || [];
 <p>二、将抓包软件的证书安装成系统证书（需ROOT）</p>
 <p>1.用Charles导出证书，随便命名 charles.pem</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123824.png"></p>
-<p>2.安装open ssl（<a target="_blank" rel="noopener" href="http://slproweb.com/products/Win32OpenSSL.html%EF%BC%89%EF%BC%8C%E7%84%B6%E5%90%8E%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%8C%E6%8A%8Aopenssl%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84bin%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%88%E4%BE%8B%E5%A6%82">http://slproweb.com/products/Win32OpenSSL.html），然后配置环境变量，把openssl安装路径bin的路径（例如</a> C:\OpenSSL-Win64\bin）加入到操作系统的系统环境变量Path中</p>
+<p>2.安装open ssl <img src="http://slproweb.com/products/Win32OpenSSL.html" alt="open ssl网址">，</p>
+<p>然后配置环境变量，把openssl安装路径bin的路径（例如 C:\OpenSSL-Win64\bin）加入到操作系统的系统环境变量Path中</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413123924.png"></p>
 <p>3.在cmd中输入</p>
 <p>openssl x509 -subject_hash_old -in charles.pem<br>为刚才下载的证书（charles.pem），这个路径为绝对路径</p>
 <p>后缀名的数字是为了防止文件名冲突的，比如如果两个证书算出的Hash值是一样的话，那么一个证书的后缀名数字可以设置成0，而另一个证书的后缀名数字可以设置成1</p>
 <p>4.然后将 charles.pem 这个文件改为 生成的数字加.0,例如:0505096d.0</p>
 <p>5.然后在用前端根证书导入的方法导入证书<br>adb root<br>adb remount<br>adb push 0505096d.0 /etc/security/cacerts/<br>adb shell chmod 644 /etc/security/cacerts/0505096d.0</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.在charles软件Help菜单中SSL Proxying中保存root证书</span><br><span class="line"></span><br><span class="line">2.计算HASH值</span><br><span class="line">openssl x509 -subject_hash_old -<span class="keyword">in</span> charles.pem</span><br><span class="line">复制到临时目录</span><br><span class="line">adb push ./8e0d60f2.0 /data/<span class="built_in">local</span>/tmp</span><br><span class="line"></span><br><span class="line">adb shell</span><br><span class="line">su</span><br><span class="line"><span class="built_in">cd</span> /data/<span class="built_in">local</span>/tmp</span><br><span class="line">ls</span><br><span class="line">mv 8e0d60f2.0 /etc/security/cacerts/</span><br><span class="line"></span><br><span class="line">chmod 644 /etc/security/cacerts/8e0d60f2.0</span><br></pre></td></tr></table></figure>
+
 <p>如果remount或push失败，需要执行以下命令<br>adb disable-verity<br>adb reboot</p>
 <p>6.以上方法一般可以抓到了，如果还是不行，需要配置 Proxy——SSL Proxying Settings——SSL Proxying，勾选Enable ——SSL Proxying，点击“add”，将Host和Port配置为*，如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220413124228.png"></p>
@@ -595,15 +599,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Update</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,19 +667,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">EMQX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">PROXY</a>
+                <a href="javascript:void(0)" class="js-tag color5">EMQX</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">PROXY</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,15 +823,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WebSocket</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NodeJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WebSocket</a>
               </li>
              
               <li class="article-tag-list-item">
