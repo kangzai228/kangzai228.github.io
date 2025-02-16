@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="飞鹰的博客">
 <meta property="og:description" content="介绍改造步骤一、开启adb二、miko_service_tool_pro备份和QualcommPremiumTool分区备份三、获取root权限1.ARDC投屏 2.安装Launcher.apk Magisk-v22.1.apk 3.将第二步部备份出来的boot.img push到wifi设备上 1adb push E:\Portable_wifi\xunyou_410\boot.img &#x2F;s">
 <meta property="og:locale">
-<meta property="og:image" content="http://blog.5uks.net/images/xh1.jpg">
-<meta property="og:image" content="http://blog.5uks.net/images/xh2.jpg">
-<meta property="og:image" content="http://blog.5uks.net/images/xh3.jpg">
-<meta property="og:image" content="http://blog.5uks.net/images/erase_boot_patition.jpg">
+<meta property="og:image" content="http://blog.5uks.net/blog/images/xh1.jpg">
+<meta property="og:image" content="http://blog.5uks.net/blog/images/xh2.jpg">
+<meta property="og:image" content="http://blog.5uks.net/blog/images/xh3.jpg">
+<meta property="og:image" content="http://blog.5uks.net/blog/images/erase_boot_patition.jpg">
 <meta property="article:published_time" content="2024-12-01T05:26:30.000Z">
 <meta property="article:modified_time" content="2024-12-01T05:26:30.000Z">
 <meta property="article:author" content="kangzai228">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.5uks.net/images/xh1.jpg">
+<meta name="twitter:image" content="http://blog.5uks.net/blog/images/xh1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="飞鹰的博客" type="application/atom+xml">
   
@@ -77,15 +77,15 @@ var _hmt = _hmt || [];
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/blog/">主页</a></li>
 	        
-				<li><a href="/categories">分类</a></li>
+				<li><a href="/blog/categories">分类</a></li>
 	        
-				<li><a href="/archives/">归档</a></li>
+				<li><a href="/blog/archives/">归档</a></li>
 	        
-				<li><a href="/tags/%E9%A2%84%E5%91%8A/">预告</a></li>
+				<li><a href="/blog/tags/%E9%A2%84%E5%91%8A/">预告</a></li>
 	        
-				<li><a href="/about">关于我</a></li>
+				<li><a href="/blog/about">关于我</a></li>
 	        
 			</ul>
 		</nav>
@@ -117,7 +117,7 @@ var _hmt = _hmt || [];
 		        
 					<a class="mail" target="_blank" href="mailto:369512293@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/assets/img/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/blog/assets/img/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 			</div>
 		</nav>
@@ -166,7 +166,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="mail" target="_blank" href="mailto:369512293@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/assets/img/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/blog/assets/img/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 				</div>
 			</nav>
@@ -175,15 +175,15 @@ var _hmt = _hmt || [];
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/blog/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/categories">分类</a></li>
+					<li style="width: 20%"><a href="/blog/categories">分类</a></li>
 		        
-					<li style="width: 20%"><a href="/archives/">归档</a></li>
+					<li style="width: 20%"><a href="/blog/archives/">归档</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/%E9%A2%84%E5%91%8A/">预告</a></li>
+					<li style="width: 20%"><a href="/blog/tags/%E9%A2%84%E5%91%8A/">预告</a></li>
 		        
-					<li style="width: 20%"><a href="/about">关于我</a></li>
+					<li style="width: 20%"><a href="/blog/about">关于我</a></li>
 		        
 				</ul>
 			</nav>
@@ -249,7 +249,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2024-12/ufi_410.html" class="archive-article-date">
+        <a href="/blog/2024-12/ufi_410.html" class="archive-article-date">
   	<time datetime="2024-12-01T05:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-12-01</time>
 </a>
         
@@ -307,12 +307,12 @@ var _hmt = _hmt || [];
 <p>这时如果有 QCN 备份文件，则可以通过恢复备份解决。甚至手机 NV 数据已损坏问题，也可能通过恢复 QCN 解决。</p>
 <p>用星海SVIP软件备份QCN文件，注意QCN文件大概500+KB，如果大小不对，多试几次</p>
 <p>打开星海SVIP，按照流程操作，高通强开端口点一键执行，设备管理器会多出一个901D端口。备份QCN基带文件的路径大概等个三五分钟即可，QCN文件大小在500多kb才是有效的，不行就多重复几次操作。每一个步骤要等随身WIFI有所反应才能执行下一步。</p>
-<p><img src="/images/xh1.jpg"></p>
+<p><img src="/blog/images/xh1.jpg"></p>
 <p>恢复QCN基带，使用ADB进入fastboot模式，也可以打开投屏软件，CMD栏输入 adb reboot bootloader 回车进入fastboot。进入fastboot后红灯常亮。</p>
 <p>首先擦除基带，打开星海SVIP，按流程操作，完成后设备会重启</p>
-<p><img src="/images/xh2.jpg"></p>
+<p><img src="/blog/images/xh2.jpg"></p>
 <p>设备重启后，执行高通强开1（901D），选择写入QCN，选择备份的QCN基带执行即可。不行就多重复几遍。</p>
-<p><img src="/images/xh3.jpg"></p>
+<p><img src="/blog/images/xh3.jpg"></p>
 <h3 id="五、在fastboot模式下刷入OpenWrt或者debian系统"><a href="#五、在fastboot模式下刷入OpenWrt或者debian系统" class="headerlink" title="五、在fastboot模式下刷入OpenWrt或者debian系统"></a>五、在fastboot模式下刷入OpenWrt或者debian系统</h3><h2 id="一些命令介绍"><a href="#一些命令介绍" class="headerlink" title="一些命令介绍"></a>一些命令介绍</h2><h3 id="使用adb-or-fastboot命令进入高通的9008-edl-模式"><a href="#使用adb-or-fastboot命令进入高通的9008-edl-模式" class="headerlink" title="使用adb or fastboot命令进入高通的9008(edl)模式"></a>使用adb or fastboot命令进入高通的9008(edl)模式</h3><ul>
 <li><p>adb reboot edl</p>
 </li>
@@ -324,7 +324,7 @@ var _hmt = _hmt || [];
 <h3 id="安卓系统下关机"><a href="#安卓系统下关机" class="headerlink" title="安卓系统下关机"></a>安卓系统下关机</h3><p>adb shell reboot -p</p>
 <h2 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h2><p>1.拆下EMCP芯片，换上新的EMCP芯片，注意芯片的类型，BGA封装类型</p>
 <p>2.换好EMCP芯片后，用miko_service_tool_pro刷入安卓的备份包，再用miko_service_tool_pro清除boot分区</p>
-<p><img src="/images/erase_boot_patition.jpg" alt="清除boot分区"></p>
+<p><img src="/blog/images/erase_boot_patition.jpg" alt="清除boot分区"></p>
 <p>3.重启机器后自动进入fastboot模式(必需安装好驱动，比如vivo9008drivers.exe)，再刷入debian或者openwrt系统</p>
 
       
@@ -378,7 +378,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2024-12/tai-shan-pi.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2024-12/tai-shan-pi.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -388,7 +388,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2024-11/Install-NET-Framework-3-5-Error.html" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2024-11/Install-NET-Framework-3-5-Error.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">How to Fix .NET Framework 3.5 Error 0x80070490</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -501,7 +501,7 @@ var _hmt = _hmt || [];
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
-		root: "/",
+		root: "/blog/",
 		innerArchive: true,
 		showTags: true
 	}
@@ -649,6 +649,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">diskgenius</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">security</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">div</a>
               </li>
              
@@ -757,19 +769,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Proxy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Proxy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,19 +949,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">diskgenius</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
               </li>
              
               <li class="article-tag-list-item">
