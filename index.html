@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:68</p>
+			<p>总文章数:69</p>
 		</div>
 		
 
@@ -229,6 +229,156 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-compile-and-install-python3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025-02/compile-and-install-python3.html">Ubuntu系统下编译安装Python 3.7.15</a>
+    </h1>
+  
+
+        
+        <a href="/2025-02/compile-and-install-python3.html" class="archive-article-date">
+  	<time datetime="2025-02-16T01:39:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-16</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">548字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">2分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="在Ubuntu系统下编译安装Python-3-7-15的步骤如下："><a href="#在Ubuntu系统下编译安装Python-3-7-15的步骤如下：" class="headerlink" title="在Ubuntu系统下编译安装Python 3.7.15的步骤如下："></a>在Ubuntu系统下编译安装Python 3.7.15的步骤如下：</h2><hr>
+<h3 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1. 安装依赖"></a><strong>1. 安装依赖</strong></h3><p>确保系统已安装编译所需的工具和库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y build-essential zlib1g-dev libncurses5-dev \</span><br><span class="line">libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev \</span><br><span class="line">libbz2-dev liblzma-dev wget curl</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-下载Python源码"><a href="#2-下载Python源码" class="headerlink" title="2. 下载Python源码"></a><strong>2. 下载Python源码</strong></h3><p>使用<code>wget</code>下载指定版本的源码包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.7.15/Python-3.7.15.tar.xz</span><br></pre></td></tr></table></figure>
+
+<p>解压并进入目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xf Python-3.7.15.tar.xz</span><br><span class="line"><span class="built_in">cd</span> Python-3.7.15</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-配置编译选项"><a href="#3-配置编译选项" class="headerlink" title="3. 配置编译选项"></a><strong>3. 配置编译选项</strong></h3><p>运行配置脚本，启用优化并指定安装路径（默认 <code>/usr/local</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --enable-optimizations</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>--enable-optimizations</code> 会优化性能，但编译时间更长。</li>
+</ul>
+<hr>
+<h3 id="4-编译并安装"><a href="#4-编译并安装" class="headerlink" title="4. 编译并安装"></a><strong>4. 编译并安装</strong></h3><p>编译源码（使用多核加速）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j $(nproc)</span><br></pre></td></tr></table></figure>
+
+<p>安装到系统（避免覆盖默认Python，使用 <code>altinstall</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make altinstall</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>重要</strong>：使用 <code>altinstall</code> 不会替换系统自带的 <code>python3</code> 命令。</li>
+</ul>
+<hr>
+<h3 id="5-验证安装"><a href="#5-验证安装" class="headerlink" title="5. 验证安装"></a><strong>5. 验证安装</strong></h3><p>检查安装是否成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.7 -V</span><br></pre></td></tr></table></figure>
+<p>输出应为：<code>Python 3.7.15</code></p>
+<hr>
+<h3 id="6-安装pip（可选）"><a href="#6-安装pip（可选）" class="headerlink" title="6. 安装pip（可选）"></a><strong>6. 安装pip（可选）</strong></h3><p>如果未自动安装pip，手动安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.7 -m ensurepip --upgrade</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-创建虚拟环境（可选）"><a href="#7-创建虚拟环境（可选）" class="headerlink" title="7. 创建虚拟环境（可选）"></a><strong>7. 创建虚拟环境（可选）</strong></h3><p>使用新安装的Python创建虚拟环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python3.7 -m venv myenv</span><br><span class="line"><span class="built_in">source</span> myenv/bin/activate</span><br><span class="line"></span><br><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="常见问题解决"><a href="#常见问题解决" class="headerlink" title="常见问题解决"></a><strong>常见问题解决</strong></h3><p>1.<strong>依赖缺失错误</strong><br>根据编译时的错误提示安装缺失的包（如 <code>libsqlite3-dev</code>）。</p>
+<p>2.<strong>无法找到 <code>python3.7</code> 命令</strong><br>检查 <code>/usr/local/bin</code> 是否在 <code>PATH</code> 环境变量中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
+<p>3.<strong>卸载已安装的版本</strong><br>手动删除 <code>/usr/local/bin/python3.7</code> 和相关文件。</p>
+<hr>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
+<li>如果系统已有其他Python版本，建议使用 <code>update-alternatives</code> 管理多版本。</li>
+<li>Python 3.7已结束官方支持（EOL），建议升级到更新的版本（如 3.8+）。</li>
+</ul>
+<p>完成以上步骤后，即可在Ubuntu系统中使用Python 3.7.15。</p>
+<h2 id="python版本切换"><a href="#python版本切换" class="headerlink" title="python版本切换"></a>python版本切换</h2><p>电脑中存在多个版本，在进行不同功能包运行时，则需要进行版本切换</p>
+<p>设置默认Python版本（可选）： 如果您希望将Python 3.11设置为默认的Python版本，您需要更新update-alternatives。</p>
+<p>输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/<span class="built_in">local</span>/bin/python3.7 1</span><br><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 2</span><br><span class="line">sudo update-alternatives --config python3</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025-02/compile-and-install-python3.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-connect-to-host-github-com-port-22-timed-out" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1251,132 +1401,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-program-problem-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024-09/program-problem-01.html">2022年信息技术考试模拟题-算法与程序设计题01</a>
-    </h1>
-  
-
-        
-        <a href="/2024-09/program-problem-01.html" class="archive-article-date">
-  	<time datetime="2024-09-09T06:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-09</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">476字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">班级最后一排有6名学生，体育委员想编程找出最高身高和最矮身高。请根据算法需求完善以下程序，实现功能：键盘依次输入6名同学身高，输出最高身高和最矮身高的值。</span><br><span class="line"></span><br><span class="line">height=[]</span><br><span class="line">for i in range(0, (1) )</span><br><span class="line">    x=float(input(&quot;请输入身高：&quot;))</span><br><span class="line">    height.append( (2) )</span><br><span class="line">print(max( (3) )，min(height))</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2024-09/program-problem-01.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序设计</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/信息技术课程//" class="article-tag-list-link color2">信息技术课程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024-09/program-problem-01.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1571,18 +1595,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">diskgenius</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">security</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1874,7 +1886,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">diskgenius</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">security</a>
               </li>
              
               <li class="article-tag-list-item">
