@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:69</p>
+			<p>总文章数:70</p>
 		</div>
 		
 
@@ -229,6 +229,156 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-git_End-of-line_marker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2023-03/git_End-of-line_marker.html">git的行尾的换行结束符处理</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2023-03/git_End-of-line_marker.html" class="archive-article-date">
+  	<time datetime="2023-03-14T14:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-14</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">4分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="/blog/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>解释一些概念：</p>
+<p>CRLF：回车换行。CR：即平常说的\r，回车；LF：即\n，换行。</p>
+<p>windows下换行符为CRLF，unix系统（如linux，现在的mac等）用LF。</p>
+<p>git服务器，一般是在linux上部署。</p>
+<p>git客户端，即我们的开发环境，个人工作环境，集成部署发布环境等，可能是windows、mac、linux等。</p>
+<p>本文以git客户端在windows下环境说明，在unix环境就不太可能遇到我说的这个问题了。</p>
+<p>以我个人机器的默认git客户端配置来说，在检出和检入时，行尾换行符会做相关转换。如：我在windows下写的代码，提交仓库时，行尾的换行符CRLF会转换为LF（官方术语：normalization，标准化），这个时间点我测试是在提交代码到本地仓库的时候，不是推送远程。当从远程拉取代码到本地的时候，行尾换行符会转换（官方术语：conversion，转换），从LF到CRLF，因为我是windows环境，这个是自动识别转换了。</p>
+<p>接下来说个业务场景，抛砖引玉。</p>
+<h2 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h2><p>我在windows下写了个应用启停的shell脚本，提交到git仓库。测试人员会拉取代码，将项目打包部署到测试环境然后使用这个脚本启动。</p>
+<p>问题：在windows下换行符是CRLF，提交仓库时转换为LF。但测试人员用的也是windows，git默认配置，拉下来转换为CRLF。将这个脚本上传到服务器执行就会出问题，格式不正确，报错类似结束符不正确：\r之类的。</p>
+<p>用vim -b打开，看到报错的行尾有个^M之类的符号等。</p>
+<p>比较low的方法就是用个转换工具（抱歉，名字突然忘了，建议上网搜一下），将windows格式转换为unix格式，或者vim打开的时候在编辑模式输入：set fileformat&#x3D;unix回车保存退出即可。</p>
+<p>现在，期望的是，不要发生这种转换，测试人员下载下来的时候换行符就是LF，上传到linux执行没有问题。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>我最开始遇到这类问题，在网上搜过，也了解了下面这个配置：算是自动转换的开关配置。其实对这个场景用处不大，因为，我只需要对其中的几个文件进行处理，并且这个配置只作用于我的客户端，不能让所有协同开发人员都要关心这个配置问题。</p>
+<p>git config –global core.autocrlf  [true | input | false] </p>
+<p>一个很理想的解决办法：</p>
+<p>在工程的目录下，建立一个文件，文件名：.gitattributes，和.gitignore很像。</p>
+<p>内容如下：检入进行标准化转换为LF，但检出不转换。</p>
+<p>*.sh     eol&#x3D;lf</p>
+<p>.gitattributes，是定义每个路径的属性配置文件，有很多属性，说明：<a target="_blank" rel="noopener" href="http://schacon.github.io/git/gitattributes.html">http://schacon.github.io/git/gitattributes.html</a></p>
+<p>上面链接文档，说的很清楚，没必要重复对这个配置进行更多解释，内容也不少，有需要查一下。</p>
+<p>说下这个问题：</p>
+<p>关于行尾结束符这里，有两个属性参数可以选择设置，每个属性也有几个不同的值。上面的配置：*.sh eol&#x3D;lf，就是指当前目录下所有sh结尾的文件，设置属性eol，它的值是lf：检入时标准化为LF，检出时阻止转换为CRLF.</p>
+<p>eol</p>
+<p>This attribute sets a specific line-ending style to be used in the working directory. It enables end-of-line normalization without any content checks, effectively setting the text attribute.</p>
+<p>Set to string value “crlf”</p>
+<p>This setting forces git to normalize line endings for this file on checkin and convert them to CRLF when the file is checked out.</p>
+<p>Set to string value “lf”</p>
+<p>This setting forces git to normalize line endings to LF on checkin and prevents conversion to CRLF when the file is checked out.</p>
+<p>这样就解决问题了。</p>
+<p>其它属性说明或示例等看上面的链接自查即可。</p>
+<p>最后，说下.gitattributes文件位置，不一定必须在工程根目录下，另外该设置项也有优先级（如，全局范围、系统范围、该配置文件距离作用文件的路径距离等都有影响）。</p>
+<p>本文仅是作为一个场景示例说明和解决办法。如遇类似问题，可参考相关属性设置或配置项灵活解决。</p>
+<p>转自 <a target="_blank" rel="noopener" href="https://blog.csdn.net/x763795151/article/details/107775410">https://blog.csdn.net/x763795151/article/details/107775410</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">LF</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CRLF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2023-03/git_End-of-line_marker.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-div-button" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -428,7 +578,7 @@ var _hmt = _hmt || [];
 
 <h2 id="三-测试"><a href="#三-测试" class="headerlink" title="三 测试"></a>三 测试</h2><p>node -V</p>
 <h2 id="四-node命令简介"><a href="#四-node命令简介" class="headerlink" title="四 node命令简介"></a>四 node命令简介</h2><p>npm install -g yarn 安装</p>
-<p>npm install -g <a href="mailto:&#110;&#112;&#109;&#x40;&#57;&#46;&#49;&#x2e;&#x32;">&#110;&#112;&#109;&#x40;&#57;&#46;&#49;&#x2e;&#x32;</a> 安装指定版本</p>
+<p>npm install -g <a href="mailto:&#110;&#112;&#x6d;&#x40;&#57;&#x2e;&#49;&#46;&#x32;">&#110;&#112;&#x6d;&#x40;&#57;&#x2e;&#49;&#46;&#x32;</a> 安装指定版本</p>
 <h2 id="五-安装-Node应用的进程管理器（自选）"><a href="#五-安装-Node应用的进程管理器（自选）" class="headerlink" title="五 安装 Node应用的进程管理器（自选）."></a>五 安装 Node应用的进程管理器（自选）.</h2><p>pm2 是一个带有负载均衡功能的Node应用的进程管理器. </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install -g pm2</span><br><span class="line"><span class="comment">#建立系统命令</span></span><br><span class="line">ln -s /path_to&#123;****&#125;l/node/bin/pm2 /usr/<span class="built_in">local</span>/bin/pm2</span><br><span class="line"><span class="comment">#启动node项目</span></span><br><span class="line">pm2 start  xxx/app.js</span><br><span class="line"><span class="comment">#重启程序</span></span><br><span class="line">pm2 restart xxx/app.js</span><br><span class="line"><span class="comment">#关闭程序</span></span><br><span class="line">pm2 stop xxx/app.js</span><br></pre></td></tr></table></figure>
       
@@ -1306,140 +1456,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/blog/2022-03/vue-vite-project.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-esp8266-01s" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2022-02/esp8266-01s.html">ESP8266_01S烧录固件教程</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2022-02/esp8266-01s.html" class="archive-article-date">
-  	<time datetime="2022-02-14T04:53:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-14</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">341字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="/blog/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.jsdelivr.net/gh/kangzai228/figure_bed/images/20220214125036.png"></p>
-        
-          <a class="article-more-a" href="/blog/2022-02/esp8266-01s.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ESP8266</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Arduino</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">烧录固件</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/blog/categories/物联网//" class="article-tag-list-link color4">物联网</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2022-02/esp8266-01s.html">展开全文 >></a>
         </p>
       
 
