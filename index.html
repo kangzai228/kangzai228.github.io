@@ -253,7 +253,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">548字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">603字</span>
     </span>
   </span>
 
@@ -282,60 +282,21 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="在Ubuntu系统下编译安装Python-3-7-15的步骤如下："><a href="#在Ubuntu系统下编译安装Python-3-7-15的步骤如下：" class="headerlink" title="在Ubuntu系统下编译安装Python 3.7.15的步骤如下："></a>在Ubuntu系统下编译安装Python 3.7.15的步骤如下：</h2><hr>
-<h3 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1. 安装依赖"></a><strong>1. 安装依赖</strong></h3><p>确保系统已安装编译所需的工具和库：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y build-essential zlib1g-dev libncurses5-dev \</span><br><span class="line">libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev \</span><br><span class="line">libbz2-dev liblzma-dev wget curl</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="2-下载Python源码"><a href="#2-下载Python源码" class="headerlink" title="2. 下载Python源码"></a><strong>2. 下载Python源码</strong></h3><p>使用<code>wget</code>下载指定版本的源码包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.7.15/Python-3.7.15.tar.xz</span><br></pre></td></tr></table></figure>
-
-<p>解压并进入目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xf Python-3.7.15.tar.xz</span><br><span class="line"><span class="built_in">cd</span> Python-3.7.15</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="3-配置编译选项"><a href="#3-配置编译选项" class="headerlink" title="3. 配置编译选项"></a><strong>3. 配置编译选项</strong></h3><p>运行配置脚本，启用优化并指定安装路径（默认 <code>/usr/local</code>）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --enable-optimizations</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>--enable-optimizations</code> 会优化性能，但编译时间更长。</li>
-</ul>
-<hr>
-<h3 id="4-编译并安装"><a href="#4-编译并安装" class="headerlink" title="4. 编译并安装"></a><strong>4. 编译并安装</strong></h3><p>编译源码（使用多核加速）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j $(nproc)</span><br></pre></td></tr></table></figure>
-
-<p>安装到系统（避免覆盖默认Python，使用 <code>altinstall</code>）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make altinstall</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>重要</strong>：使用 <code>altinstall</code> 不会替换系统自带的 <code>python3</code> 命令。</li>
-</ul>
-<hr>
-<h3 id="5-验证安装"><a href="#5-验证安装" class="headerlink" title="5. 验证安装"></a><strong>5. 验证安装</strong></h3><p>检查安装是否成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.7 -V</span><br></pre></td></tr></table></figure>
-<p>输出应为：<code>Python 3.7.15</code></p>
-<hr>
-<h3 id="6-安装pip（可选）"><a href="#6-安装pip（可选）" class="headerlink" title="6. 安装pip（可选）"></a><strong>6. 安装pip（可选）</strong></h3><p>如果未自动安装pip，手动安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.7 -m ensurepip --upgrade</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="7-创建虚拟环境（可选）"><a href="#7-创建虚拟环境（可选）" class="headerlink" title="7. 创建虚拟环境（可选）"></a><strong>7. 创建虚拟环境（可选）</strong></h3><p>使用新安装的Python创建虚拟环境：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python3.7 -m venv myenv</span><br><span class="line"><span class="built_in">source</span> myenv/bin/activate</span><br><span class="line"></span><br><span class="line">deactivate</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="常见问题解决"><a href="#常见问题解决" class="headerlink" title="常见问题解决"></a><strong>常见问题解决</strong></h3><p>1.<strong>依赖缺失错误</strong><br>根据编译时的错误提示安装缺失的包（如 <code>libsqlite3-dev</code>）。</p>
-<p>2.<strong>无法找到 <code>python3.7</code> 命令</strong><br>检查 <code>/usr/local/bin</code> 是否在 <code>PATH</code> 环境变量中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
-
-<p>3.<strong>卸载已安装的版本</strong><br>手动删除 <code>/usr/local/bin/python3.7</code> 和相关文件。</p>
-<hr>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h3><ul>
-<li>如果系统已有其他Python版本，建议使用 <code>update-alternatives</code> 管理多版本。</li>
-<li>Python 3.7已结束官方支持（EOL），建议升级到更新的版本（如 3.8+）。</li>
-</ul>
-<p>完成以上步骤后，即可在Ubuntu系统中使用Python 3.7.15。</p>
-<h2 id="python版本切换"><a href="#python版本切换" class="headerlink" title="python版本切换"></a>python版本切换</h2><p>电脑中存在多个版本，在进行不同功能包运行时，则需要进行版本切换</p>
-<p>设置默认Python版本（可选）： 如果您希望将Python 3.11设置为默认的Python版本，您需要更新update-alternatives。</p>
-<p>输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/<span class="built_in">local</span>/bin/python3.7 1</span><br><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 2</span><br><span class="line">sudo update-alternatives --config python3</span><br></pre></td></tr></table></figure>
+        <h2 id="ubuntu安装软件常用的方法有哪些"><a href="#ubuntu安装软件常用的方法有哪些" class="headerlink" title="ubuntu安装软件常用的方法有哪些?"></a>ubuntu安装软件常用的方法有哪些?</h2><ol>
+<li><p>使用 APT 包管理器（命令行）</p>
+</li>
+<li><p>使用 Ubuntu 软件中心（图形界面）</p>
+</li>
+<li><p>添加 PPA 仓库（第三方源）</p>
+</li>
+<li><p>手动安装 .deb 包</p>
+</li>
+<li><p>源码编译安装</p>
+</li>
+</ol>
+        
+          <a class="article-more-a" href="/blog/2025-02/compile-and-install-python3.html#more">more >></a>
+        
       
 
       
@@ -1475,6 +1436,66 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JINJA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Vue3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">预告</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Max2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Root</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Docusaurus</a>
               </li>
              
@@ -1575,10 +1596,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">div</a>
               </li>
              
@@ -1639,19 +1656,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">助手</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">软件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">预告</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1668,10 +1677,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CRLF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1712,10 +1717,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">FRONTEND</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1836,46 +1837,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Extension</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JINJA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Vue3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">API</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Max2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Root</a>
               </li>
             
             <div class="clearfix"></div>
