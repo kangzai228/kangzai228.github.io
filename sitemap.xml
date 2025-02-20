@@ -830,6 +830,20 @@
   </url>
   
   <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Windows/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Gitbook/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://router.5uks.net:5950/blog/tags/git/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
@@ -845,20 +859,6 @@
   
   <url>
     <loc>http://router.5uks.net:5950/blog/tags/CRLF/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Windows/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Gitbook/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
