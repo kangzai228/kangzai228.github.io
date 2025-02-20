@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://router.5uks.net:5950/blog/2025-02/how-to-install-software-on-the-ubuntu-system.html</loc>
+    
+    <lastmod>2025-02-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://router.5uks.net:5950/blog/2025-02/compile-and-install-python3.html</loc>
     
     <lastmod>2025-02-16</lastmod>
@@ -522,6 +529,111 @@
   </url>
   
   <url>
+    <loc>http://router.5uks.net:5950/blog/tags/VUE/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/FLASK/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/JINJA/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Windows/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/bat/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/windows/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/MySQL/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/database/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/JavaScript/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/API/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/%E9%A2%84%E5%91%8A/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Max2/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Root/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Vue3/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Vite/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://router.5uks.net:5950/blog/tags/JsRpc/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
@@ -683,13 +795,6 @@
   </url>
   
   <url>
-    <loc>http://router.5uks.net:5950/blog/tags/windows/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://router.5uks.net:5950/blog/tags/div/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
@@ -795,13 +900,6 @@
   </url>
   
   <url>
-    <loc>http://router.5uks.net:5950/blog/tags/JavaScript/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://router.5uks.net:5950/blog/tags/%E5%8A%A9%E6%89%8B/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
@@ -816,14 +914,14 @@
   </url>
   
   <url>
-    <loc>http://router.5uks.net:5950/blog/tags/%E9%A2%84%E5%91%8A/</loc>
+    <loc>http://router.5uks.net:5950/blog/tags/Github/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Github/</loc>
+    <loc>http://router.5uks.net:5950/blog/tags/Gitbook/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -845,20 +943,6 @@
   
   <url>
     <loc>http://router.5uks.net:5950/blog/tags/CRLF/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Windows/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Gitbook/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -922,13 +1006,6 @@
   
   <url>
     <loc>http://router.5uks.net:5950/blog/tags/FRONTEND/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/MySQL/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1144,76 +1221,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/VUE/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/FLASK/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/JINJA/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Vue3/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Vite/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/API/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/bat/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/database/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Max2/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Root/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
@@ -1231,7 +1238,35 @@
   </url>
   
   <url>
+    <loc>http://router.5uks.net:5950/blog/categories/Windows%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/categories/MySQL/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/categories/JavaScript/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://router.5uks.net:5950/blog/categories/Python3/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/categories/MySQL/database/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1309,34 +1344,6 @@
   
   <url>
     <loc>http://router.5uks.net:5950/blog/categories/Python/Automation/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/categories/JavaScript/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/categories/Windows%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/categories/MySQL/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/categories/MySQL/database/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
