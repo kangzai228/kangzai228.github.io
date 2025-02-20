@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://router.5uks.net:5950/blog">
   <title>高通410 wifi棒子或者电池机 | 飞鹰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍改造步骤一、开启adb二、miko_service_tool_pro备份和QualcommPremiumTool分区备份三、获取root权限1.ARDC投屏 2.安装Launcher.apk Magisk-v22.1.apk 3.将第二步部备份出来的boot.img push到wifi设备上 1adb push E:\Portable_wifi\xunyou_410\boot.img &#x2F;s">
+  <meta name="description" content="介绍前言最近我在网上看到一款骁龙 410 SoC 的随身 WiFi，性价比高，领券后十元以下就能买到。更重要的是，这款 SoC 的随身 WiFi 能刷 Debian 系统。你可以在上面搭建网站甚至 MC 服务器，也可以接上扩展版当 Linux 开发板用，可玩性很高。 本文记录一下刷机的步骤和注意事项。 硬件配置这款随身 WiFi 配置如下： SoC	骁龙410（MSM8916）四核 Cortex-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高通410 wifi棒子或者电池机">
 <meta property="og:url" content="http://router.5uks.net:5950/blog/2024-12/ufi_410.html">
 <meta property="og:site_name" content="飞鹰的博客">
-<meta property="og:description" content="介绍改造步骤一、开启adb二、miko_service_tool_pro备份和QualcommPremiumTool分区备份三、获取root权限1.ARDC投屏 2.安装Launcher.apk Magisk-v22.1.apk 3.将第二步部备份出来的boot.img push到wifi设备上 1adb push E:\Portable_wifi\xunyou_410\boot.img &#x2F;s">
+<meta property="og:description" content="介绍前言最近我在网上看到一款骁龙 410 SoC 的随身 WiFi，性价比高，领券后十元以下就能买到。更重要的是，这款 SoC 的随身 WiFi 能刷 Debian 系统。你可以在上面搭建网站甚至 MC 服务器，也可以接上扩展版当 Linux 开发板用，可玩性很高。 本文记录一下刷机的步骤和注意事项。 硬件配置这款随身 WiFi 配置如下： SoC	骁龙410（MSM8916）四核 Cortex-">
 <meta property="og:locale">
 <meta property="og:image" content="http://router.5uks.net:5950/blog/images/xh1.jpg">
 <meta property="og:image" content="http://router.5uks.net:5950/blog/images/xh2.jpg">
@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">656字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">796字</span>
     </span>
   </span>
 
@@ -269,7 +269,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">2分</span>
+      <span class="post-count" style="font-size: 16px;color: grey">3分</span>
     </span>
   </span>
 </div>
@@ -289,9 +289,13 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近我在网上看到一款骁龙 410 SoC 的随身 WiFi，性价比高，领券后十元以下就能买到。更重要的是，这款 SoC 的随身 WiFi 能刷 Debian 系统。你可以在上面搭建网站甚至 MC 服务器，也可以接上扩展版当 Linux 开发板用，可玩性很高。</p>
+<p>本文记录一下刷机的步骤和注意事项。</p>
+<h3 id="硬件配置"><a href="#硬件配置" class="headerlink" title="硬件配置"></a>硬件配置</h3><p>这款随身 WiFi 配置如下：</p>
+<p>SoC	骁龙410（MSM8916）四核 Cortex-A53，64 位<br>内存	512MB<br>存储	4GB<br>版号	UFI001C、UFI001B、UFI003、UZ801、SP970</p>
+<span id="more"></span>
 
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h2 id="改造步骤"><a href="#改造步骤" class="headerlink" title="改造步骤"></a>改造步骤</h2><h3 id="一、开启adb"><a href="#一、开启adb" class="headerlink" title="一、开启adb"></a>一、开启adb</h3><h3 id="二、miko-service-tool-pro备份和QualcommPremiumTool分区备份"><a href="#二、miko-service-tool-pro备份和QualcommPremiumTool分区备份" class="headerlink" title="二、miko_service_tool_pro备份和QualcommPremiumTool分区备份"></a>二、miko_service_tool_pro备份和QualcommPremiumTool分区备份</h3><h3 id="三、获取root权限"><a href="#三、获取root权限" class="headerlink" title="三、获取root权限"></a>三、获取root权限</h3><p>1.ARDC投屏</p>
+<h2 id="改造步骤"><a href="#改造步骤" class="headerlink" title="改造步骤"></a>改造步骤</h2><h3 id="一、开启adb"><a href="#一、开启adb" class="headerlink" title="一、开启adb"></a>一、开启adb</h3><h3 id="二、miko-service-tool-pro备份和QualcommPremiumTool分区备份"><a href="#二、miko-service-tool-pro备份和QualcommPremiumTool分区备份" class="headerlink" title="二、miko_service_tool_pro备份和QualcommPremiumTool分区备份"></a>二、miko_service_tool_pro备份和QualcommPremiumTool分区备份</h3><h3 id="三、获取root权限"><a href="#三、获取root权限" class="headerlink" title="三、获取root权限"></a>三、获取root权限</h3><p>1.ARDC投屏</p>
 <p>2.安装Launcher.apk Magisk-v22.1.apk</p>
 <p>3.将第二步部备份出来的boot.img push到wifi设备上</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push E:\Portable_wifi\xunyou_410\boot.img /sdcard/Download/</span><br></pre></td></tr></table></figure>
