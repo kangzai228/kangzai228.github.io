@@ -255,7 +255,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">428字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">502字</span>
     </span>
   </span>
 
@@ -264,7 +264,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+      <span class="post-count" style="font-size: 16px;color: grey">2分</span>
     </span>
   </span>
 </div>
@@ -300,12 +300,16 @@ var _hmt = _hmt || [];
 <h2 id="用户环境变量"><a href="#用户环境变量" class="headerlink" title="用户环境变量"></a>用户环境变量</h2><p>OLLAMA_HOST的值为0.0.0.0:11434</p>
 <p>OLLAMA_MODELS的值G:\ollama\models</p>
 <p>将ollama安装的路径加入到path</p>
-<h2 id="python什么版本适合安装open-webui？"><a href="#python什么版本适合安装open-webui？" class="headerlink" title="python什么版本适合安装open-webui？"></a>python什么版本适合安装open-webui？</h2><p>Python 3.10 或 3.11：平衡了稳定性和新特性支持，适合大多数项目。</p>
+<hr>
+<h2 id="安装open-webui"><a href="#安装open-webui" class="headerlink" title="安装open-webui"></a>安装open-webui</h2><blockquote>
+<p>Open WebUI是一个可扩展、功能丰富、用户友好的自托管AI平台，旨在完全离线运行。它支持各种LLM运行程序，如Ollama和OpenAI兼容的API，内置RAG推理引擎，使其成为一个强大的AI部署解决方案。</p>
+</blockquote>
+<h3 id="python什么版本适合安装open-webui？"><a href="#python什么版本适合安装open-webui？" class="headerlink" title="python什么版本适合安装open-webui？"></a>python什么版本适合安装open-webui？</h3><p>Python 3.10 或 3.11：平衡了稳定性和新特性支持，适合大多数项目。</p>
 <p>避免使用 Python 3.12（除非明确支持）：部分依赖可能尚未适配最新版本。</p>
-<h2 id="python虚拟环境"><a href="#python虚拟环境" class="headerlink" title="python虚拟环境"></a>python虚拟环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Program Files\Python311\python.exe&quot;</span> -m venv .\.venv</span><br><span class="line">.\.venv\Scripts\activate.bat</span><br><span class="line">python.exe -m pip install --upgrade pip</span><br><span class="line">pip install open-webui==0.2.0</span><br><span class="line"></span><br><span class="line">pip install open-webui --upgrade</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="python虚拟环境"><a href="#python虚拟环境" class="headerlink" title="python虚拟环境"></a>python虚拟环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Program Files\Python311\python.exe&quot;</span> -m venv .\.venv</span><br><span class="line">.\.venv\Scripts\activate.bat</span><br><span class="line">python.exe -m pip install --upgrade pip</span><br><span class="line">pip install open-webui==0.2.0</span><br><span class="line"></span><br><span class="line">pip install open-webui --upgrade</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>open-webui serve</p>
-<h3 id="解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file"><a href="#解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file" class="headerlink" title="解决OSError: We couldn‘t connect to ‘https://huggingface.co‘ to load this file"></a>解决OSError: We couldn‘t connect to ‘<a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co</a>‘ to load this file</h3><p>这个问题是由网络引起的，解决方法如下</p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>open-webui serve</p>
+<h4 id="解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file"><a href="#解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file" class="headerlink" title="解决OSError: We couldn‘t connect to ‘https://huggingface.co‘ to load this file"></a>解决OSError: We couldn‘t connect to ‘<a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co</a>‘ to load this file</h4><p>这个问题是由网络引起的，解决方法如下</p>
 <p>1.找到环境中的constants.py文件</p>
 <p>这个路径是你当前环境中的路径，比如作者的：</p>
 <p>&#x2F;root&#x2F;miniconda3&#x2F;envs&#x2F;owl2&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;huggingface_hub&#x2F;constants.py</p>
