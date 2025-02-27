@@ -253,7 +253,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">320字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">428字</span>
     </span>
   </span>
 
@@ -282,27 +282,18 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="ollama软件下载"><a href="#ollama软件下载" class="headerlink" title="ollama软件下载"></a>ollama软件下载</h2><p>下载网址 <a target="_blank" rel="noopener" href="https://www.ollama.com/download">https://www.ollama.com/download</a></p>
-<h2 id="Ollama自定义安装路径"><a href="#Ollama自定义安装路径" class="headerlink" title="Ollama自定义安装路径"></a>Ollama自定义安装路径</h2><p>然后在CMD窗口输入：OllamaSetup.exe &#x2F;DIR&#x3D;E:\MySoftware\Ollama</p>
-<h2 id="用户环境变量"><a href="#用户环境变量" class="headerlink" title="用户环境变量"></a>用户环境变量</h2><p>OLLAMA_HOST的值为0.0.0.0:11434</p>
-<p>OLLAMA_MODELS的值G:\ollama\models</p>
-<p>将ollama安装的路径加入到path</p>
-<h2 id="python什么版本适合安装open-webui？"><a href="#python什么版本适合安装open-webui？" class="headerlink" title="python什么版本适合安装open-webui？"></a>python什么版本适合安装open-webui？</h2><p>Python 3.10 或 3.11：平衡了稳定性和新特性支持，适合大多数项目。</p>
-<p>避免使用 Python 3.12（除非明确支持）：部分依赖可能尚未适配最新版本。</p>
-<h2 id="python虚拟环境"><a href="#python虚拟环境" class="headerlink" title="python虚拟环境"></a>python虚拟环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Program Files\Python311\python.exe&quot;</span> -m venv .\.venv</span><br><span class="line">.\.venv\Scripts\activate.bat</span><br><span class="line">python.exe -m pip install --upgrade pip</span><br><span class="line">pip install open-webui==0.2.0</span><br><span class="line"></span><br><span class="line">pip install open-webui --upgrade</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>open-webui serve</p>
-<h3 id="解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file"><a href="#解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file" class="headerlink" title="解决OSError: We couldn‘t connect to ‘https://huggingface.co‘ to load this file"></a>解决OSError: We couldn‘t connect to ‘<a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co</a>‘ to load this file</h3><p>这个问题是由网络引起的，解决方法如下</p>
-<p>1.找到环境中的constants.py文件</p>
-<p>这个路径是你当前环境中的路径，比如作者的：</p>
-<p>&#x2F;root&#x2F;miniconda3&#x2F;envs&#x2F;owl2&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;huggingface_hub&#x2F;constants.py</p>
-<p>格式如下：</p>
-<p>conda路径&#x2F;env&#x2F;环境名称&#x2F;lib&#x2F;python版本&#x2F;site-packages&#x2F;huggingface_hub&#x2F;constants.py</p>
-<p>2.修改HUGGINGFACE_CO_URL_HOME和_HF_DEFAULT_ENDPOINT</p>
-<p>将HUGGINGFACE_CO_URL_HOME修改为HUGGINGFACE_CO_URL_HOME &#x3D; “<a target="_blank" rel="noopener" href="https://hf-mirror.com/">https://hf-mirror.com/</a>“</p>
-<p>将_HF_DEFAULT_ENDPOINT修改为_HF_DEFAULT_ENDPOINT &#x3D; “<a target="_blank" rel="noopener" href="https://hf-mirror.com/">https://hf-mirror.com</a>“</p>
-<p>修改完毕后保存文件，重新运行程序</p>
-
+        <blockquote>
+<p>Ollama 是一个开源的本地大语言模型运行框架，专为在本地机器上便捷部署和运行大型语言模型（LLM）而设计。</p>
+</blockquote>
+<blockquote>
+<p>Ollama 支持多种操作系统，包括 macOS、Windows、Linux 以及通过 Docker 容器运行。</p>
+</blockquote>
+<blockquote>
+<p>Ollama 提供对模型量化的支持，可以显著降低显存要求，使得在普通家用计算机上运行大型模型成为可能。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/blog/2025-02/the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama.html#more">more >></a>
+        
       
 
       
