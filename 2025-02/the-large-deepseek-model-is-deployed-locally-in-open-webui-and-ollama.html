@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://router.5uks.net:5950/blog">
-  <title>高通410 wifi棒子或者电池机 | 飞鹰的博客</title>
+  <title>open-webui和ollama本地部署deepseek大模型 | 飞鹰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍前言最近我在网上看到一款骁龙 410 SoC 的随身 WiFi，性价比高，领券后十元以下就能买到。更重要的是，这款 SoC 的随身 WiFi 能刷 Debian 系统。你可以在上面搭建网站甚至 MC 服务器，也可以接上扩展版当 Linux 开发板用，可玩性很高。 本文记录一下刷机的步骤和注意事项。">
+  <meta name="description" content="ollama软件下载下载网址 https:&#x2F;&#x2F;www.ollama.com&#x2F;download Ollama自定义安装路径然后在CMD窗口输入：OllamaSetup.exe &#x2F;DIR&#x3D;E:\MySoftware\Ollama 用户环境变量OLLAMA_HOST的值为0.0.0.0:11434 OLLAMA_MODELS的值G:\ollama\models 将ollama安装的路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高通410 wifi棒子或者电池机">
-<meta property="og:url" content="http://router.5uks.net:5950/blog/2024-12/ufi_410.html">
+<meta property="og:title" content="open-webui和ollama本地部署deepseek大模型">
+<meta property="og:url" content="http://router.5uks.net:5950/blog/2025-02/the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama.html">
 <meta property="og:site_name" content="飞鹰的博客">
-<meta property="og:description" content="介绍前言最近我在网上看到一款骁龙 410 SoC 的随身 WiFi，性价比高，领券后十元以下就能买到。更重要的是，这款 SoC 的随身 WiFi 能刷 Debian 系统。你可以在上面搭建网站甚至 MC 服务器，也可以接上扩展版当 Linux 开发板用，可玩性很高。 本文记录一下刷机的步骤和注意事项。">
+<meta property="og:description" content="ollama软件下载下载网址 https:&#x2F;&#x2F;www.ollama.com&#x2F;download Ollama自定义安装路径然后在CMD窗口输入：OllamaSetup.exe &#x2F;DIR&#x3D;E:\MySoftware\Ollama 用户环境变量OLLAMA_HOST的值为0.0.0.0:11434 OLLAMA_MODELS的值G:\ollama\models 将ollama安装的路">
 <meta property="og:locale">
-<meta property="og:image" content="http://router.5uks.net:5950/blog/images/xh1.jpg">
-<meta property="og:image" content="http://router.5uks.net:5950/blog/images/xh2.jpg">
-<meta property="og:image" content="http://router.5uks.net:5950/blog/images/xh3.jpg">
-<meta property="og:image" content="http://router.5uks.net:5950/blog/images/erase_boot_patition.jpg">
-<meta property="article:published_time" content="2024-12-01T05:26:30.000Z">
-<meta property="article:modified_time" content="2024-12-01T05:26:30.000Z">
+<meta property="article:published_time" content="2025-02-27T08:01:58.000Z">
+<meta property="article:modified_time" content="2025-02-27T08:01:58.000Z">
 <meta property="article:author" content="kangzai228">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://router.5uks.net:5950/blog/images/xh1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="飞鹰的博客" type="application/atom+xml">
   
@@ -237,20 +232,20 @@ var _hmt = _hmt || [];
                       class="anm-canvas"></canvas>
                   </div>
                   <div id="js-content" class="content-ll">
-                    <article id="post-ufi_410" class="article article-type-post " itemscope itemprop="blogPost">
+                    <article id="post-the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      高通410 wifi棒子或者电池机
+      open-webui和ollama本地部署deepseek大模型
     </h1>
   
 
         
-        <a href="/blog/2024-12/ufi_410.html" class="archive-article-date">
-  	<time datetime="2024-12-01T05:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-12-01</time>
+        <a href="/blog/2025-02/the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama.html" class="archive-article-date">
+  	<time datetime="2025-02-27T08:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-27</time>
 </a>
         
         <!-- 开始添加字数统计-->
@@ -260,7 +255,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">796字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">320字</span>
     </span>
   </span>
 
@@ -269,7 +264,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">3分</span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
     </span>
   </span>
 </div>
@@ -289,47 +284,26 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近我在网上看到一款骁龙 410 SoC 的随身 WiFi，性价比高，领券后十元以下就能买到。更重要的是，这款 SoC 的随身 WiFi 能刷 Debian 系统。你可以在上面搭建网站甚至 MC 服务器，也可以接上扩展版当 Linux 开发板用，可玩性很高。</p>
-<p>本文记录一下刷机的步骤和注意事项。</p>
-<span id="more"></span>
+        <h2 id="ollama软件下载"><a href="#ollama软件下载" class="headerlink" title="ollama软件下载"></a>ollama软件下载</h2><p>下载网址 <a target="_blank" rel="noopener" href="https://www.ollama.com/download">https://www.ollama.com/download</a></p>
+<h2 id="Ollama自定义安装路径"><a href="#Ollama自定义安装路径" class="headerlink" title="Ollama自定义安装路径"></a>Ollama自定义安装路径</h2><p>然后在CMD窗口输入：OllamaSetup.exe &#x2F;DIR&#x3D;E:\MySoftware\Ollama</p>
+<h2 id="用户环境变量"><a href="#用户环境变量" class="headerlink" title="用户环境变量"></a>用户环境变量</h2><p>OLLAMA_HOST的值为0.0.0.0:11434</p>
+<p>OLLAMA_MODELS的值G:\ollama\models</p>
+<p>将ollama安装的路径加入到path</p>
+<h2 id="python什么版本适合安装open-webui？"><a href="#python什么版本适合安装open-webui？" class="headerlink" title="python什么版本适合安装open-webui？"></a>python什么版本适合安装open-webui？</h2><p>Python 3.10 或 3.11：平衡了稳定性和新特性支持，适合大多数项目。</p>
+<p>避免使用 Python 3.12（除非明确支持）：部分依赖可能尚未适配最新版本。</p>
+<h2 id="python虚拟环境"><a href="#python虚拟环境" class="headerlink" title="python虚拟环境"></a>python虚拟环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Program Files\Python311\python.exe&quot;</span> -m venv .\.venv</span><br><span class="line">.\.venv\Scripts\activate.bat</span><br><span class="line">python.exe -m pip install --upgrade pip</span><br><span class="line">pip install open-webui==0.2.0</span><br><span class="line"></span><br><span class="line">pip install open-webui --upgrade</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="硬件配置"><a href="#硬件配置" class="headerlink" title="硬件配置"></a>硬件配置</h3><p>这款随身 WiFi 配置如下：</p>
-<p>SoC	骁龙410（MSM8916）四核 Cortex-A53，64 位<br>内存	512MB<br>存储	4GB<br>版号	UFI001C、UFI001B、UFI003、UZ801、SP970</p>
-<h2 id="改造步骤"><a href="#改造步骤" class="headerlink" title="改造步骤"></a>改造步骤</h2><h3 id="一、开启adb"><a href="#一、开启adb" class="headerlink" title="一、开启adb"></a>一、开启adb</h3><h3 id="二、miko-service-tool-pro备份和QualcommPremiumTool分区备份"><a href="#二、miko-service-tool-pro备份和QualcommPremiumTool分区备份" class="headerlink" title="二、miko_service_tool_pro备份和QualcommPremiumTool分区备份"></a>二、miko_service_tool_pro备份和QualcommPremiumTool分区备份</h3><h3 id="三、获取root权限"><a href="#三、获取root权限" class="headerlink" title="三、获取root权限"></a>三、获取root权限</h3><p>1.ARDC投屏</p>
-<p>2.安装Launcher.apk Magisk-v22.1.apk</p>
-<p>3.将第二步部备份出来的boot.img push到wifi设备上</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push E:\Portable_wifi\xunyou_410\boot.img /sdcard/Download/</span><br></pre></td></tr></table></figure>
-
-<p>4.打开Magisk，安装–选择一个补丁文件，选择boot.img</p>
-<p>5.会生成magisk_patched-22100_xxxxx.img文件，将此文件pull到电脑上</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched-22100_3PBoH.img E:\Portable_wifi\xunyou_410</span><br></pre></td></tr></table></figure>
-
-<p>6.用QualcommPremiumTool将boot分区刷入此文件或者，随身WiFi安卓启动后adb reboot bootloader  (进入fastboot模式)，fastboot devices (查看设备是否连上),在fastboot模式下<code>fastboot flash boot magisk_patched.img</code></p>
-<h3 id="四、备份QCN文件"><a href="#四、备份QCN文件" class="headerlink" title="四、备份QCN文件"></a>四、备份QCN文件</h3><blockquote>
-<p>QCN 是高通机型存放手机 IMEI、MEID 和其它网络校准值数据的文件，它位于手机 EFS 分区内。如果因为某些意外操作导致 QCN 数据损坏，可能会因为丢失手机 IMEI 而不能识别 SIM 卡，出现手机无信号，不能上网和打电话等问题。</p>
-</blockquote>
-<p>这时如果有 QCN 备份文件，则可以通过恢复备份解决。甚至手机 NV 数据已损坏问题，也可能通过恢复 QCN 解决。</p>
-<p>用星海SVIP软件备份QCN文件，注意QCN文件大概500+KB，如果大小不对，多试几次</p>
-<p>打开星海SVIP，按照流程操作，高通强开端口点一键执行，设备管理器会多出一个901D端口。备份QCN基带文件的路径大概等个三五分钟即可，QCN文件大小在500多kb才是有效的，不行就多重复几次操作。每一个步骤要等随身WIFI有所反应才能执行下一步。</p>
-<p><img src="/blog/images/xh1.jpg"></p>
-<p>恢复QCN基带，使用ADB进入fastboot模式，也可以打开投屏软件，CMD栏输入 adb reboot bootloader 回车进入fastboot。进入fastboot后红灯常亮。</p>
-<p>首先擦除基带，打开星海SVIP，按流程操作，完成后设备会重启</p>
-<p><img src="/blog/images/xh2.jpg"></p>
-<p>设备重启后，执行高通强开1（901D），选择写入QCN，选择备份的QCN基带执行即可。不行就多重复几遍。</p>
-<p><img src="/blog/images/xh3.jpg"></p>
-<h3 id="五、在fastboot模式下刷入OpenWrt或者debian系统"><a href="#五、在fastboot模式下刷入OpenWrt或者debian系统" class="headerlink" title="五、在fastboot模式下刷入OpenWrt或者debian系统"></a>五、在fastboot模式下刷入OpenWrt或者debian系统</h3><h2 id="一些命令介绍"><a href="#一些命令介绍" class="headerlink" title="一些命令介绍"></a>一些命令介绍</h2><h3 id="使用adb-or-fastboot命令进入高通的9008-edl-模式"><a href="#使用adb-or-fastboot命令进入高通的9008-edl-模式" class="headerlink" title="使用adb or fastboot命令进入高通的9008(edl)模式"></a>使用adb or fastboot命令进入高通的9008(edl)模式</h3><ul>
-<li><p>adb reboot edl</p>
-</li>
-<li><p>fastboot oem edl</p>
-</li>
-<li><p>fastboot reboot emergency</p>
-</li>
-</ul>
-<h3 id="安卓系统下关机"><a href="#安卓系统下关机" class="headerlink" title="安卓系统下关机"></a>安卓系统下关机</h3><p>adb shell reboot -p</p>
-<h2 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h2><p>1.拆下EMCP芯片，换上新的EMCP芯片，注意芯片的类型，BGA封装类型</p>
-<p>2.换好EMCP芯片后，用miko_service_tool_pro刷入安卓的备份包，再用miko_service_tool_pro清除boot分区</p>
-<p><img src="/blog/images/erase_boot_patition.jpg" alt="清除boot分区"></p>
-<p>3.重启机器后自动进入fastboot模式(必需安装好驱动，比如vivo9008drivers.exe)，再刷入debian或者openwrt系统</p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>open-webui serve</p>
+<h2 id="解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file"><a href="#解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file" class="headerlink" title="解决OSError: We couldn‘t connect to ‘https://huggingface.co‘ to load this file"></a>解决OSError: We couldn‘t connect to ‘<a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co</a>‘ to load this file</h2><p>这个问题是由网络引起的，解决方法如下</p>
+<p>1.找到环境中的constants.py文件</p>
+<p>这个路径是你当前环境中的路径，比如作者的：</p>
+<p>&#x2F;root&#x2F;miniconda3&#x2F;envs&#x2F;owl2&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;huggingface_hub&#x2F;constants.py</p>
+<p>格式如下：</p>
+<p>conda路径&#x2F;env&#x2F;环境名称&#x2F;lib&#x2F;python版本&#x2F;site-packages&#x2F;huggingface_hub&#x2F;constants.py</p>
+<p>2.修改HUGGINGFACE_CO_URL_HOME和_HF_DEFAULT_ENDPOINT</p>
+<p>将HUGGINGFACE_CO_URL_HOME修改为HUGGINGFACE_CO_URL_HOME &#x3D; “<a target="_blank" rel="noopener" href="https://hf-mirror.com/">https://hf-mirror.com/</a>“</p>
+<p>将_HF_DEFAULT_ENDPOINT修改为_HF_DEFAULT_ENDPOINT &#x3D; “<a target="_blank" rel="noopener" href="https://hf-mirror.com/">https://hf-mirror.com</a>“</p>
+<p>修改完毕后保存文件，重新运行程序</p>
 
       
 
@@ -382,18 +356,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/blog/2024-12/tai-shan-pi.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          立创泰山派开发板
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2024-11/Install-NET-Framework-3-5-Error.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">How to Fix .NET Framework 3.5 Error 0x80070490 [未完成]</div>
+    <a href="/blog/2025-02/Ollama-Dify-builds-a-proprietary-knowledge-base.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ollama+Dify搭建一个专属私有知识库</div>
       <i class="icon-circle-right"></i>
     </a>
   

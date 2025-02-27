@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://router.5uks.net:5950/blog/2025-02/the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama.html</loc>
+    
+    <lastmod>2025-02-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://router.5uks.net:5950/blog/2025-02/Ollama-Dify-builds-a-proprietary-knowledge-base.html</loc>
     
     <lastmod>2025-02-27</lastmod>
@@ -1159,27 +1166,6 @@
   </url>
   
   <url>
-    <loc>http://router.5uks.net:5950/blog/tags/VUE/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/FLASK/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/JINJA/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://router.5uks.net:5950/blog/tags/Vue3/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
@@ -1195,6 +1181,27 @@
   
   <url>
     <loc>http://router.5uks.net:5950/blog/tags/API/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/VUE/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/FLASK/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/JINJA/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

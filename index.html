@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:71</p>
+			<p>总文章数:72</p>
 		</div>
 		
 
@@ -229,6 +229,123 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2025-02/the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama.html">open-webui和ollama本地部署deepseek大模型</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2025-02/the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama.html" class="archive-article-date">
+  	<time datetime="2025-02-27T08:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-27</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">320字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="/blog/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ollama软件下载"><a href="#ollama软件下载" class="headerlink" title="ollama软件下载"></a>ollama软件下载</h2><p>下载网址 <a target="_blank" rel="noopener" href="https://www.ollama.com/download">https://www.ollama.com/download</a></p>
+<h2 id="Ollama自定义安装路径"><a href="#Ollama自定义安装路径" class="headerlink" title="Ollama自定义安装路径"></a>Ollama自定义安装路径</h2><p>然后在CMD窗口输入：OllamaSetup.exe &#x2F;DIR&#x3D;E:\MySoftware\Ollama</p>
+<h2 id="用户环境变量"><a href="#用户环境变量" class="headerlink" title="用户环境变量"></a>用户环境变量</h2><p>OLLAMA_HOST的值为0.0.0.0:11434</p>
+<p>OLLAMA_MODELS的值G:\ollama\models</p>
+<p>将ollama安装的路径加入到path</p>
+<h2 id="python什么版本适合安装open-webui？"><a href="#python什么版本适合安装open-webui？" class="headerlink" title="python什么版本适合安装open-webui？"></a>python什么版本适合安装open-webui？</h2><p>Python 3.10 或 3.11：平衡了稳定性和新特性支持，适合大多数项目。</p>
+<p>避免使用 Python 3.12（除非明确支持）：部分依赖可能尚未适配最新版本。</p>
+<h2 id="python虚拟环境"><a href="#python虚拟环境" class="headerlink" title="python虚拟环境"></a>python虚拟环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Program Files\Python311\python.exe&quot;</span> -m venv .\.venv</span><br><span class="line">.\.venv\Scripts\activate.bat</span><br><span class="line">python.exe -m pip install --upgrade pip</span><br><span class="line">pip install open-webui==0.2.0</span><br><span class="line"></span><br><span class="line">pip install open-webui --upgrade</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>open-webui serve</p>
+<h2 id="解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file"><a href="#解决OSError-We-couldn‘t-connect-to-‘https-huggingface-co‘-to-load-this-file" class="headerlink" title="解决OSError: We couldn‘t connect to ‘https://huggingface.co‘ to load this file"></a>解决OSError: We couldn‘t connect to ‘<a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co</a>‘ to load this file</h2><p>这个问题是由网络引起的，解决方法如下</p>
+<p>1.找到环境中的constants.py文件</p>
+<p>这个路径是你当前环境中的路径，比如作者的：</p>
+<p>&#x2F;root&#x2F;miniconda3&#x2F;envs&#x2F;owl2&#x2F;lib&#x2F;python3.8&#x2F;site-packages&#x2F;huggingface_hub&#x2F;constants.py</p>
+<p>格式如下：</p>
+<p>conda路径&#x2F;env&#x2F;环境名称&#x2F;lib&#x2F;python版本&#x2F;site-packages&#x2F;huggingface_hub&#x2F;constants.py</p>
+<p>2.修改HUGGINGFACE_CO_URL_HOME和_HF_DEFAULT_ENDPOINT</p>
+<p>将HUGGINGFACE_CO_URL_HOME修改为HUGGINGFACE_CO_URL_HOME &#x3D; “<a target="_blank" rel="noopener" href="https://hf-mirror.com/">https://hf-mirror.com/</a>“</p>
+<p>将_HF_DEFAULT_ENDPOINT修改为_HF_DEFAULT_ENDPOINT &#x3D; “<a target="_blank" rel="noopener" href="https://hf-mirror.com/">https://hf-mirror.com</a>“</p>
+<p>修改完毕后保存文件，重新运行程序</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2025-02/the-large-deepseek-model-is-deployed-locally-in-open-webui-and-ollama.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-Ollama-Dify-builds-a-proprietary-knowledge-base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1157,109 +1274,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-continuing-education-and-training-tutorial" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2024-10/continuing-education-and-training-tutorial.html">2024年度专业技术人员继续教育学习教程</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2024-10/continuing-education-and-training-tutorial.html" class="archive-article-date">
-  	<time datetime="2024-10-17T02:54:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-17</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">313字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="/blog/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><p>关于前两天发的组织学习《江西省关于开展2024年度专业技术人员继续教育学习通知》，事关每一位技术人员的中、高级职称的评审（认定），局里要求各单位及时做好继续教育政策宣传和落地工作。可能关于之前的文件大家没有时间细读，现将继续教育学习相关工作具体安排如下：</p>
-<p>1.所有专业技术人员必须自己完成学习。</p>
-<p>2.截止时间为2024年10月31日。</p>
-<p>3.2024年度学习任务为公需课30学时</p>
-        
-          <a class="article-more-a" href="/blog/2024-10/continuing-education-and-training-tutorial.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2024-10/continuing-education-and-training-tutorial.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" href="/blog/page/2/">下一页</a>
@@ -1729,18 +1743,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JINJA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Vue3</a>
               </li>
              
@@ -1750,6 +1752,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">FLASK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JINJA</a>
               </li>
              
               <li class="article-tag-list-item">
