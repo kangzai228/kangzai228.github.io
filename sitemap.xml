@@ -1166,27 +1166,6 @@
   </url>
   
   <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Vue3/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/Vite/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://router.5uks.net:5950/blog/tags/API/</loc>
-    <lastmod>2025-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://router.5uks.net:5950/blog/tags/VUE/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
@@ -1202,6 +1181,27 @@
   
   <url>
     <loc>http://router.5uks.net:5950/blog/tags/JINJA/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Vue3/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/Vite/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://router.5uks.net:5950/blog/tags/API/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
