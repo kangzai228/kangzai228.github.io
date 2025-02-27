@@ -253,7 +253,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">213字</span>
+      <span class="post-count" style="font-size: 16px;color: grey">210字</span>
     </span>
   </span>
 
@@ -283,18 +283,19 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>安装 Dify 之前, 请确保你的机器已满足最低安装要求：</p>
-<p>CPU &gt;&#x3D; 2 Core</p>
-<p>RAM &gt;&#x3D; 4 GiB</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CPU &gt;= 2 Core</span><br><span class="line">RAM &gt;= 4 GiB</span><br></pre></td></tr></table></figure>
 <h2 id="克隆-Dify-代码仓库"><a href="#克隆-Dify-代码仓库" class="headerlink" title="克隆 Dify 代码仓库"></a>克隆 Dify 代码仓库</h2><p>克隆 Dify 源代码至本地环境。</p>
-<h1 id="假设当前最新版本为-0-15-3"><a href="#假设当前最新版本为-0-15-3" class="headerlink" title="假设当前最新版本为 0.15.3"></a>假设当前最新版本为 0.15.3</h1><p>git clone <a target="_blank" rel="noopener" href="https://github.com/langgenius/dify.git">https://github.com/langgenius/dify.git</a> –branch 0.15.3</p>
-<h2 id="启动-Dify"><a href="#启动-Dify" class="headerlink" title="启动 Dify"></a>启动 Dify</h2><p>进入 Dify 源代码的 Docker 目录<br>cd dify&#x2F;docker</p>
-<p>复制环境配置文件</p>
-<p>cp .env.example .env<br>启动 Docker 容器</p>
-<p>根据你系统上的 Docker Compose 版本，选择合适的命令来启动容器。你可以通过 $ docker compose version 命令检查版本，详细说明请参考 Docker 官方文档：</p>
+<h1 id="假设当前最新版本为-0-15-3"><a href="#假设当前最新版本为-0-15-3" class="headerlink" title="假设当前最新版本为 0.15.3"></a>假设当前最新版本为 0.15.3</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/langgenius/dify.git --branch 0.15.3</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动-Dify"><a href="#启动-Dify" class="headerlink" title="启动 Dify"></a>启动 Dify</h2><h3 id="进入-Dify-源代码的-Docker-目录"><a href="#进入-Dify-源代码的-Docker-目录" class="headerlink" title="进入 Dify 源代码的 Docker 目录"></a>进入 Dify 源代码的 Docker 目录</h3><p>cd dify&#x2F;docker</p>
+<h3 id="复制环境配置文件"><a href="#复制环境配置文件" class="headerlink" title="复制环境配置文件"></a>复制环境配置文件</h3><p>cp .env.example .env</p>
+<h3 id="启动-Docker-容器"><a href="#启动-Docker-容器" class="headerlink" title="启动 Docker 容器"></a>启动 Docker 容器</h3><p>根据你系统上的 Docker Compose 版本，选择合适的命令来启动容器。你可以通过 $ docker compose version 命令检查版本，详细说明请参考 Docker 官方文档：</p>
 <p>如果版本是 Docker Compose V2，使用以下命令：</p>
-<p>docker compose up -d</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
 <p>如果版本是 Docker Compose V1，使用以下命令：</p>
-<p>docker-compose up -d</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
 <p><img src="/blog/blog/images/dify_2025-02-27_12-50-53.png" alt="dify启动成功"></p>
 <h3 id="有时候80-443端口被占用，则修改-env文件"><a href="#有时候80-443端口被占用，则修改-env文件" class="headerlink" title="有时候80,443端口被占用，则修改.env文件"></a>有时候80,443端口被占用，则修改.env文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXPOSE_NGINX_PORT=8090</span><br><span class="line">EXPOSE_NGINX_SSL_PORT=10443</span><br></pre></td></tr></table></figure>
 
