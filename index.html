@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
 
 		
 		<div class="blog-counter">
-			<p>总文章数:70</p>
+			<p>总文章数:71</p>
 		</div>
 		
 
@@ -229,6 +229,118 @@ var _hmt = _hmt || [];
                   </div>
                   <div id="js-content" class="content-ll">
                     
+  
+    <article id="post-Ollama-Dify-builds-a-proprietary-knowledge-base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2025-02/Ollama-Dify-builds-a-proprietary-knowledge-base.html">Ollama+Dify搭建一个专属私有知识库</a>
+    </h1>
+  
+
+        
+        <a href="/blog/2025-02/Ollama-Dify-builds-a-proprietary-knowledge-base.html" class="archive-article-date">
+  	<time datetime="2025-02-27T04:35:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-02-27</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">213字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
+      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
+    </span>
+  </span>
+</div>
+          
+        <!-- 添加字数统计完成 -->
+
+        
+      </header>
+    
+    
+    <!-- 目录内容 -->
+    <script src="/blog/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
+    
+    <!-- 目录内容结束 -->
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>安装 Dify 之前, 请确保你的机器已满足最低安装要求：</p>
+<p>CPU &gt;&#x3D; 2 Core</p>
+<p>RAM &gt;&#x3D; 4 GiB</p>
+<h2 id="克隆-Dify-代码仓库"><a href="#克隆-Dify-代码仓库" class="headerlink" title="克隆 Dify 代码仓库"></a>克隆 Dify 代码仓库</h2><p>克隆 Dify 源代码至本地环境。</p>
+<h1 id="假设当前最新版本为-0-15-3"><a href="#假设当前最新版本为-0-15-3" class="headerlink" title="假设当前最新版本为 0.15.3"></a>假设当前最新版本为 0.15.3</h1><p>git clone <a target="_blank" rel="noopener" href="https://github.com/langgenius/dify.git">https://github.com/langgenius/dify.git</a> –branch 0.15.3</p>
+<h2 id="启动-Dify"><a href="#启动-Dify" class="headerlink" title="启动 Dify"></a>启动 Dify</h2><p>进入 Dify 源代码的 Docker 目录<br>cd dify&#x2F;docker</p>
+<p>复制环境配置文件</p>
+<p>cp .env.example .env<br>启动 Docker 容器</p>
+<p>根据你系统上的 Docker Compose 版本，选择合适的命令来启动容器。你可以通过 $ docker compose version 命令检查版本，详细说明请参考 Docker 官方文档：</p>
+<p>如果版本是 Docker Compose V2，使用以下命令：</p>
+<p>docker compose up -d</p>
+<p>如果版本是 Docker Compose V1，使用以下命令：</p>
+<p>docker-compose up -d</p>
+<p><img src="/blog/blog/images/dify_2025-02-27_12-50-53.png" alt="dify启动成功"></p>
+<h3 id="有时候80-443端口被占用，则修改-env文件"><a href="#有时候80-443端口被占用，则修改-env文件" class="headerlink" title="有时候80,443端口被占用，则修改.env文件"></a>有时候80,443端口被占用，则修改.env文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXPOSE_NGINX_PORT=8090</span><br><span class="line">EXPOSE_NGINX_SSL_PORT=10443</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2025-02/Ollama-Dify-builds-a-proprietary-knowledge-base.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <!-- 默认的目录
+        
+        -->
+    </div>
+</aside>
+
+
+
   
     <article id="post-how-to-install-software-on-the-ubuntu-system" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1147,135 +1259,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-program-problem-03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2024-09/program-problem-03.html">2022年信息技术考试模拟题-算法与程序设计题03</a>
-    </h1>
-  
-
-        
-        <a href="/blog/2024-09/program-problem-03.html" class="archive-article-date">
-  	<time datetime="2024-09-28T22:34:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-09-29</time>
-</a>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  字数统计: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">305字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text" style="font-size: 16px;color: grey">  阅读时长: </span>
-      <span class="post-count" style="font-size: 16px;color: grey">1分</span>
-    </span>
-  </span>
-</div>
-          
-        <!-- 添加字数统计完成 -->
-
-        
-      </header>
-    
-    
-    <!-- 目录内容 -->
-    <script src="/blog/assets/js/isMobile.js"></script>  <!-- 引入检测移动设备的JS文件 -->
-    
-    <!-- 目录内容结束 -->
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">若生活中没有摄氏华氏温度计，用Python语言设计算法编程实现：华氏-摄氏温度转换。已知华氏温度转换为摄氏温度的公式为：c=5*(f-32)/9，其中c为摄氏温度，f为华氏温度。</span><br><span class="line">〖编程要求〗：</span><br><span class="line">打印指定范围的华氏、摄氏温度对应表，间隔为10，其中上限H和下限L由用户输入。</span><br><span class="line"></span><br><span class="line">请根据编程要求完善以下程序：</span><br><span class="line">L=int(input(&quot;输入下限=&quot;))</span><br><span class="line">H=int(input(&quot;输入上限=&quot;))</span><br><span class="line">if (___(1)___):</span><br><span class="line">    print(&quot;输入的下限应小于上限&quot;)</span><br><span class="line">___(2)___:</span><br><span class="line">  print(&quot;华氏 摄氏&quot;)</span><br><span class="line">  for f in range(L,H, ___(3)___):</span><br><span class="line">    c=5*(f-32)/9</span><br><span class="line">    print (&quot;%8.0f%10.2f&quot;%(f,c))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/blog/2024-09/program-problem-03.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序设计</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/blog/categories/信息技术课程//" class="article-tag-list-link color2">信息技术课程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2024-09/program-problem-03.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <!-- 默认的目录
-        
-        -->
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/">7</a><a class="extend next" rel="next" href="/blog/page/2/">下一页</a>
+      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/8/">8</a><a class="extend next" rel="next" href="/blog/page/2/">下一页</a>
     </nav>
   
 
